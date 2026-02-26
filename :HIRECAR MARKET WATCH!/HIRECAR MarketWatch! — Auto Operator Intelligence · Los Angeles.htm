@@ -3106,7 +3106,7 @@ body.iframe-mode.remote-mode { overflow: hidden !important; }
   z-index: 10001;
   display: none; flex-direction: column;
   align-items: center; justify-content: center;
-  opacity: 0; transition: opacity .5s ease;
+  opacity: 0; transition: opacity .75s ease;
 }
 #rhThankYou.active { display: flex; opacity: 1; }
 #rhThankYou.fade-out { opacity: 0; }
@@ -3599,7 +3599,7 @@ body.remote-mode .rh-masthead { display: flex; pointer-events: all; }
   background-repeat: no-repeat;
   opacity: 0; 
   transform: scale(1.05);
-  transition: opacity 1.6s cubic-bezier(.4,0,.2,1), transform 1.6s cubic-bezier(.4,0,.2,1);
+  transition: opacity 2.4s cubic-bezier(.4,0,.2,1), transform 2.4s cubic-bezier(.4,0,.2,1);
   will-change: opacity, transform;
 }
 .rh-hero-slide.active { opacity: 1; transform: scale(1); }
@@ -6996,13 +6996,13 @@ function rhCarouselInit() {
       e.stopPropagation(); /* prevent rail scroll */
     } else {
       /* restart auto-advance */
-      RH.carTimer = setInterval(function() { rhCarouselGo(RH.carCur + 1); }, 4000);
+      RH.carTimer = setInterval(function() { rhCarouselGo(RH.carCur + 1); }, 6000);
     }
   }, { passive: true });
   /* Auto-advance */
   RH.carTimer = setInterval(function() {
     rhCarouselGo(RH.carCur + 1);
-  }, 4500);
+  }, 7000);
 }
 window.rhCarouselGo = function(n) {
   if (!RH.carCards.length) return;
@@ -7012,7 +7012,7 @@ window.rhCarouselGo = function(n) {
   if (track) track.style.transform = 'translateX(-' + (RH.carCur * 100) + '%)';
   if (RH.carDots[RH.carCur]) RH.carDots[RH.carCur].classList.add('active');
   clearInterval(RH.carTimer);
-  RH.carTimer = setInterval(function() { rhCarouselGo(RH.carCur + 1); }, 4000);
+  RH.carTimer = setInterval(function() { rhCarouselGo(RH.carCur + 1); }, 6000);
 };
 
 /* ── City selector ──────────────────────────────────────────── */
@@ -7385,7 +7385,7 @@ function rhShowTronOverlay(skipLead) {
         rhShowPushToStart();
         rhUpdateLiveLabel();
       } else {
-        setTimeout(function() { rhShowLeadModal(); }, 300);
+        setTimeout(function() { rhShowLeadModal(); }, 450);
       }
     }, 10000);
   }
@@ -7485,15 +7485,15 @@ function rhShowThankYou() {
     ty.style.display = 'flex';
     setTimeout(function() { ty.classList.add('active'); }, 50);
     
-    // After 2s, fade out and show car start
+    // After 3s, fade out and show car start
     setTimeout(function() {
       ty.classList.add('fade-out');
       setTimeout(function() {
         ty.style.display = 'none';
         ty.classList.remove('active', 'fade-out');
         rhShowCarStart();
-      }, 500);
-    }, 2000);
+      }, 750);
+    }, 3000);
   }
 }
 
@@ -7505,7 +7505,7 @@ function rhShowCarStart() {
   // Pulse the LIVE button to draw attention
   var btn = document.getElementById('rhLiveBtn');
   if (btn) {
-    btn.style.transition = 'box-shadow .6s, border-color .6s';
+    btn.style.transition = 'box-shadow .9s, border-color .9s';
     btn.style.boxShadow = '0 0 20px rgba(0,230,118,.6), inset 0 0 8px rgba(0,230,118,.2)';
     btn.style.borderColor = 'rgba(0,230,118,.7)';
     setTimeout(function() {
@@ -7541,7 +7541,7 @@ function rhShowPushToStart() {
   rhUpdateLiveLabel();
   var btn = document.getElementById('rhLiveBtn');
   if (btn) {
-    btn.style.transition = 'box-shadow .6s, border-color .6s';
+    btn.style.transition = 'box-shadow .9s, border-color .9s';
     btn.style.boxShadow = '0 0 20px rgba(0,230,118,.6), inset 0 0 8px rgba(0,230,118,.2)';
     btn.style.borderColor = 'rgba(0,230,118,.7)';
     setTimeout(function() {
