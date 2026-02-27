@@ -1,0 +1,1430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HIRECAR MarketWatch! — Sigma Swim Lane Visual</title>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&family=Cormorant+Garant:wght@400;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink:       #111820;
+  --ink-2:     #1e2530;
+  --ink-3:     #2d3540;
+  --slate:     #3d4a58;
+  --mid:       #6b7280;
+  --muted:     #9aa3ad;
+  --border:    #dde1e7;
+  --border-lt: #edf0f3;
+  --bg:        #ffffff;
+  --white:     #ffffff;
+  --cta:       #c9920a;
+  --cta-hover: #b07d06;
+  --cta-bg:    #fef3d0;
+  --live:      #c0392b;
+  --member:    #0f4c75;
+  --member-lt: #e8f2f9;
+  --green:     #00e676;
+  --green-dim: rgba(0,230,118,.15);
+  --cyan:      #00bcd4;
+  --cyan-dim:  rgba(0,188,212,.12);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--ink);
+  background: #0d1117;
+  min-height: 100vh;
+}
+a { text-decoration: none; color: inherit; }
+
+/* ═══ TOP BAR ═══ */
+.top-bar {
+  background: var(--ink);
+  border-bottom: 1px solid var(--ink-3);
+  padding: 10px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.top-bar-brand {
+  font-family: 'Cormorant Garant', Georgia, serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: .02em;
+}
+.top-bar-brand .bang { color: var(--cta); }
+.top-bar-sub {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.top-bar-controls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.view-btn {
+  background: var(--ink-3);
+  border: 1px solid rgba(255,255,255,.1);
+  color: var(--muted);
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: all .2s;
+}
+.view-btn:hover { background: var(--slate); color: var(--white); }
+.view-btn.active { background: var(--cta); color: var(--ink); border-color: var(--cta); }
+
+/* ═══ LEGEND ═══ */
+.legend-bar {
+  background: var(--ink-2);
+  border-bottom: 1px solid var(--ink-3);
+  padding: 10px 24px;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: var(--muted);
+  font-family: 'DM Mono', monospace;
+}
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ═══ MAIN CANVAS ═══ */
+.canvas {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+/* ═══ PHASE HEADER ═══ */
+.phase-header {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  margin-bottom: 4px;
+}
+.phase-label-col {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 8px 12px;
+}
+.phase-cols {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0;
+}
+.phase-col-head {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 8px 10px;
+  text-align: center;
+  border-left: 1px solid rgba(255,255,255,.04);
+}
+.phase-col-head.highlight {
+  color: var(--green);
+  background: rgba(0,230,118,.04);
+}
+
+/* ═══ SWIM LANE ═══ */
+.swim-lane {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  border: 1px solid rgba(255,255,255,.06);
+  border-radius: 4px;
+  margin-bottom: 3px;
+  background: rgba(255,255,255,.02);
+  transition: all .25s;
+  cursor: pointer;
+}
+.swim-lane:hover {
+  background: rgba(255,255,255,.04);
+  border-color: rgba(255,255,255,.12);
+}
+.swim-lane.expanded {
+  background: rgba(255,255,255,.04);
+  border-color: var(--cta);
+  margin-bottom: 6px;
+}
+
+/* Lane label */
+.lane-label {
+  padding: 10px 12px;
+  border-right: 1px solid rgba(255,255,255,.06);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+}
+.lane-sigma {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .1em;
+  color: var(--cta);
+}
+.lane-name {
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--white);
+  line-height: 1.2;
+}
+.lane-count {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: var(--muted);
+}
+.lane-badge {
+  display: inline-block;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  padding: 2px 6px;
+  border-radius: 2px;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+.badge-lead { background: var(--live); color: #fff; }
+.badge-cta { background: var(--cta); color: var(--ink); }
+.badge-exit { background: var(--member); color: #fff; }
+.badge-passive { background: var(--slate); color: var(--muted); }
+
+/* Lane timeline grid */
+.lane-timeline {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0;
+  align-items: stretch;
+  min-height: 52px;
+}
+.lane-phase {
+  padding: 8px 6px;
+  border-left: 1px solid rgba(255,255,255,.04);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Nodes */
+.node {
+  width: 100%;
+  padding: 4px 6px;
+  border-radius: 3px;
+  font-size: 10px;
+  text-align: center;
+  line-height: 1.3;
+  position: relative;
+  transition: transform .15s;
+}
+.node:hover { transform: scale(1.05); }
+
+.node-entry {
+  background: rgba(0,188,212,.12);
+  border: 1px solid rgba(0,188,212,.3);
+  color: var(--cyan);
+}
+.node-aware {
+  background: rgba(201,146,10,.1);
+  border: 1px solid rgba(201,146,10,.25);
+  color: var(--cta);
+}
+.node-engage {
+  background: rgba(15,76,117,.15);
+  border: 1px solid rgba(15,76,117,.4);
+  color: #5ba3d9;
+}
+.node-capture {
+  background: rgba(192,57,43,.1);
+  border: 1px solid rgba(192,57,43,.3);
+  color: #e74c3c;
+}
+.node-convert {
+  background: rgba(0,230,118,.1);
+  border: 1px solid rgba(0,230,118,.3);
+  color: var(--green);
+}
+.node-exit {
+  background: rgba(155,89,182,.1);
+  border: 1px solid rgba(155,89,182,.3);
+  color: #bb86fc;
+}
+.node-empty {
+  background: transparent;
+  border: 1px dashed rgba(255,255,255,.06);
+  color: rgba(255,255,255,.15);
+  font-style: italic;
+}
+.node-future {
+  background: rgba(255,255,255,.03);
+  border: 1px dashed rgba(255,255,255,.1);
+  color: rgba(255,255,255,.25);
+}
+
+/* Flow arrow between phases */
+.lane-phase::after {
+  content: '';
+  position: absolute;
+  right: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  border-left: 5px solid rgba(255,255,255,.12);
+  z-index: 2;
+}
+.lane-phase:last-child::after { display: none; }
+.lane-phase.has-flow::after { border-left-color: var(--cta); }
+
+/* ═══ EXPANDED DETAIL ═══ */
+.lane-detail {
+  display: none;
+  grid-column: 1 / -1;
+  padding: 16px 20px;
+  background: rgba(0,0,0,.2);
+  border-top: 1px solid rgba(255,255,255,.06);
+}
+.swim-lane.expanded .lane-detail { display: block; }
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+.detail-card {
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.06);
+  border-radius: 4px;
+  padding: 12px;
+}
+.detail-card-head {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--cta);
+  margin-bottom: 6px;
+}
+.detail-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 0;
+  font-size: 12px;
+  color: rgba(255,255,255,.7);
+  transition: color .15s;
+}
+.detail-link:hover { color: var(--white); }
+.detail-link .dl-arrow {
+  font-size: 9px;
+  color: var(--cta);
+  opacity: .5;
+}
+.detail-link .dl-dest {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  color: var(--muted);
+  margin-left: auto;
+}
+
+/* ═══ STATE MACHINE VISUAL ═══ */
+.state-machine {
+  background: var(--ink-2);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 6px;
+  padding: 24px;
+  margin: 24px 0;
+}
+.sm-title {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 16px;
+}
+.sm-flow {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  overflow-x: auto;
+  padding-bottom: 12px;
+}
+.sm-state {
+  flex-shrink: 0;
+  padding: 10px 16px;
+  border-radius: 4px;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  text-align: center;
+  min-width: 110px;
+  position: relative;
+  cursor: pointer;
+  transition: all .2s;
+}
+.sm-state:hover { transform: translateY(-2px); }
+.sm-state.idle { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.12); color: var(--muted); }
+.sm-state.overlay { background: rgba(0,188,212,.1); border: 1px solid rgba(0,188,212,.3); color: var(--cyan); }
+.sm-state.modal { background: rgba(192,57,43,.1); border: 1px solid rgba(192,57,43,.3); color: #e74c3c; }
+.sm-state.verify { background: rgba(201,146,10,.1); border: 1px solid rgba(201,146,10,.3); color: var(--cta); }
+.sm-state.thankyou { background: rgba(0,230,118,.1); border: 1px solid rgba(0,230,118,.25); color: var(--green); }
+.sm-state.revealed { background: rgba(0,230,118,.15); border: 1px solid var(--green); color: var(--green); box-shadow: 0 0 16px rgba(0,230,118,.15); }
+.sm-state-label {
+  font-size: 8px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  opacity: .6;
+  margin-top: 4px;
+}
+.sm-arrow {
+  flex-shrink: 0;
+  width: 36px;
+  height: 2px;
+  background: rgba(255,255,255,.15);
+  position: relative;
+  margin: 0 2px;
+}
+.sm-arrow::after {
+  content: '';
+  position: absolute;
+  right: -1px;
+  top: -3px;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  border-left: 6px solid rgba(255,255,255,.25);
+}
+.sm-arrow.active { background: var(--green); }
+.sm-arrow.active::after { border-left-color: var(--green); }
+.sm-branch {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin: 0 4px;
+}
+.sm-branch-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  color: var(--muted);
+  letter-spacing: .08em;
+}
+
+/* ═══ CONVERGENCE MAP ═══ */
+.convergence {
+  background: var(--ink-2);
+  border: 1px solid rgba(201,146,10,.2);
+  border-radius: 6px;
+  padding: 24px;
+  margin: 24px 0;
+}
+.conv-title {
+  font-family: 'Cormorant Garant', Georgia, serif;
+  font-size: 22px;
+  color: var(--white);
+  margin-bottom: 4px;
+}
+.conv-sub {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: .08em;
+  margin-bottom: 20px;
+}
+.conv-funnel {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  gap: 0;
+  align-items: stretch;
+}
+.conv-col {
+  background: rgba(255,255,255,.02);
+  border: 1px solid rgba(255,255,255,.06);
+  border-radius: 4px;
+  padding: 16px;
+  text-align: center;
+}
+.conv-col-title {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.conv-col-title.content { color: var(--cyan); }
+.conv-col-title.service { color: var(--cta); }
+.conv-col-title.terminal { color: var(--green); }
+.conv-col-items {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.conv-item {
+  font-size: 11px;
+  color: rgba(255,255,255,.6);
+  padding: 4px 8px;
+  background: rgba(255,255,255,.03);
+  border-radius: 2px;
+}
+.conv-arrow-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 8px;
+  color: rgba(255,255,255,.2);
+  font-size: 20px;
+}
+
+/* ═══ STATS BAR ═══ */
+.stats-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin: 24px 0;
+}
+.stat-card {
+  background: var(--ink-2);
+  border: 1px solid rgba(255,255,255,.06);
+  border-radius: 4px;
+  padding: 16px;
+  text-align: center;
+}
+.stat-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--cta);
+}
+.stat-label {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+/* ═══ SECTION DIVIDER ═══ */
+.section-divider {
+  border: none;
+  border-top: 1px solid rgba(201,146,10,.2);
+  margin: 28px 0 20px;
+}
+.section-title {
+  font-family: 'Cormorant Garant', Georgia, serif;
+  font-size: 24px;
+  color: var(--white);
+  margin-bottom: 6px;
+}
+.section-sub {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+/* ═══ RESPONSIVE ═══ */
+@media (max-width: 900px) {
+  .phase-header, .swim-lane { grid-template-columns: 140px 1fr; }
+  .lane-timeline { grid-template-columns: repeat(6, minmax(70px, 1fr)); overflow-x: auto; }
+  .phase-cols { grid-template-columns: repeat(6, minmax(70px, 1fr)); overflow-x: auto; }
+  .stats-bar { grid-template-columns: repeat(2, 1fr); }
+  .conv-funnel { grid-template-columns: 1fr; gap: 8px; }
+  .conv-arrow-col { transform: rotate(90deg); padding: 4px 0; }
+  .sm-flow { gap: 0; }
+  .sm-state { min-width: 80px; padding: 8px 10px; font-size: 9px; }
+}
+
+/* ═══ ANIMATION ═══ */
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 8px rgba(0,230,118,.2); }
+  50% { box-shadow: 0 0 20px rgba(0,230,118,.4); }
+}
+.pulse { animation: pulseGlow 2s ease-in-out infinite; }
+
+/* Print */
+@media print {
+  body { background: #fff; color: #111; }
+  .top-bar, .legend-bar { background: #f5f5f5; }
+  .swim-lane { border-color: #ddd; }
+  .node { border-width: 2px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ TOP BAR ═══ -->
+<div class="top-bar">
+  <div>
+    <div class="top-bar-brand">MarketWatch<span class="bang">!</span> Sigma</div>
+    <div class="top-bar-sub">Front Page Link-to-Funnel Swim Lane Map</div>
+  </div>
+  <div class="top-bar-controls">
+    <button class="view-btn active" onclick="toggleView('all')">All Lanes</button>
+    <button class="view-btn" onclick="toggleView('active')">Active Only</button>
+    <button class="view-btn" onclick="toggleView('conversion')">Conversion Path</button>
+    <button class="view-btn" onclick="expandAll()">Expand All</button>
+  </div>
+</div>
+
+<!-- ═══ LEGEND ═══ -->
+<div class="legend-bar">
+  <div class="legend-item"><div class="legend-dot" style="background:var(--cyan)"></div> Entry Point</div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--cta)"></div> Awareness</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#5ba3d9"></div> Engagement</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#e74c3c"></div> Lead Capture</div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--green)"></div> Conversion</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#bb86fc"></div> External Exit</div>
+  <div class="legend-item"><div class="legend-dot" style="background:rgba(255,255,255,.15);border:1px dashed rgba(255,255,255,.3)"></div> Future / Placeholder</div>
+  <div class="legend-item" style="margin-left:auto;color:var(--cta);">Click any lane to expand details</div>
+</div>
+
+<div class="canvas">
+
+<!-- ═══ STATS ═══ -->
+<div class="stats-bar">
+  <div class="stat-card">
+    <div class="stat-num">219</div>
+    <div class="stat-label">Total Links / Actions</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-num">57</div>
+    <div class="stat-label">Active Destinations</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-num">160</div>
+    <div class="stat-label">Placeholder (#)</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-num">1</div>
+    <div class="stat-label">Terminal Conversion</div>
+  </div>
+</div>
+
+<!-- ═══ STATE MACHINE ═══ -->
+<div class="state-machine">
+  <div class="sm-title">Remote Entry State Machine (Master Funnel)</div>
+  <div class="sm-flow" id="smFlow">
+    <div class="sm-state idle" onclick="animateSM(this)" data-step="0">
+      idle
+      <div class="sm-state-label">Default state</div>
+    </div>
+    <div class="sm-arrow" data-step="1"></div>
+    <div class="sm-state overlay" onclick="animateSM(this)" data-step="1">
+      tronOverlay
+      <div class="sm-state-label">10s loading</div>
+    </div>
+    <div class="sm-arrow" data-step="2"></div>
+    <div class="sm-state modal" onclick="animateSM(this)" data-step="2">
+      leadModal
+      <div class="sm-state-label">Name + Phone</div>
+    </div>
+    <div class="sm-arrow" data-step="3"></div>
+    <div class="sm-state verify" onclick="animateSM(this)" data-step="3">
+      verify
+      <div class="sm-state-label">4-digit code</div>
+    </div>
+    <div class="sm-arrow" data-step="4"></div>
+    <div class="sm-state thankyou" onclick="animateSM(this)" data-step="4">
+      thankYou
+      <div class="sm-state-label">2s display</div>
+    </div>
+    <div class="sm-arrow active" data-step="5"></div>
+    <div class="sm-state revealed pulse" onclick="animateSM(this)" data-step="5">
+      heroRevealed
+      <div class="sm-state-label">LIVE access</div>
+    </div>
+  </div>
+  <div style="margin-top:12px;display:flex;gap:16px;flex-wrap:wrap;">
+    <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:.08em;">
+      RETURNING USER: idle &rarr; tronOverlay &rarr; pushToStart &rarr; heroRevealed (skips lead capture)
+    </div>
+    <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:.08em;">
+      NEW USER: idle &rarr; tronOverlay &rarr; leadModal &rarr; verify &rarr; thankYou &rarr; heroRevealed
+    </div>
+    <button class="view-btn" onclick="replaySM()" style="font-size:9px;padding:4px 10px;">Replay Animation</button>
+  </div>
+</div>
+
+<hr class="section-divider">
+<div class="section-title">Swim Lane Timeline</div>
+<div class="section-sub">Each row = one section of the front page &middot; Click to expand link details</div>
+
+<!-- ═══ PHASE HEADERS ═══ -->
+<div class="phase-header">
+  <div class="phase-label-col">Section</div>
+  <div class="phase-cols">
+    <div class="phase-col-head">Entry</div>
+    <div class="phase-col-head">Awareness</div>
+    <div class="phase-col-head">Engagement</div>
+    <div class="phase-col-head">Lead Capture</div>
+    <div class="phase-col-head highlight">Conversion</div>
+    <div class="phase-col-head">Terminal</div>
+  </div>
+</div>
+
+<!-- ═══ SWIM LANES ═══ -->
+<div id="lanes"></div>
+
+<hr class="section-divider">
+
+<!-- ═══ CONVERGENCE MAP ═══ -->
+<div class="convergence">
+  <div class="conv-title">Master Funnel Convergence</div>
+  <div class="conv-sub">Every front page link converges to one of three paths &rarr; single terminal conversion</div>
+  <div class="conv-funnel">
+    <div class="conv-col">
+      <div class="conv-col-title content">Content Funnel</div>
+      <div class="conv-col-items">
+        <div class="conv-item">Read / Info CTAs</div>
+        <div class="conv-item">News Cards</div>
+        <div class="conv-item">Top Stories</div>
+        <div class="conv-item">Entertainment</div>
+        <div class="conv-item">MW Intelligence</div>
+        <div class="conv-item">Playbooks</div>
+      </div>
+      <div style="margin-top:8px;font-family:'DM Mono',monospace;font-size:9px;color:var(--cyan);">&darr; setMode('desktop')</div>
+    </div>
+    <div class="conv-arrow-col">&rarr;</div>
+    <div class="conv-col">
+      <div class="conv-col-title service">Service Funnel</div>
+      <div class="conv-col-items">
+        <div class="conv-item">Reserve / Purchase CTAs</div>
+        <div class="conv-item">Credit Card Apply</div>
+        <div class="conv-item">Membership Sign-Up</div>
+        <div class="conv-item">PIFR SKU Select</div>
+        <div class="conv-item">Chauffeur Booking</div>
+        <div class="conv-item">Insurance Quote</div>
+      </div>
+      <div style="margin-top:8px;font-family:'DM Mono',monospace;font-size:9px;color:var(--cta);">&darr; rhNavTo(5) &rarr; Slide 5</div>
+    </div>
+    <div class="conv-arrow-col">&rarr;</div>
+    <div class="conv-col" style="border-color:rgba(0,230,118,.2);">
+      <div class="conv-col-title terminal">Apply to Qualify</div>
+      <div class="conv-col-items">
+        <div class="conv-item" style="background:rgba(0,230,118,.08);color:var(--green);">First Class Qualification</div>
+        <div class="conv-item">Lead Capture &rarr; Verify</div>
+        <div class="conv-item">Thank You &rarr; LIVE</div>
+        <div class="conv-item" style="background:rgba(0,230,118,.08);color:var(--green);">Terminal Conversion Point</div>
+      </div>
+      <div style="margin-top:8px;font-family:'DM Mono',monospace;font-size:9px;color:var(--green);">ALL PATHS CONVERGE HERE</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<div style="text-align:center;padding:20px;font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:.1em;">
+  HIRECAR MARKETWATCH! &middot; SIGMA SWIM LANE VISUAL &middot; v1.0 &middot; 2026-02-27
+</div>
+
+</div><!-- /canvas -->
+
+<script>
+/* ═══════════════════════════════════════════════════════════
+   DATA: All swim lanes with their funnel phases
+═══════════════════════════════════════════════════════════ */
+var LANES = [
+  {
+    sigma: '1', name: 'Utility Bar', count: 4, badge: 'cta', badgeText: 'PRIMARY CTA',
+    phases: [
+      { type: 'entry', text: '4 action links' },
+      { type: 'aware', text: 'Subscribe / HIRECAR.LA' },
+      { type: 'engage', text: 'Member Login #member' },
+      { type: 'capture', text: 'Apply to Qualify trigger' },
+      { type: 'convert', text: 'State machine entry' },
+      { type: 'convert', text: 'First Class Qualification' }
+    ],
+    flow: [true, true, true, true, true],
+    details: [
+      { head: 'Actions', links: [
+        { name: 'Subscribe', dest: '# (future)' },
+        { name: 'HIRECAR.LA ↗', dest: '# (→ hirecar.la)' },
+        { name: 'Member Login', dest: '#member' },
+        { name: 'Apply to Qualify →', dest: '# → State Machine' }
+      ]}
+    ]
+  },
+  {
+    sigma: '2', name: 'Masthead', count: 3, badge: null,
+    phases: [
+      { type: 'entry', text: 'Brand + 2 links' },
+      { type: 'aware', text: 'Logo / identity anchor' },
+      { type: 'engage', text: 'Sign In → #member' },
+      { type: 'capture', text: 'Apply to Qualify' },
+      { type: 'convert', text: 'Qualification funnel' },
+      { type: 'empty', text: '—' }
+    ],
+    flow: [true, true, true, true, false],
+    details: [
+      { head: 'Actions', links: [
+        { name: 'Brand / Logo', dest: 'Scroll to top' },
+        { name: 'Sign In', dest: '#member' },
+        { name: 'Apply to Qualify →', dest: '# → Funnel' }
+      ]}
+    ]
+  },
+  {
+    sigma: '3', name: 'Mode Toggle', count: 2, badge: null,
+    phases: [
+      { type: 'entry', text: 'Desktop / Remote' },
+      { type: 'aware', text: 'Desktop: full layout' },
+      { type: 'engage', text: 'Remote: dark immersive' },
+      { type: 'capture', text: 'Remote triggers lead' },
+      { type: 'convert', text: 'Entry state machine' },
+      { type: 'convert', text: 'heroRevealed' }
+    ],
+    flow: [true, true, true, true, true],
+    details: [
+      { head: 'Desktop Mode', links: [
+        { name: 'setMode("desktop")', dest: 'Newspaper layout' },
+        { name: 'Removes dark-mode', dest: 'Light theme' },
+        { name: 'Resets rhEntryState', dest: '→ idle' }
+      ]},
+      { head: 'Remote Mode', links: [
+        { name: 'setMode("remote")', dest: 'Slide deck' },
+        { name: 'Adds dark-mode', dest: 'Dark theme' },
+        { name: 'Triggers state machine', dest: '→ tronOverlay' }
+      ]}
+    ]
+  },
+  {
+    sigma: '4', name: 'Breaking Ticker', count: 5, badge: 'passive', badgeText: 'PASSIVE',
+    phases: [
+      { type: 'entry', text: '5 ticker signals' },
+      { type: 'aware', text: 'Brand priming' },
+      { type: 'empty', text: 'No click action' },
+      { type: 'empty', text: '—' },
+      { type: 'empty', text: '—' },
+      { type: 'empty', text: '—' }
+    ],
+    flow: [true, false, false, false, false],
+    details: [
+      { head: 'Ticker Items', links: [
+        { name: 'HIRECREDIT active in LA', dest: 'Primes: Credit Repair' },
+        { name: '810,839 LA collisions 2024', dest: 'Primes: Collision/PIFR' },
+        { name: 'SeedXchange Q1 2026', dest: 'Primes: Biz Funding' },
+        { name: 'HBI Alert — Cure Lane', dest: 'Primes: Operator Standards' },
+        { name: 'First Class + Credit Card', dest: 'Primes: Membership' }
+      ]}
+    ]
+  },
+  {
+    sigma: '5-A', name: 'Nav: Credit Repair', count: 11, badge: 'lead', badgeText: 'LEAD',
+    phases: [
+      { type: 'entry', text: '11 mega-menu links' },
+      { type: 'aware', text: 'Services / Coaching / Intel' },
+      { type: 'engage', text: 'All → # placeholder' },
+      { type: 'future', text: 'FUTURE: product pages' },
+      { type: 'future', text: 'FUTURE: Apply flow' },
+      { type: 'convert', text: 'Apply to Qualify' }
+    ],
+    flow: [true, true, false, false, true],
+    details: [
+      { head: 'Services (5)', links: [
+        { name: 'HIRECREDIT Overview', dest: '#' },
+        { name: 'Post-Incident Recovery (PIFR)', dest: '#' },
+        { name: 'Credit Dispute + Tradeline', dest: '#' },
+        { name: 'Collections Protection', dest: '#' },
+        { name: 'Auto Loan Catch-Up', dest: '#' }
+      ]},
+      { head: 'Coaching (3)', links: [
+        { name: 'CreditWithKen 1-on-1', dest: '#' },
+        { name: 'Funding Readiness', dest: '#' },
+        { name: 'Approval Pathway', dest: '#' }
+      ]},
+      { head: 'Intelligence (3)', links: [
+        { name: 'Collision → Credit Timeline', dest: '#' },
+        { name: 'Billing Fog Guide', dest: '#' },
+        { name: 'How HIRECREDIT Works', dest: '#' }
+      ]}
+    ]
+  },
+  {
+    sigma: '5-B', name: 'Nav: Collision + Claims', count: 8,
+    phases: [
+      { type: 'entry', text: '8 mega-menu links' },
+      { type: 'aware', text: 'Coverage / Recovery / Data' },
+      { type: 'engage', text: 'All → # placeholder' },
+      { type: 'future', text: 'FUTURE: detail pages' },
+      { type: 'future', text: 'FUTURE: PIFR upsell' },
+      { type: 'convert', text: 'Apply to Qualify' }
+    ],
+    flow: [true, true, false, false, true],
+    details: [
+      { head: 'Coverage (3)', links: [
+        { name: 'LA Collision Data 2024', dest: '#' },
+        { name: 'Multi-Party Complexity', dest: '#' },
+        { name: 'Claims Cycle Intelligence', dest: '#' }
+      ]},
+      { head: 'Recovery (3)', links: [
+        { name: 'PIFR SKU Core/Plus/Max', dest: '#' },
+        { name: 'Admin Failure Patterns', dest: '#' },
+        { name: 'Custody Log Standards', dest: '#' }
+      ]},
+      { head: 'Data (2)', links: [
+        { name: 'MCI R-DATA-003 Report', dest: '#' },
+        { name: '239K 2025 Partial Export', dest: '#' }
+      ]}
+    ]
+  },
+  {
+    sigma: '5-C', name: 'Nav: Operator Standards', count: 6,
+    phases: [
+      { type: 'entry', text: '6 mega-menu links' },
+      { type: 'aware', text: 'BRE System / VDI' },
+      { type: 'engage', text: 'All → # placeholder' },
+      { type: 'future', text: 'FUTURE: HBI tools' },
+      { type: 'future', text: 'FUTURE: compliance' },
+      { type: 'convert', text: 'Revenue Lane qualify' }
+    ],
+    flow: [true, true, false, false, true],
+    details: [
+      { head: 'BRE System (3)', links: [
+        { name: 'HBI Scoring Overview', dest: '#' },
+        { name: 'Revenue Lane vs Cure Lane', dest: '#' },
+        { name: 'Vendor Audit Prep', dest: '#' }
+      ]},
+      { head: 'VDI Standards (3)', links: [
+        { name: 'Vehicle Documentation Index', dest: '#' },
+        { name: 'Getting to VDI 80+', dest: '#' },
+        { name: 'Cure Window Calibration', dest: '#' }
+      ]}
+    ]
+  },
+  {
+    sigma: '5-D', name: 'Nav: Recovery + PIFR', count: 7,
+    phases: [
+      { type: 'entry', text: '7 links + preview' },
+      { type: 'aware', text: 'Recovery tiers / Intel' },
+      { type: 'engage', text: 'Preview card featured' },
+      { type: 'future', text: 'FUTURE: SKU selection' },
+      { type: 'future', text: 'FUTURE: purchase' },
+      { type: 'convert', text: 'PIFR purchase flow' }
+    ],
+    flow: [true, true, true, false, true],
+    details: [
+      { head: 'Recovery Services (4)', links: [
+        { name: 'PIFR Core — Basic', dest: '#' },
+        { name: 'PIFR Plus — Multi-Party', dest: '#' },
+        { name: 'PIFR Max — Full Defense', dest: '#' },
+        { name: 'Collections Shield', dest: '#' }
+      ]},
+      { head: 'Intelligence (3)', links: [
+        { name: 'Admin Failure Patterns', dest: '#' },
+        { name: 'Custody Log Standards', dest: '#' },
+        { name: 'Claims Timeline Tracker', dest: '#' }
+      ]}
+    ]
+  },
+  {
+    sigma: '5-E', name: 'Nav: Auto Insurance', count: 7,
+    phases: [
+      { type: 'entry', text: '7 mega-menu links' },
+      { type: 'aware', text: 'Coverage + Resources' },
+      { type: 'engage', text: 'All → # placeholder' },
+      { type: 'future', text: 'FUTURE: quote page' },
+      { type: 'future', text: 'FUTURE: cross-sell' },
+      { type: 'convert', text: 'Insurance + HIRECREDIT' }
+    ],
+    flow: [true, true, false, false, true],
+    details: [
+      { head: 'Coverage (4)', links: [
+        { name: 'Operator-Grade Policies', dest: '#' },
+        { name: 'Fleet Coverage Plans', dest: '#' },
+        { name: 'Gap + Deductible Strategy', dest: '#' },
+        { name: 'Uninsured Motorist Defense', dest: '#' }
+      ]},
+      { head: 'Resources (3)', links: [
+        { name: 'Delays → Collections', dest: '#' },
+        { name: 'Billing Fog Explained', dest: '#' },
+        { name: 'Insurance + HIRECREDIT', dest: '#' }
+      ]}
+    ]
+  },
+  {
+    sigma: '5-F', name: 'Nav: Biz Funding', count: 6,
+    phases: [
+      { type: 'entry', text: '6 mega-menu links' },
+      { type: 'aware', text: 'SeedXchange / Readiness' },
+      { type: 'engage', text: 'All → # placeholder' },
+      { type: 'future', text: 'FUTURE: 24hr qualify' },
+      { type: 'future', text: 'FUTURE: application' },
+      { type: 'convert', text: 'SeedXchange apply' }
+    ],
+    flow: [true, true, false, false, true],
+    details: [
+      { head: 'SeedXchange (4)', links: [
+        { name: 'Q1 2026 Applications', dest: '#' },
+        { name: '24hr Qualification', dest: '#' },
+        { name: 'Fleet Expansion Financing', dest: '#' },
+        { name: 'Operator Capital Programs', dest: '#' }
+      ]},
+      { head: 'Readiness (2)', links: [
+        { name: 'Funding Readiness Assessment', dest: '#' },
+        { name: 'HBI Score + Funding Access', dest: '#' }
+      ]}
+    ]
+  },
+  {
+    sigma: '5-G', name: 'Nav: Mobility + Rentals', count: 8,
+    phases: [
+      { type: 'entry', text: '8 mega-menu links' },
+      { type: 'aware', text: 'Fleet + Membership' },
+      { type: 'engage', text: '#sec-mobility scroll' },
+      { type: 'future', text: 'FUTURE: booking' },
+      { type: 'future', text: 'FUTURE: reservation' },
+      { type: 'convert', text: 'First Class apply' }
+    ],
+    flow: [true, true, true, false, true],
+    details: [
+      { head: 'Fleet (4)', links: [
+        { name: 'Luxury Rentals', dest: '#' },
+        { name: 'Daily Driver Rentals', dest: '#' },
+        { name: 'Airport + Transfer', dest: '#' },
+        { name: 'Long-Term Fleet Rates', dest: '#' }
+      ]},
+      { head: 'Membership (3)', links: [
+        { name: 'First Class Access', dest: '#' },
+        { name: 'Private Driver Network', dest: '#' },
+        { name: 'Chauffeur Services', dest: '#' }
+      ]}
+    ]
+  },
+  {
+    sigma: '6-0', name: 'Slide: Credit Hero', count: 12, badge: 'cta', badgeText: 'HERO',
+    phases: [
+      { type: 'entry', text: '4 CTAs + 3 cards + 5 dots' },
+      { type: 'aware', text: 'Read → Desktop mode' },
+      { type: 'engage', text: 'Info → Stories update' },
+      { type: 'engage', text: 'Reserve → Slide 5' },
+      { type: 'convert', text: 'Purchase → Slide 5' },
+      { type: 'convert', text: 'Product carousel' }
+    ],
+    flow: [true, true, true, true, true],
+    details: [
+      { head: 'CTA Buttons', links: [
+        { name: 'Read', dest: 'setMode("desktop")' },
+        { name: 'Info', dest: 'rhUpdateTopStories("info")' },
+        { name: 'Reserve', dest: 'rhNavTo(5)' },
+        { name: '⚡ Purchase', dest: 'rhNavTo(5)' }
+      ]},
+      { head: 'News Cards', links: [
+        { name: 'Collision Data card', dest: 'rhCTA(credit,news1)' },
+        { name: 'Recovery card', dest: 'rhCTA(credit,news2)' },
+        { name: 'MW Intelligence card', dest: 'rhCTA(credit,news3)' }
+      ]}
+    ]
+  },
+  {
+    sigma: '6-1', name: 'Slide: Top Stories', count: 7,
+    phases: [
+      { type: 'entry', text: '4 CTAs + 3 cards' },
+      { type: 'aware', text: 'Dynamic headline swap' },
+      { type: 'engage', text: 'Story variant select' },
+      { type: 'engage', text: 'Content by variant' },
+      { type: 'convert', text: 'Purchase → Slide 5' },
+      { type: 'empty', text: '—' }
+    ],
+    flow: [true, true, true, true, false],
+    details: [
+      { head: 'Story Variants', links: [
+        { name: 'read: 810,839 Collisions', dest: 'setMode("desktop")' },
+        { name: 'info: How HIRECREDIT Works', dest: 'Awareness' },
+        { name: 'reserve: Reserve Vehicle', dest: 'rhNavTo(5)' },
+        { name: 'purchase: Credit Card+', dest: 'rhNavTo(5)' }
+      ]}
+    ]
+  },
+  {
+    sigma: '6-2', name: 'Slide: Mobility', count: 8,
+    phases: [
+      { type: 'entry', text: '5 CTAs + 3 cards' },
+      { type: 'aware', text: 'First Class Mobility' },
+      { type: 'engage', text: 'Broker membership' },
+      { type: 'engage', text: 'Reserve → Slide 5' },
+      { type: 'convert', text: 'Purchase → Slide 5' },
+      { type: 'convert', text: 'Membership funnel' }
+    ],
+    flow: [true, true, true, true, true],
+    details: [
+      { head: 'CTA Buttons', links: [
+        { name: 'Read', dest: 'setMode("desktop")' },
+        { name: 'Info', dest: 'Awareness' },
+        { name: 'Reserve', dest: 'rhNavTo(5)' },
+        { name: '⚡ Purchase', dest: 'rhNavTo(5)' },
+        { name: 'Broker', dest: 'Broker membership flow' }
+      ]}
+    ]
+  },
+  {
+    sigma: '6-3', name: 'Slide: Services', count: 4,
+    phases: [
+      { type: 'entry', text: '4 CTA buttons' },
+      { type: 'aware', text: 'Every service. One std.' },
+      { type: 'engage', text: 'Service discovery' },
+      { type: 'engage', text: 'Reserve → Slide 5' },
+      { type: 'convert', text: 'Purchase → Slide 5' },
+      { type: 'empty', text: '—' }
+    ],
+    flow: [true, true, true, true, false],
+    details: [
+      { head: 'CTA Buttons', links: [
+        { name: 'Read', dest: 'setMode("desktop")' },
+        { name: 'Info', dest: 'Awareness' },
+        { name: 'Reserve', dest: 'rhNavTo(5)' },
+        { name: '⚡ Purchase', dest: 'rhNavTo(5)' }
+      ]}
+    ]
+  },
+  {
+    sigma: '6-4', name: 'Slide: Entertainment', count: 8,
+    phases: [
+      { type: 'entry', text: '4 CTAs + 4 thumbs' },
+      { type: 'aware', text: 'Culture + Auto content' },
+      { type: 'engage', text: 'Image gallery browse' },
+      { type: 'empty', text: 'No lead capture' },
+      { type: 'future', text: 'FUTURE: content pages' },
+      { type: 'empty', text: 'Brand engagement only' }
+    ],
+    flow: [true, true, false, false, false],
+    details: [
+      { head: 'CTA Buttons', links: [
+        { name: 'Trending', dest: 'rhCTA(ent,trending)' },
+        { name: 'News', dest: 'rhCTA(ent,news)' },
+        { name: 'Weekend', dest: 'rhCTA(ent,weekend)' },
+        { name: '⚡ Culture', dest: 'rhCTA(ent,culture)' }
+      ]}
+    ]
+  },
+  {
+    sigma: '6-5', name: 'Slide: Purchase', count: 12, badge: 'cta', badgeText: 'CONVERSION',
+    phases: [
+      { type: 'entry', text: '6 product cards' },
+      { type: 'aware', text: 'First Class Qualification' },
+      { type: 'engage', text: 'Carousel browse' },
+      { type: 'capture', text: 'Info / Reserve actions' },
+      { type: 'convert', text: '⚡ Buy actions' },
+      { type: 'convert', text: 'Terminal conversion' }
+    ],
+    flow: [true, true, true, true, true],
+    details: [
+      { head: '6 Product Cards', links: [
+        { name: 'HIRECAR Credit Card', dest: 'Info / ⚡ Buy' },
+        { name: 'First Class Membership', dest: 'Reserve / ⚡ Buy' },
+        { name: 'Collision + Claims (PIFR)', dest: 'Info / ⚡ Buy' },
+        { name: 'Chauffeur + Private Driver', dest: 'Reserve / ⚡ Buy' },
+        { name: 'Auto Insurance', dest: 'Info / ⚡ Buy' },
+        { name: 'MW Intelligence Report', dest: 'Read / ⚡ Buy' }
+      ]}
+    ]
+  },
+  {
+    sigma: '7', name: 'Desktop Sections', count: 8, badge: null,
+    phases: [
+      { type: 'entry', text: '8 scroll sections' },
+      { type: 'aware', text: 'Content per section' },
+      { type: 'engage', text: 'Scroll discovery' },
+      { type: 'engage', text: 'Card interactions' },
+      { type: 'future', text: 'FUTURE: detail pages' },
+      { type: 'convert', text: 'Apply to Qualify' }
+    ],
+    flow: [true, true, true, false, true],
+    details: [
+      { head: 'Sections', links: [
+        { name: '#sec-credit', dest: 'HIRECREDIT module' },
+        { name: '#sec-stories', dest: 'Top Stories' },
+        { name: '#sec-credit-repair', dest: 'Credit + Insurance' },
+        { name: '#sec-mobility', dest: 'Vehicle cards' },
+        { name: '#sec-ent', dest: 'Entertainment grid' },
+        { name: '#sec-services', dest: '12 service cards' },
+        { name: '#sec-member', dest: 'Membership module' }
+      ]}
+    ]
+  },
+  {
+    sigma: '8', name: 'Quick Jump Dots', count: 8,
+    phases: [
+      { type: 'entry', text: '8 nav dots' },
+      { type: 'engage', text: 'Scroll acceleration' },
+      { type: 'empty', text: '—' },
+      { type: 'empty', text: '—' },
+      { type: 'empty', text: '—' },
+      { type: 'empty', text: 'Navigation utility' }
+    ],
+    flow: [true, false, false, false, false],
+    details: [
+      { head: 'Dot Targets', links: [
+        { name: 'Masthead (top)', dest: 'scrollIntoView' },
+        { name: 'Top Stories', dest: '#sec-stories' },
+        { name: 'Credit', dest: '#sec-credit' },
+        { name: 'Trending', dest: '#sec-trending' },
+        { name: 'Mobility', dest: '#sec-mobility' },
+        { name: 'Entertainment', dest: '#sec-ent' },
+        { name: 'Services', dest: '#sec-services' },
+        { name: 'Membership', dest: '#sec-member' }
+      ]}
+    ]
+  },
+  {
+    sigma: '9', name: 'Remote Side Nav', count: 6,
+    phases: [
+      { type: 'entry', text: '6 slide dots' },
+      { type: 'engage', text: 'Slide navigation' },
+      { type: 'empty', text: '—' },
+      { type: 'empty', text: '—' },
+      { type: 'convert', text: 'Dot 6 → Purchase' },
+      { type: 'convert', text: 'Slide 5 = conversion' }
+    ],
+    flow: [true, false, false, true, true],
+    details: [
+      { head: 'Slide Dots', links: [
+        { name: 'Credit Recovery', dest: 'rhNavTo(0)' },
+        { name: 'Top Stories', dest: 'rhNavTo(1)' },
+        { name: 'Mobility', dest: 'rhNavTo(2)' },
+        { name: 'Services', dest: 'rhNavTo(3)' },
+        { name: 'Entertainment', dest: 'rhNavTo(4)' },
+        { name: 'Purchase', dest: 'rhNavTo(5) ← CONVERSION' }
+      ]}
+    ]
+  },
+  {
+    sigma: '10', name: 'Remote Bottom Bar', count: 3,
+    phases: [
+      { type: 'entry', text: '3 action buttons' },
+      { type: 'engage', text: 'Hub / Scroll / Exit' },
+      { type: 'empty', text: '—' },
+      { type: 'empty', text: '—' },
+      { type: 'empty', text: '—' },
+      { type: 'empty', text: 'Utility only' }
+    ],
+    flow: [true, false, false, false, false],
+    details: [
+      { head: 'Buttons', links: [
+        { name: 'Menu / Hub', dest: '#remoteHub scroll' },
+        { name: 'Scroll to Top', dest: 'window.scrollTo(0)' },
+        { name: 'Exit to Desktop', dest: 'setMode("desktop")' }
+      ]}
+    ]
+  },
+  {
+    sigma: '11', name: 'Company Bar', count: 5, badge: 'exit', badgeText: 'BRAND EXIT',
+    phases: [
+      { type: 'entry', text: '5 brand entities' },
+      { type: 'aware', text: 'Network overview' },
+      { type: 'exit', text: 'Visit HIRECAR.LA →' },
+      { type: 'future', text: 'FUTURE: HIRECREDIT' },
+      { type: 'future', text: 'FUTURE: SeedXchange' },
+      { type: 'exit', text: 'External handoff' }
+    ],
+    flow: [true, true, false, false, true],
+    details: [
+      { head: 'Brand Links', links: [
+        { name: 'HIRECAR, LLC', dest: 'hirecar.la (external)' },
+        { name: 'HIRECREDIT', dest: '# (future)' },
+        { name: 'CreditWithKen', dest: '# (future)' },
+        { name: 'SeedXchange', dest: '# (future)' },
+        { name: 'MarketWatch!', dest: 'Current site' }
+      ]}
+    ]
+  },
+  {
+    sigma: '12', name: 'Footer', count: 37,
+    phases: [
+      { type: 'entry', text: '~37 links + contact' },
+      { type: 'aware', text: '4 columns of links' },
+      { type: 'engage', text: 'Category / service browse' },
+      { type: 'future', text: 'FUTURE: 35 placeholders' },
+      { type: 'exit', text: 'HIRECAR.LA ↗ (1 ext)' },
+      { type: 'empty', text: 'Bottom of page' }
+    ],
+    flow: [true, true, false, true, false],
+    details: [
+      { head: 'News Categories (11)', links: [
+        { name: 'Credit Repair → Playbooks', dest: 'All # placeholder' }
+      ]},
+      { head: 'HIRECAR Services (12)', links: [
+        { name: 'Luxury Rentals → Wraps', dest: 'All # placeholder' }
+      ]},
+      { head: 'The Network (11)', links: [
+        { name: 'HIRECAR.LA ↗', dest: 'hirecar.la (external)' },
+        { name: 'HIRECREDIT → Investor Rel.', dest: '# / mailto' }
+      ]},
+      { head: 'Contact', links: [
+        { name: '3 email addresses', dest: 'mailto funnels' },
+        { name: 'Phone: +1(661)651-0858', dest: 'Direct contact' }
+      ]}
+    ]
+  },
+  {
+    sigma: '13', name: 'Mobile Drawer', count: 14,
+    phases: [
+      { type: 'entry', text: '~14 nav links' },
+      { type: 'aware', text: 'Categorized sections' },
+      { type: 'engage', text: '3 active anchors' },
+      { type: 'capture', text: 'Apply to Qualify CTA' },
+      { type: 'convert', text: 'Qualification funnel' },
+      { type: 'convert', text: 'First Class apply' }
+    ],
+    flow: [true, true, true, true, true],
+    details: [
+      { head: 'Lead Category', links: [
+        { name: 'Credit Repair [LEAD]', dest: '#sec-credit' }
+      ]},
+      { head: 'Services (7)', links: [
+        { name: 'Collision → Roadside', dest: 'All # placeholder' }
+      ]},
+      { head: 'Intelligence (2)', links: [
+        { name: 'MW Intelligence', dest: '#' },
+        { name: 'Playbooks', dest: '#' }
+      ]},
+      { head: 'More (3)', links: [
+        { name: 'Entertainment', dest: '#sec-ent' },
+        { name: 'First Class Membership', dest: '#sec-member' },
+        { name: 'HIRECAR.LA ↗', dest: 'hirecar.la (ext)' }
+      ]},
+      { head: 'CTAs', links: [
+        { name: 'Apply to Qualify →', dest: 'Primary funnel' },
+        { name: 'Sign In to Member Portal', dest: '#member' }
+      ]}
+    ]
+  }
+];
+
+/* ═══ RENDER ═══ */
+function renderLanes(filter) {
+  var container = document.getElementById('lanes');
+  container.innerHTML = '';
+  var data = LANES;
+  if (filter === 'active') {
+    data = data.filter(function(l) { return l.phases.some(function(p) { return p.type === 'convert'; }); });
+  }
+  if (filter === 'conversion') {
+    data = data.filter(function(l) { return l.phases[4].type === 'convert' || l.phases[5].type === 'convert'; });
+  }
+  data.forEach(function(lane) {
+    var el = document.createElement('div');
+    el.className = 'swim-lane';
+    el.onclick = function(e) {
+      if (e.target.closest('.lane-detail')) return;
+      el.classList.toggle('expanded');
+    };
+
+    var badgeHtml = '';
+    if (lane.badge) {
+      badgeHtml = '<span class="lane-badge badge-' + lane.badge + '">' + (lane.badgeText || '') + '</span>';
+    }
+
+    var timelineHtml = '';
+    lane.phases.forEach(function(phase, i) {
+      var nodeClass = 'node node-' + phase.type;
+      var flowClass = 'lane-phase' + (lane.flow && lane.flow[i] ? ' has-flow' : '');
+      timelineHtml += '<div class="' + flowClass + '"><div class="' + nodeClass + '">' + phase.text + '</div></div>';
+    });
+
+    var detailHtml = '';
+    if (lane.details) {
+      detailHtml = '<div class="lane-detail"><div class="detail-grid">';
+      lane.details.forEach(function(group) {
+        detailHtml += '<div class="detail-card"><div class="detail-card-head">' + group.head + '</div>';
+        group.links.forEach(function(link) {
+          detailHtml += '<div class="detail-link"><span class="dl-arrow">&#9654;</span> ' + link.name + '<span class="dl-dest">' + link.dest + '</span></div>';
+        });
+        detailHtml += '</div>';
+      });
+      detailHtml += '</div></div>';
+    }
+
+    el.innerHTML =
+      '<div class="lane-label">' +
+        '<div class="lane-sigma">&Sigma;' + lane.sigma + '</div>' +
+        '<div class="lane-name">' + lane.name + badgeHtml + '</div>' +
+        '<div class="lane-count">' + lane.count + ' actions</div>' +
+      '</div>' +
+      '<div class="lane-timeline">' + timelineHtml + '</div>' +
+      detailHtml;
+
+    container.appendChild(el);
+  });
+}
+
+/* ═══ VIEW CONTROLS ═══ */
+function toggleView(mode) {
+  document.querySelectorAll('.view-btn').forEach(function(b) { b.classList.remove('active'); });
+  event.target.classList.add('active');
+  renderLanes(mode === 'all' ? null : mode);
+}
+function expandAll() {
+  var lanes = document.querySelectorAll('.swim-lane');
+  var allExpanded = Array.from(lanes).every(function(l) { return l.classList.contains('expanded'); });
+  lanes.forEach(function(l) { l.classList.toggle('expanded', !allExpanded); });
+}
+
+/* ═══ STATE MACHINE ANIMATION ═══ */
+function replaySM() {
+  var states = document.querySelectorAll('#smFlow .sm-state');
+  var arrows = document.querySelectorAll('#smFlow .sm-arrow');
+  states.forEach(function(s) { s.style.opacity = '0.2'; s.classList.remove('pulse'); });
+  arrows.forEach(function(a) { a.classList.remove('active'); });
+
+  var steps = [];
+  states.forEach(function(s, i) { steps.push({ el: s, type: 'state', idx: i }); });
+
+  var delay = 0;
+  steps.forEach(function(step, i) {
+    setTimeout(function() {
+      step.el.style.opacity = '1';
+      step.el.style.transition = 'opacity .4s, transform .3s';
+      step.el.style.transform = 'translateY(-3px)';
+      setTimeout(function() { step.el.style.transform = ''; }, 300);
+      if (i > 0 && arrows[i - 1]) arrows[i - 1].classList.add('active');
+      if (i === steps.length - 1) step.el.classList.add('pulse');
+    }, delay);
+    delay += 600;
+  });
+}
+
+function animateSM(clicked) {
+  var idx = parseInt(clicked.dataset.step);
+  var states = document.querySelectorAll('#smFlow .sm-state');
+  var arrows = document.querySelectorAll('#smFlow .sm-arrow');
+  states.forEach(function(s, i) {
+    s.style.opacity = i <= idx ? '1' : '0.2';
+    s.classList.toggle('pulse', i === idx);
+  });
+  arrows.forEach(function(a, i) { a.classList.toggle('active', i < idx); });
+}
+
+/* ═══ INIT ═══ */
+renderLanes(null);
+setTimeout(replaySM, 500);
+</script>
+</body>
+</html>
