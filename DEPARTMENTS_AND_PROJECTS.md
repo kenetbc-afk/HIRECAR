@@ -42,7 +42,9 @@ AI bots monitor milestones and auto-surface the next relevant workflow.
 | 11 | Playbooks                  | All Phases          | Active        |
 | 12 | Accounting, Follow-Up & Planning | All Phases    | New           |
 | 13 | Marketing & Sales          | Intake / Scaling    | New           |
-| 14 | Client Milestone Journey   | All Phases          | Core System   |
+| 14 | HIRECAR Membership Services (Member Facing) | All Phases | Core Operations |
+| 15 | HIRECAR HQ (Service Supplier / Service Buyer) | All Phases | Core Operations |
+| 16 | Client Milestone Journey   | All Phases          | Core System   |
 
 ---
 
@@ -345,7 +347,102 @@ AI bots monitor milestones and auto-surface the next relevant workflow.
 
 ---
 
-### 14. Client Milestone Journey (Core System)
+### 14. HIRECAR Membership Services (Member Facing)
+
+**Phase:** All Phases
+**Status:** Core Operations
+**Purpose:** The operational function of HIRECAR — this is how members experience and interact with every service. Membership Services is the delivery layer that sits between the member and all departments, managing enrollment, access, service fulfillment, communication, and member satisfaction.
+
+> **Key distinction:** Departments 1–13 define *what* HIRECAR offers.
+> Membership Services defines *how* the member receives it.
+
+#### UI Pages/Apps
+- **Member Portal (Home)** — Personalized dashboard showing active services, upcoming actions, and journey status
+- **Membership Enrollment** — Tiered membership signup (e.g., Standard, Operator, First Class) with plan comparison
+- **Service Catalog** — Browsable catalog of all available HIRECAR services across departments, filtered by membership tier
+- **My Services** — Active service subscriptions, usage history, and service status per department
+- **Appointment & Scheduling Center** — Unified booking across all departments (credit sessions, roadside, rentals, coaching)
+- **Document Vault** — Secure member document storage (claims, recovery packets, insurance docs, invoices, VDI records)
+- **Message Center** — Unified inbox for all communications — AI bot messages, department updates, follow-ups, alerts
+- **Support & Help Desk** — Ticket-based support with live chat, FAQ, and escalation paths
+- **Member Profile & Settings** — Personal info, vehicle registry, payment methods, notification preferences
+- **Referral & Rewards Hub** — Track referrals, earned rewards, loyalty points, and tier progression
+- **Member Reviews & Feedback** — Rate services, submit feedback, view service quality metrics
+
+#### AI Workflows
+- **Onboarding Concierge** — AI guides new members through enrollment, profile setup, and initial service activation
+- **Service Recommender** — Bot analyzes member profile and journey phase to recommend relevant services
+- **Appointment Coordinator** — AI schedules across departments, prevents conflicts, sends reminders
+- **Document Organizer** — Bot auto-files incoming documents into the vault, tags them, and links to relevant services
+- **Support Triage Bot** — AI categorizes support requests, resolves common issues, escalates complex ones
+- **Member Health Monitor** — Bot tracks engagement, flags at-risk members (inactive, overdue, stalled)
+- **Renewal & Retention Engine** — AI manages membership renewals, sends upgrade recommendations, prevents churn
+- **Satisfaction Scorer** — Bot aggregates feedback and service metrics into a member satisfaction score
+- **Cross-Department Coordinator** — AI ensures smooth handoffs when a member's needs span multiple departments
+- **Notification Orchestrator** — Bot manages notification frequency and priority so members aren't overwhelmed
+
+---
+
+### 15. HIRECAR HQ (Automotive Service Supplier / Automotive Service Buyer)
+
+**Phase:** All Phases
+**Status:** Core Operations
+**Purpose:** The B2B backbone of HIRECAR — a marketplace and management system where automotive service suppliers list their services and HIRECAR (as the buyer) procures, vets, and routes those services to fulfill member needs. HQ is the supply chain engine that powers every department's service delivery.
+
+> **Key distinction:** Membership Services is the *front of house* (member-facing).
+> HIRECAR HQ is the *back of house* (supplier-facing, procurement, fulfillment).
+
+#### UI Pages/Apps
+
+**Supplier Side (Automotive Service Suppliers)**
+- **Supplier Portal** — Onboarding, profile, service listings, and compliance status for service providers
+- **Service Listing Manager** — Suppliers create/edit service offerings (towing, credit repair, body shops, insurance, EV charging, etc.)
+- **Bid & RFQ Board** — Suppliers respond to HIRECAR requests for quotes on member service needs
+- **Supplier Performance Dashboard** — Ratings, response times, fulfillment rates, member feedback
+- **Payout & Billing Center** — Invoice submission, payment tracking, and payout history
+- **Compliance & Certification Hub** — Upload licenses, insurance, certifications; track renewal deadlines
+- **Supplier Communication Center** — Direct messaging with HIRECAR HQ operations team
+
+**Buyer Side (HIRECAR as Procurement / Operations)**
+- **Procurement Dashboard** — Overview of all active supplier relationships, contracts, and spend
+- **Supplier Directory** — Searchable, filterable catalog of vetted suppliers by service type, region, rating
+- **Service Fulfillment Tracker** — Track every service request from member need → supplier assignment → completion
+- **Quality Assurance Console** — Review supplier performance, handle disputes, manage SLAs
+- **Contract & Agreement Manager** — Create, negotiate, and store supplier contracts and SLAs
+- **Cost Analysis & Optimization** — Service cost trends, supplier price comparison, margin analysis
+- **Vendor Scorecard** — Aggregated supplier scoring (quality, reliability, cost, compliance)
+- **Capacity Planner** — View supplier availability and capacity by region and service type
+
+**Marketplace (Connecting Supply & Demand)**
+- **Service Matching Engine UI** — Visual interface showing how member requests get matched to suppliers
+- **Regional Coverage Map** — Geographic view of supplier coverage across LA, SF, and expansion markets
+- **Rate Card Manager** — Standardized pricing tiers negotiated with supplier network
+
+#### AI Workflows
+
+**Supplier Management**
+- **Supplier Vetting Bot** — AI reviews supplier applications, checks credentials, flags risks
+- **Compliance Monitor** — Bot tracks supplier license/cert expirations, auto-sends renewal reminders
+- **Performance Analyzer** — AI scores suppliers on quality, speed, cost, and member satisfaction
+- **Supplier Onboarding Assistant** — Bot guides new suppliers through profile setup and listing creation
+
+**Procurement & Fulfillment**
+- **Service Matcher** — AI matches inbound member service requests to the best available supplier based on type, location, rating, availability, and cost
+- **Auto-Dispatch Engine** — Bot automatically assigns and dispatches suppliers for time-sensitive services (roadside, towing)
+- **Fulfillment Monitor** — AI tracks service delivery in real-time, flags delays, triggers escalation
+- **Cost Optimizer** — Bot analyzes procurement spend and recommends supplier switches or renegotiations
+- **Demand Forecaster** — AI predicts service demand by type and region to inform supplier capacity planning
+
+**Quality & Operations**
+- **SLA Enforcer** — Bot monitors supplier SLA compliance, auto-generates violation reports
+- **Dispute Resolution Bot** — AI mediates service quality disputes between HIRECAR and suppliers
+- **Rate Negotiator Assistant** — Bot provides market data and benchmarks to support rate negotiations
+- **Supply Gap Detector** — AI identifies service categories or regions where supplier coverage is thin
+- **Audit Bot** — Automated supplier audits checking documentation, insurance, and certification validity
+
+---
+
+### 16. Client Milestone Journey (Core System)
 
 **Phase:** All Phases
 **Purpose:** The system that connects all departments — tracks client progression and orchestrates which department tools, pages, and AI workflows are active
@@ -372,50 +469,85 @@ AI bots monitor milestones and auto-surface the next relevant workflow.
 ### How Departments Connect via the Journey
 
 ```
-Client enters → INTAKE (Marketing & Sales captures lead)
-                    │
-                    ▼
-              ASSESSMENT (MW Intelligence scores situation)
-                    │
-                    ▼
-         ┌─────────┴──────────┐
-         ▼                    ▼
-   COLLISION/CLAIMS      ROADSIDE
-   (if incident)         (if emergency)
-         │                    │
-         ▼                    ▼
-    RECOVERY + PIFR     AUTO INSURANCE
-         │                    │
-         └─────────┬──────────┘
-                   ▼
-            CREDIT REPAIR (HIRECREDIT)
-                   │
-                   ▼
-           OPERATOR STANDARDS
-           (HBI + VDI scoring)
-                   │
-                   ▼
-         ┌─────────┴──────────┐
-         ▼                    ▼
-   BIZ FUNDING          MOBILITY + RENTALS
-   (SeedXchange)        (Fleet ops)
-         │                    │
-         └─────────┬──────────┘
-                   ▼
-            ENTERTAINMENT + COMMUNITY
-            (Brand, culture, engagement)
-                   │
-         ┌─────────┴──────────┐
-         ▼                    ▼
-   ACCOUNTING            PLAYBOOKS
-   (Financials,          (Guides,
-    follow-up,            standards,
-    planning)             procedures)
-         │                    │
-         └─────────┬──────────┘
-                   ▼
-           MW INTELLIGENCE
-           (Continuous monitoring & reporting)
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                        HIRECAR SYSTEM ARCHITECTURE                         ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                    HIRECAR MEMBERSHIP SERVICES (Front of House)             │
+│         The operational layer — how EVERY member experiences HIRECAR        │
+│                                                                            │
+│  ┌────────────┐ ┌──────────┐ ┌──────────────┐ ┌──────────┐ ┌───────────┐  │
+│  │ Member     │ │ Service  │ │ Scheduling & │ │ Document │ │ Support & │  │
+│  │ Portal     │ │ Catalog  │ │ Appointments │ │ Vault    │ │ Help Desk │  │
+│  └────────────┘ └──────────┘ └──────────────┘ └──────────┘ └───────────┘  │
+│                                                                            │
+│  Member interacts here ──▶ Services delivered from departments below       │
+└───────────────────────────────────┬──────────────────────────────────────────┘
+                                    │
+              ┌─────────────────────┼──────────────────────┐
+              ▼                     ▼                      ▼
+   ┌─────────────────┐  ┌────────────────────┐  ┌──────────────────┐
+   │ MARKETING &     │  │ CLIENT MILESTONE   │  │ MW INTELLIGENCE  │
+   │ SALES           │  │ JOURNEY            │  │ (Data & Reports) │
+   │ (Lead capture)  │  │ (Routing backbone) │  │ (All phases)     │
+   └────────┬────────┘  └────────┬───────────┘  └──────────────────┘
+            │                    │
+            ▼                    ▼
+   ┌─────────────────────────────────────────────────────────────────┐
+   │                    SERVICE DEPARTMENTS                          │
+   │                                                                 │
+   │  INTAKE ──▶ RECOVERY ──▶ REBUILDING ──▶ OPERATING ──▶ SCALING  │
+   │                                                                 │
+   │  ┌──────────────┐  ┌──────────────┐  ┌────────────────────┐    │
+   │  │ Collision +  │  │ Recovery +   │  │ Credit Repair      │    │
+   │  │ Claims       │  │ PIFR         │  │ (HIRECREDIT)       │    │
+   │  └──────────────┘  └──────────────┘  └────────────────────┘    │
+   │  ┌──────────────┐  ┌──────────────┐  ┌────────────────────┐    │
+   │  │ Auto         │  │ Operator     │  │ Biz Funding        │    │
+   │  │ Insurance    │  │ Standards    │  │ (SeedXchange)      │    │
+   │  └──────────────┘  └──────────────┘  └────────────────────┘    │
+   │  ┌──────────────┐  ┌──────────────┐  ┌────────────────────┐    │
+   │  │ Roadside     │  │ Mobility +   │  │ Entertainment      │    │
+   │  │              │  │ Rentals      │  │                    │    │
+   │  └──────────────┘  └──────────────┘  └────────────────────┘    │
+   │  ┌──────────────┐  ┌──────────────┐                            │
+   │  │ Playbooks    │  │ Accounting,  │                            │
+   │  │              │  │ Follow-Up &  │                            │
+   │  │              │  │ Planning     │                            │
+   │  └──────────────┘  └──────────────┘                            │
+   └────────────────────────────┬────────────────────────────────────┘
+                                │
+                                │ Service requests fulfilled by ▼
+                                │
+┌───────────────────────────────┴──────────────────────────────────────────────┐
+│                     HIRECAR HQ (Back of House)                              │
+│     The B2B supply chain — automotive service suppliers & procurement       │
+│                                                                             │
+│  ┌─────────────────────────────────────────────────────────────────────┐    │
+│  │                      MARKETPLACE ENGINE                             │    │
+│  │  ┌──────────────┐  ┌────────────────┐  ┌────────────────────────┐  │    │
+│  │  │ Service      │  │ Regional       │  │ Rate Card              │  │    │
+│  │  │ Matching     │  │ Coverage Map   │  │ Manager                │  │    │
+│  │  └──────────────┘  └────────────────┘  └────────────────────────┘  │    │
+│  └─────────────────────────────────────────────────────────────────────┘    │
+│                                                                             │
+│  ┌──────────────────────┐          ┌──────────────────────────────────┐    │
+│  │ SUPPLIER SIDE        │          │ BUYER SIDE (HIRECAR Procurement) │    │
+│  │                      │          │                                  │    │
+│  │ • Supplier Portal    │  ◄───►   │ • Procurement Dashboard         │    │
+│  │ • Service Listings   │          │ • Supplier Directory             │    │
+│  │ • Bid & RFQ Board    │          │ • Fulfillment Tracker            │    │
+│  │ • Performance Stats  │          │ • QA Console                     │    │
+│  │ • Payout Center      │          │ • Contract Manager               │    │
+│  │ • Compliance Hub     │          │ • Cost Optimization              │    │
+│  └──────────────────────┘          └──────────────────────────────────┘    │
+│                                                                             │
+│  Suppliers: Tow companies, body shops, credit agencies, insurers,          │
+│  EV charging networks, detailers, glass repair, rental fleets, etc.        │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+FLOW:  Member ──▶ Membership Services ──▶ Department ──▶ HQ matches supplier ──▶ Service delivered
 ```
 
 ### AI Bot Delegation Model
