@@ -25,6 +25,121 @@ AI bots monitor milestones and auto-surface the next relevant workflow.
 
 ---
 
+## Interactive AI Workflows + Gamification System
+
+> All AI workflows across Accounting, Operations, Credit Disputes, Billing, and
+> HIRECAR Services are **interactive** — the member engages directly with the AI
+> through guided conversations, decision trees, and real-time feedback loops.
+> Every interaction is **gamified** using HIRECAR's native scoring methodologies.
+
+### Gamification Engine — Core Mechanics
+
+Built on HIRECAR's existing scoring systems, unified into a single progression framework:
+
+```
+╔═══════════════════════════════════════════════════════════════════════════════╗
+║                     HIRECAR GAMIFICATION ENGINE                              ║
+╠═══════════════════════════════════════════════════════════════════════════════╣
+║                                                                              ║
+║  ┌─────────────────────────────────────────────────────────────────────┐     ║
+║  │                    OPERATOR XP (Experience Points)                   │     ║
+║  │  Every interaction earns XP. XP drives tier advancement.            │     ║
+║  │                                                                     │     ║
+║  │  XP Sources:                                                        │     ║
+║  │  • Complete a dispute cycle ──────────── +150 XP                    │     ║
+║  │  • Upload required document ──────────── +25 XP                     │     ║
+║  │  • Pay invoice on time ───────────────── +50 XP                     │     ║
+║  │  • Attend coaching session ───────────── +100 XP                    │     ║
+║  │  • Achieve VDI 80+ on a vehicle ──────── +200 XP                    │     ║
+║  │  • Complete a playbook ───────────────── +75 XP                     │     ║
+║  │  • Refer a new member ────────────────── +300 XP                    │     ║
+║  │  • Respond to follow-up within 24hr ──── +40 XP                    │     ║
+║  │  • Maintain streak (7-day active) ────── +100 XP bonus             │     ║
+║  └─────────────────────────────────────────────────────────────────────┘     ║
+║                                                                              ║
+║  ┌─────────────────────────────────────────────────────────────────────┐     ║
+║  │                    MEMBER TIERS (XP-Driven)                         │     ║
+║  │                                                                     │     ║
+║  │  ┌───────────┐  ┌───────────┐  ┌───────────┐  ┌──────────────┐    │     ║
+║  │  │ STANDARD  │─▶│ OPERATOR  │─▶│ FIRST     │─▶│ ELITE        │    │     ║
+║  │  │           │  │           │  │ CLASS     │  │ OPERATOR     │    │     ║
+║  │  │ 0 XP     │  │ 1,000 XP  │  │ 5,000 XP  │  │ 15,000 XP    │    │     ║
+║  │  │           │  │           │  │           │  │              │    │     ║
+║  │  │ Basic     │  │ Priority  │  │ Premium   │  │ VIP access,  │    │     ║
+║  │  │ access    │  │ support,  │  │ services, │  │ advisory     │    │     ║
+║  │  │           │  │ discounts │  │ concierge │  │ board        │    │     ║
+║  │  └───────────┘  └───────────┘  └───────────┘  └──────────────┘    │     ║
+║  └─────────────────────────────────────────────────────────────────────┘     ║
+║                                                                              ║
+║  ┌─────────────────────────────────────────────────────────────────────┐     ║
+║  │                    SCORING SYSTEMS (Department-Native)               │     ║
+║  │                                                                     │     ║
+║  │  HBI Score (0–100)  ─── Operator behavioral health across all depts │     ║
+║  │  VDI Score (0–100)  ─── Vehicle documentation completeness          │     ║
+║  │  BRE Score (0–100)  ─── Business readiness & compliance             │     ║
+║  │  CRI Score (0–100)  ─── Credit Recovery Index (NEW — HIRECREDIT)    │     ║
+║  │  FPI Score (0–100)  ─── Financial Performance Index (NEW — Acctg)   │     ║
+║  │  MSI Score (0–100)  ─── Member Service Index (NEW — Membership)     │     ║
+║  │                                                                     │     ║
+║  │  All scores visible on Member Portal. Combined into HIRECAR         │     ║
+║  │  Composite Score — the single number that represents overall        │     ║
+║  │  member health and unlocks tier perks.                              │     ║
+║  └─────────────────────────────────────────────────────────────────────┘     ║
+║                                                                              ║
+║  ┌─────────────────────────────────────────────────────────────────────┐     ║
+║  │                    ACHIEVEMENTS & BADGES                             │     ║
+║  │                                                                     │     ║
+║  │  🏆 Dispute Champion ──── 5 disputes resolved successfully          │     ║
+║  │  🏆 Doc Master ──────── VDI 80+ on all vehicles                     │     ║
+║  │  🏆 Clean Ledger ────── 6 months zero outstanding balance           │     ║
+║  │  🏆 Recovery Pro ────── PIFR Max completed with full timeline       │     ║
+║  │  🏆 Streak King ─────── 30-day active engagement streak            │     ║
+║  │  🏆 Compliance Ace ──── BRE 90+ for 3 consecutive months           │     ║
+║  │  🏆 Referral Engine ─── 10+ successful referrals                   │     ║
+║  │  🏆 Early Bird ──────── 12 invoices paid before due date           │     ║
+║  │  🏆 Full Operator ──── All 6 scores above 75                       │     ║
+║  │                                                                     │     ║
+║  │  Badges display on Member Profile + Operator Stories feature.       │     ║
+║  └─────────────────────────────────────────────────────────────────────┘     ║
+║                                                                              ║
+║  ┌─────────────────────────────────────────────────────────────────────┐     ║
+║  │                    STREAKS, CHALLENGES & QUESTS                      │     ║
+║  │                                                                     │     ║
+║  │  Daily Streaks ────── Consecutive days of platform engagement        │     ║
+║  │  Weekly Challenges ── Department-specific goals (e.g., "Upload 3    │     ║
+║  │                       docs this week" or "Complete dispute round")   │     ║
+║  │  Monthly Quests ───── Cross-department objectives (e.g., "Raise     │     ║
+║  │                       HBI by 10 pts + clear 2 collections")         │     ║
+║  │  Seasonal Events ──── Limited-time bonus XP events tied to          │     ║
+║  │                       HIRECAR campaigns and activations              │     ║
+║  │                                                                     │     ║
+║  │  Quest Board visible in Member Portal with progress bars.           │     ║
+║  └─────────────────────────────────────────────────────────────────────┘     ║
+║                                                                              ║
+║  ┌─────────────────────────────────────────────────────────────────────┐     ║
+║  │                    INTERACTIVE AI WORKFLOW PATTERN                   │     ║
+║  │                                                                     │     ║
+║  │  Every AI workflow follows this interactive loop:                    │     ║
+║  │                                                                     │     ║
+║  │  1. GREET ─── Bot introduces itself, explains the task, shows       │     ║
+║  │               current score/streak/quest status                     │     ║
+║  │  2. GUIDE ─── Conversational decision tree — bot asks questions,    │     ║
+║  │               member answers, bot adapts next steps in real-time    │     ║
+║  │  3. ACT ──── Bot performs the action (generates doc, files claim,   │     ║
+║  │               calculates score) with member confirmation            │     ║
+║  │  4. REWARD ── Bot awards XP, updates scores, checks for badge      │     ║
+║  │               unlocks, shows progress toward next tier/quest        │     ║
+║  │  5. NEXT ──── Bot recommends the next best action, queues the      │     ║
+║  │               next workflow, or hands off to another department     │     ║
+║  │                                                                     │     ║
+║  │  Members can pause, resume, ask clarifying questions, or request    │     ║
+║  │  a human operator at any point in the conversation.                 │     ║
+║  └─────────────────────────────────────────────────────────────────────┘     ║
+╚═══════════════════════════════════════════════════════════════════════════════╝
+```
+
+---
+
 ## Departments Overview
 
 | #  | Department                  | Milestone Phase     | Status        |
@@ -66,13 +181,17 @@ AI bots monitor milestones and auto-surface the next relevant workflow.
 - **Funding Readiness Assessment** — Pre-qualification scoring tied to HBI
 - **Approval Pathway Blueprint** — Step-by-step roadmap UI
 
-#### AI Workflows
-- **Automated Credit Intake** — Bot collects client credit data, pulls reports, identifies disputes
-- **Dispute Letter Generator** — AI drafts dispute letters based on credit report analysis
-- **Tradeline Strategy Engine** — AI recommends optimal tradeline actions
-- **Collections Alert Monitor** — Bot monitors for new collections, auto-triggers protection workflows
-- **Coaching Session Prep** — AI pre-analyzes client profile before CreditWithKen sessions
-- **Credit Score Projection** — AI models projected score improvements over time
+#### AI Workflows (Interactive + Gamified)
+
+**CRI Score (Credit Recovery Index)** — The gamified score for this department. Starts at your current credit health baseline and rises as you complete dispute cycles, clear collections, and follow tradeline strategy. Visible on your HIRECREDIT Dashboard with animated progress ring.
+
+- **Credit Intake Wizard** *(Interactive)* — Conversational AI walks the member step-by-step through credit data collection. Bot asks questions ("Which bureau pulled your report?", "When was the last missed payment?"), explains what each item means, and builds the dispute profile together with the member. Awards **+50 XP** on completion, unlocks the Dispute Center.
+- **Dispute Builder** *(Interactive)* — AI presents each negative item from the credit report as a card. Member taps to review → bot explains the dispute angle → member confirms or adjusts → bot generates the dispute letter in real-time. Each completed dispute round earns **+150 XP** and advances the CRI Score. Progress bar shows "Round 1 of 3" etc. Unlocks **Dispute Champion** badge after 5 successful resolutions.
+- **Tradeline Strategy Coach** *(Interactive)* — AI presents tradeline options as a decision tree. "Option A: Add authorized user tradeline (+15 pts est.) vs Option B: Secured card strategy (+8 pts/mo est.)" — member selects, bot explains tradeoffs, models projected impact visually. Each strategy executed earns **+75 XP**.
+- **Collections Shield** *(Interactive + Alert)* — Bot monitors for new collections in real-time. When detected: pushes an interactive alert → walks member through response options → auto-generates protection letter if member approves. Clearing a collection = **+200 XP** + CRI boost. Maintaining zero new collections for 90 days unlocks **Clean Shield** badge.
+- **CreditWithKen Session Prep** *(Interactive)* — Before each coaching session, bot runs a 5-minute interactive review: "Your CRI moved from 42 → 58 since last session. Here's what changed..." Member can flag questions for Ken. Attending earns **+100 XP**. Completing all prep questions = bonus **+25 XP**.
+- **Score Projection Simulator** *(Interactive)* — Member adjusts sliders (pay down $X, dispute Y items, add Z tradeline) and AI shows projected credit score trajectory in real-time as an animated graph. Hitting a projected milestone triggers a **Quest**: "Reach 680 by Q3 — here's your path." Quest completion = **+500 XP** bonus.
+- **Weekly Credit Challenge** *(Gamified)* — Bot issues a weekly micro-challenge: "Upload your latest credit report this week" (+25 XP), "Set up autopay on 2 accounts" (+50 XP), "Review and confirm your dispute status" (+30 XP). Streak of 4 consecutive weekly completions = **Streak King** progress.
 
 ---
 
@@ -131,12 +250,17 @@ AI bots monitor milestones and auto-surface the next relevant workflow.
 - **Vendor Audit Portal** — Vendor compliance tracking and audit scheduling
 - **Cure Window Calibration** — Timeline management for compliance cure periods
 
-#### AI Workflows
-- **HBI Score Calculator** — AI continuously scores operator across all behavioral metrics
-- **BRE Compliance Checker** — Bot audits operator status against BRE requirements
-- **VDI Auto-Scorer** — AI reviews uploaded docs and calculates VDI score
-- **Cure Window Alerter** — Bot monitors cure deadlines and sends escalating reminders
-- **Vendor Audit Prep Bot** — AI pre-audits vendor relationships before formal review
+#### AI Workflows (Interactive + Gamified)
+
+**HBI, VDI, and BRE Scores** — The three native gamified scores for Operations. All three are visible on the HBI Score Dashboard with animated gauges. Raising any score earns XP and unlocks tier perks.
+
+- **HBI Live Scorer** *(Interactive)* — AI presents your HBI breakdown as an interactive scorecard. Each of the 5 behavioral tiers is a tappable section — member clicks in, bot explains what's driving the score up or down, and offers a specific action: "Your response time is dragging Tier 3 down. Want me to set up auto-reply templates?" Member accepts → bot configures → score updates live. Each tier improvement = **+100 XP**. Reaching HBI 80+ unlocks **Operator Excellence** badge.
+- **BRE Compliance Walkthrough** *(Interactive)* — Bot runs a guided audit as a checklist conversation. "Let's check your BRE status. First: business license — is this current? [Upload / Confirm / Skip]" Each item is a step; bot explains why it matters, flags gaps, and offers to auto-generate fix actions. Completing a full audit pass = **+150 XP**. Passing with zero gaps = **Compliance Ace** badge progress (need 3 consecutive months).
+- **VDI Document Challenge** *(Interactive + Gamified)* — Each vehicle gets a VDI progress wheel. Bot prompts: "Your 2022 Escalade is at VDI 62. You're missing: registration renewal, last service record, insurance card. Upload any to level up." Each doc uploaded = **+25 XP** + VDI score bump. Hitting VDI 80+ on a vehicle = **+200 XP** + **Doc Master** badge progress. Bot sends weekly VDI Challenge: "Get 3 vehicles to VDI 80+ this month" = **+500 XP** quest.
+- **Revenue Lane Navigator** *(Interactive)* — AI presents the Revenue Lane vs Cure Lane as a branching path visualization. Bot asks diagnostic questions about current business state, then recommends a lane with reasoning: "Based on your HBI of 72 and 2 open cure items, I recommend Cure Lane first. Here's the 3-step plan..." Member selects lane → bot builds the action plan → tracks progress. Completing a lane path = **+300 XP**.
+- **Cure Window Coach** *(Interactive + Alert)* — Bot tracks all open cure windows as countdown timers. Sends escalating interactive nudges: "14 days left on your insurance cure — here's exactly what to submit. Want me to walk you through it now?" Member engages → bot guides step-by-step → awards **+75 XP** per cure resolved before deadline. Resolving all cures on time for a quarter = **Zero Cure** achievement.
+- **Vendor Audit Game** *(Interactive + Gamified)* — Bot turns vendor audit prep into a readiness quiz. "I'll ask you 10 questions about your vendor relationships. For each one you're ready for, you earn points. Let's see your Vendor Readiness Score." Interactive Q&A → bot scores responses → flags gaps → generates prep actions. Scoring 90%+ = **+150 XP** + **Audit Ready** badge.
+- **Monthly Operations Quest** *(Gamified)* — Cross-metric monthly challenge: "Raise HBI by 5, maintain VDI 80+ on all vehicles, and close 1 cure window." Progress bar tracks all three. Completing the quest = **+750 XP** + bonus toward tier upgrade.
 
 ---
 
@@ -304,16 +428,19 @@ AI bots monitor milestones and auto-surface the next relevant workflow.
 - **Revenue Forecasting** — Projected revenue based on pipeline and active clients
 - **Service Cost Calculator** — Cost-per-service analysis for pricing optimization
 
-#### AI Workflows
-- **Invoice Generator Bot** — AI creates invoices from completed service records
-- **Payment Reminder Engine** — Bot sends escalating payment reminders on schedule
-- **Follow-Up Scheduler** — AI schedules follow-ups based on client milestone and activity
-- **Follow-Up Script Generator** — Bot prepares talking points and context for each follow-up
-- **Aging Report Analyzer** — AI identifies at-risk accounts and recommends collection actions
-- **Budget Forecaster** — Bot models department spending and flags overruns
-- **Revenue Projector** — AI forecasts revenue by department, service, and client cohort
-- **Strategic Planning Advisor** — Bot analyzes performance data and recommends quarterly goals
-- **Audit Trail Logger** — AI maintains comprehensive audit logs for all financial transactions
+#### AI Workflows (Interactive + Gamified)
+
+**FPI Score (Financial Performance Index)** — The gamified score for this department. Tracks payment timeliness, invoice clarity, budget adherence, and follow-up responsiveness. Visible on the Accounting Dashboard with trend line and peer comparison.
+
+- **Invoice Walkthrough** *(Interactive)* — When a service completes, bot initiates: "Your PIFR Plus recovery is done. Let me build your invoice. Here's what's included..." Presents line items interactively — member reviews, confirms, or questions each. Bot explains charges in plain language. Approving and sending = **+30 XP**. Paying within 48hrs of issue = **+50 XP** bonus + FPI boost.
+- **Payment Plan Builder** *(Interactive)* — For larger balances, bot offers: "I see $2,400 outstanding. Want to set up a plan? Here are 3 options..." Presents plan options as cards with monthly amounts, timelines, and total cost. Member selects → bot sets up auto-payments → tracks adherence. Each on-time payment = **+50 XP**. Completing a full payment plan = **+200 XP** + **Clean Ledger** badge progress.
+- **Billing Clarity Bot** *(Interactive)* — Member can tap any invoice line item and ask "What's this?" Bot explains the charge, links it to the service record, and shows the SOW that authorized it. Zero confusion = better FPI. Members who review 100% of invoice items before paying earn a **Detail-Oriented** achievement.
+- **Follow-Up Responder** *(Interactive + Gamified)* — When a follow-up is due, bot sends interactive prompt: "Quick check-in: How's your credit dispute Round 2 going? [On track / Need help / Completed]" Member responds → bot routes to appropriate next action. Responding within 24hrs = **+40 XP**. 10 consecutive fast responses = **Responsive Member** badge.
+- **Budget Health Check** *(Interactive)* — Quarterly bot conversation: "Let's review your HIRECAR spend this quarter. You've used 3 services totaling $X. Here's your ROI so far..." Interactive breakdown with ROI per service. Bot recommends optimizations. Completing the review = **+50 XP**.
+- **Aging Alert Game** *(Interactive + Gamified)* — Bot turns outstanding balances into a clearance challenge: "You have 2 invoices aging past 30 days. Clear both this week for a **+150 XP** bonus and FPI boost." Shows countdown timer. Clearing before the deadline = bonus XP + animated celebration. Maintaining zero aging for 6 months = **Clean Ledger** badge.
+- **Planning Sprint** *(Interactive)* — Bot runs a quarterly planning session as a guided conversation: "Let's set your goals for Q2. Based on your journey, I recommend focusing on: [Credit: Reach 700] [Operations: HBI 80+] [Funding: Pre-qualify]. Which resonates?" Member selects → bot builds the action plan → sets milestone reminders. Completing quarterly goals = **+500 XP** quest reward.
+- **Financial Snapshot** *(Interactive)* — Weekly 60-second interactive report: bot presents key numbers as swipeable cards (spent this week, saved this month, upcoming due, FPI trend). Member can drill into any card. Reviewing weekly = part of daily streak. 12 consecutive weeks = **Financially Aware** badge.
+- **Audit Trail Explorer** *(Interactive)* — Member can ask bot: "Show me everything billed in January" or "Why did my FPI drop?" Bot pulls the audit trail, presents it visually, explains each event. Full transparency builds trust and engagement.
 
 ---
 
@@ -369,17 +496,22 @@ AI bots monitor milestones and auto-surface the next relevant workflow.
 - **Referral & Rewards Hub** — Track referrals, earned rewards, loyalty points, and tier progression
 - **Member Reviews & Feedback** — Rate services, submit feedback, view service quality metrics
 
-#### AI Workflows
-- **Onboarding Concierge** — AI guides new members through enrollment, profile setup, and initial service activation
-- **Service Recommender** — Bot analyzes member profile and journey phase to recommend relevant services
-- **Appointment Coordinator** — AI schedules across departments, prevents conflicts, sends reminders
-- **Document Organizer** — Bot auto-files incoming documents into the vault, tags them, and links to relevant services
-- **Support Triage Bot** — AI categorizes support requests, resolves common issues, escalates complex ones
-- **Member Health Monitor** — Bot tracks engagement, flags at-risk members (inactive, overdue, stalled)
-- **Renewal & Retention Engine** — AI manages membership renewals, sends upgrade recommendations, prevents churn
-- **Satisfaction Scorer** — Bot aggregates feedback and service metrics into a member satisfaction score
-- **Cross-Department Coordinator** — AI ensures smooth handoffs when a member's needs span multiple departments
-- **Notification Orchestrator** — Bot manages notification frequency and priority so members aren't overwhelmed
+#### AI Workflows (Interactive + Gamified)
+
+**MSI Score (Member Service Index)** — The gamified score for this department. Reflects how engaged, responsive, and active a member is across all HIRECAR services. The MSI is the "heartbeat" score — it ties all department scores together from the member's perspective. Visible on the Member Portal with pulse animation.
+
+**HIRECAR Composite Score** — The single number that combines HBI + VDI + BRE + CRI + FPI + MSI into one unified member health metric. Drives tier advancement and unlocks premium perks.
+
+- **Welcome Journey** *(Interactive)* — When a new member enrolls, bot launches a guided onboarding quest: "Welcome to HIRECAR. I'm your concierge. Let's get you set up in 5 steps." Each step is an interactive conversation (profile → vehicle registry → first service → document upload → schedule first appointment). Each step completed = **+50 XP**. Completing all 5 = **+100 XP** bonus + **Onboarded** badge + MSI baseline established.
+- **Service Discovery Engine** *(Interactive)* — Bot presents services as an interactive quiz: "Answer 5 questions and I'll show you exactly which HIRECAR services fit your situation." Swipeable cards with "This applies to me / Not right now" for each scenario. Results page shows matched services ranked by impact. Completing discovery = **+30 XP**. Activating a recommended service = **+75 XP**.
+- **Appointment Game** *(Interactive + Gamified)* — Bot makes scheduling feel rewarding: "You have 3 services that need attention this month. Book all 3 and earn the **On Schedule** bonus (+100 XP)." Interactive calendar view — tap a service → bot suggests optimal times → member confirms. Showing up to all booked appointments in a month = **Perfect Attendance** badge progress.
+- **Document Vault Quest** *(Interactive + Gamified)* — Bot gamifies document completeness: "Your vault is 62% complete. Here's what's missing..." Each missing doc is a mini-quest. Bot explains why it matters, how to get it, and offers to help (e.g., "Want me to request your insurance card from your provider?"). Each upload = **+25 XP** + vault completion % rises. Hitting 100% = **+200 XP** + **Vault Master** badge.
+- **Support Concierge** *(Interactive)* — When member needs help, bot starts a conversational triage: "What do you need help with today?" → category selection → bot attempts resolution → if stuck, seamlessly connects to human with full context pre-loaded. Rating the support experience afterward = **+10 XP**. High ratings contribute to MSI.
+- **Engagement Pulse** *(Interactive + Gamified)* — Bot tracks daily/weekly engagement and makes it visible: "You're on a 12-day streak! Here's what you've accomplished this week..." Animated streak counter on Member Portal. Daily login = **+5 XP**. 7-day streak = **+100 XP** bonus. 30-day streak = **Streak King** badge. Breaking a streak resets the counter but retains earned XP.
+- **Tier Progression Coach** *(Interactive)* — Bot acts as a personal advisor for tier advancement: "You're 340 XP from Operator tier. Here are the 3 fastest ways to get there..." Presents actionable recommendations ranked by XP value and effort. Member taps one → bot queues the workflow. Reaching a new tier = celebration animation + **+500 XP** + unlocked perks displayed.
+- **Cross-Department Navigator** *(Interactive)* — When a member's journey spans departments, bot manages the handoff conversationally: "Your credit dispute just resolved — great work! That moves you to the Operator Standards phase. Ready to check your HBI score?" Member confirms → bot bridges to the next department's workflow seamlessly, carrying context and XP progress.
+- **Monthly Recap & Rewards** *(Interactive)* — End-of-month interactive report: bot walks member through achievements, score changes, XP earned, badges unlocked, and progress toward quests. Presented as swipeable achievement cards. "You earned 450 XP this month, raised your CRI by 12 points, and completed 2 quests. Here's your badge..." Reviewing the recap = **+20 XP**.
+- **Renewal & Upgrade Advisor** *(Interactive)* — Before membership renewal, bot runs an interactive value review: "Here's what you used this year, what it saved you, and what you'd unlock at the next tier." Side-by-side comparison. Member can ask questions. Renewing = **+100 XP**. Upgrading tier = **+300 XP** + immediate access to new perks with guided tour.
 
 ---
 
