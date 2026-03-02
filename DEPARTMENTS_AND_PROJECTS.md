@@ -77,7 +77,10 @@ Built on HIRECAR's existing scoring systems, unified into a single progression f
 ║  │  HBI Score (0–100)  ─── Operator behavioral health across all depts │     ║
 ║  │  VDI Score (0–100)  ─── Vehicle documentation completeness          │     ║
 ║  │  BRE Score (0–100)  ─── Business readiness & compliance             │     ║
-║  │  CRI Score (0–100)  ─── Credit Recovery Index (NEW — HIRECREDIT)    │     ║
+║  │  CRI Score (0–100)  ─── Credit Recovery + Funding Index (HIRECREDIT)   │     ║
+║  │                          Tracks: credit health, dispute success rate,  │     ║
+║  │                          funding approvals (count + conditions),       │     ║
+║  │                          repayment performance, and funding readiness  │     ║
 ║  │  FPI Score (0–100)  ─── Financial Performance Index (NEW — Acctg)   │     ║
 ║  │  MSI Score (0–100)  ─── Member Service Index (NEW — Membership)     │     ║
 ║  │                                                                     │     ║
@@ -183,7 +186,7 @@ Built on HIRECAR's existing scoring systems, unified into a single progression f
 
 #### AI Workflows (Interactive + Gamified)
 
-**CRI Score (Credit Recovery Index)** — The gamified score for this department. Starts at your current credit health baseline and rises as you complete dispute cycles, clear collections, and follow tradeline strategy. Visible on your HIRECREDIT Dashboard with animated progress ring.
+**CRI Score (Credit Recovery + Funding Index)** — The gamified score for this department. Starts at your current credit health baseline and rises as you complete dispute cycles, clear collections, follow tradeline strategy, and **successfully secure funding**. The CRI now tracks a **Funding Ledger** — every funding event with HIRECAR is logged with: amount, type (SeedXchange/fleet/capital), approval conditions, repayment terms, on-time payment history, and outcome. Successful funding completions boost CRI significantly; defaults lower it. Visible on your HIRECREDIT Dashboard with animated progress ring + funding history timeline.
 
 - **Credit Intake Wizard** *(Interactive)* — Conversational AI walks the member step-by-step through credit data collection. Bot asks questions ("Which bureau pulled your report?", "When was the last missed payment?"), explains what each item means, and builds the dispute profile together with the member. Awards **+50 XP** on completion, unlocks the Dispute Center.
 - **Dispute Builder** *(Interactive)* — AI presents each negative item from the credit report as a card. Member taps to review → bot explains the dispute angle → member confirms or adjusts → bot generates the dispute letter in real-time. Each completed dispute round earns **+150 XP** and advances the CRI Score. Progress bar shows "Round 1 of 3" etc. Unlocks **Dispute Champion** badge after 5 successful resolutions.
