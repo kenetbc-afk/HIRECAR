@@ -1,0 +1,1445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HIRECAR MarketWatch! — Workflow Blueprint Visual</title>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&family=Cormorant+Garamond:wght@400;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink:       #111820;
+  --ink-2:     #1e2530;
+  --ink-3:     #2d3540;
+  --slate:     #3d4a58;
+  --mid:       #6b7280;
+  --muted:     #9aa3ad;
+  --border:    #dde1e7;
+  --border-lt: #edf0f3;
+  --bg:        #ffffff;
+  --white:     #ffffff;
+  --cta:       #c9920a;
+  --cta-hover: #b07d06;
+  --cta-bg:    #fef3d0;
+  --live:      #c0392b;
+  --member:    #0f4c75;
+  --member-lt: #e8f2f9;
+  --green:     #00e676;
+  --green-dim: rgba(0,230,118,.15);
+  --cyan:      #00bcd4;
+  --cyan-dim:  rgba(0,188,212,.12);
+  --purple:    #7955d4;
+  --orange:    #e58827;
+  --phase-intake:     #3466a4;
+  --phase-recovery:   #c0392b;
+  --phase-rebuilding: #c9920a;
+  --phase-operating:  #00a651;
+  --phase-scaling:    #7955d4;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Nunito Sans', system-ui, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--white);
+  background: #0d1117;
+  min-height: 100vh;
+}
+a { text-decoration: none; color: inherit; }
+
+/* ═══ TOP BAR ═══ */
+.top-bar {
+  background: var(--ink);
+  border-bottom: 2px solid var(--cta);
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.top-bar-brand {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 1px;
+}
+.top-bar-brand span { color: var(--cta); }
+.top-bar-subtitle {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--muted);
+  margin-left: 16px;
+}
+
+/* ═══ TAB NAV ═══ */
+.tab-nav {
+  display: flex;
+  gap: 0;
+  background: var(--ink-2);
+  border-bottom: 1px solid var(--ink-3);
+  padding: 0 24px;
+  overflow-x: auto;
+}
+.tab-btn {
+  padding: 12px 20px;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  transition: all .2s;
+  white-space: nowrap;
+}
+.tab-btn:hover { color: var(--white); background: rgba(255,255,255,.03); }
+.tab-btn.active { color: var(--cta); border-bottom-color: var(--cta); }
+
+/* ═══ TAB CONTENT ═══ */
+.tab-content { display: none; padding: 32px 24px; }
+.tab-content.active { display: block; }
+
+/* ═══ SECTION HEADERS ═══ */
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+.section-subtitle {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 24px;
+}
+
+/* ═══ MILESTONE JOURNEY ═══ */
+.journey-track {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 16px;
+}
+.phase-card {
+  flex: 0 0 320px;
+  background: var(--ink-2);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 2px solid var(--ink-3);
+  transition: border-color .3s, transform .2s;
+  cursor: pointer;
+}
+.phase-card:hover { transform: translateY(-4px); }
+.phase-card[data-phase="INTAKE"] { border-color: var(--phase-intake); }
+.phase-card[data-phase="RECOVERY"] { border-color: var(--phase-recovery); }
+.phase-card[data-phase="REBUILDING"] { border-color: var(--phase-rebuilding); }
+.phase-card[data-phase="OPERATING"] { border-color: var(--phase-operating); }
+.phase-card[data-phase="SCALING"] { border-color: var(--phase-scaling); }
+
+.phase-header {
+  padding: 16px 20px;
+  color: var(--white);
+  font-weight: 700;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.phase-card[data-phase="INTAKE"] .phase-header { background: var(--phase-intake); }
+.phase-card[data-phase="RECOVERY"] .phase-header { background: var(--phase-recovery); }
+.phase-card[data-phase="REBUILDING"] .phase-header { background: var(--phase-rebuilding); }
+.phase-card[data-phase="OPERATING"] .phase-header { background: var(--phase-operating); }
+.phase-card[data-phase="SCALING"] .phase-header { background: var(--phase-scaling); }
+
+.phase-header .icon { font-size: 20px; }
+.phase-body { padding: 16px 20px; }
+.phase-body .label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 12px;
+  margin-bottom: 4px;
+}
+.phase-card[data-phase="INTAKE"] .label { color: var(--phase-intake); }
+.phase-card[data-phase="RECOVERY"] .label { color: var(--phase-recovery); }
+.phase-card[data-phase="REBUILDING"] .label { color: var(--phase-rebuilding); }
+.phase-card[data-phase="OPERATING"] .label { color: var(--phase-operating); }
+.phase-card[data-phase="SCALING"] .label { color: var(--phase-scaling); }
+.phase-body .value {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.4;
+}
+.phase-body .xp-range {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 4px 12px;
+  background: var(--green-dim);
+  color: var(--green);
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 6px;
+}
+.phase-body .dept-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 4px;
+}
+.phase-body .dept-tag {
+  font-size: 9px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: var(--ink-3);
+  color: var(--cyan);
+  font-weight: 600;
+}
+
+/* ═══ PHASE CONNECTOR ═══ */
+.phase-connector {
+  display: flex;
+  align-items: center;
+  color: var(--cta);
+  font-size: 28px;
+  font-weight: 700;
+  flex-shrink: 0;
+  padding: 0 4px;
+}
+
+/* ═══ DEPARTMENT GRID ═══ */
+.dept-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(440px, 1fr));
+  gap: 20px;
+}
+.dept-card {
+  background: var(--ink-2);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 2px solid var(--ink-3);
+  transition: border-color .3s;
+}
+.dept-card:hover { border-color: var(--slate); }
+.dept-card-header {
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  user-select: none;
+}
+.dept-card-header .left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.dept-card-header .dept-icon {
+  font-size: 24px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+.dept-card-header .dept-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--white);
+}
+.dept-card-header .dept-id {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: var(--muted);
+}
+.dept-card-header .right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.dept-card-header .bot-count {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  color: var(--green);
+  background: var(--green-dim);
+  padding: 3px 10px;
+  border-radius: 6px;
+}
+.dept-card-header .toggle {
+  color: var(--muted);
+  font-size: 18px;
+  transition: transform .3s;
+}
+.dept-card.open .dept-card-header .toggle { transform: rotate(180deg); }
+
+.dept-card-meta {
+  padding: 0 20px 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.dept-card-meta .desc {
+  font-size: 12px;
+  color: var(--muted);
+  flex: 1;
+  min-width: 200px;
+}
+.dept-card-meta .phase-badge {
+  font-size: 9px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.phase-badge.INTAKE { background: rgba(52,102,164,.2); color: var(--phase-intake); }
+.phase-badge.RECOVERY { background: rgba(192,57,43,.2); color: var(--phase-recovery); }
+.phase-badge.REBUILDING { background: rgba(201,146,10,.2); color: var(--phase-rebuilding); }
+.phase-badge.OPERATING { background: rgba(0,166,81,.2); color: var(--phase-operating); }
+.phase-badge.SCALING { background: rgba(121,85,212,.2); color: var(--phase-scaling); }
+
+.dept-card-workflows {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .4s ease;
+}
+.dept-card.open .dept-card-workflows { max-height: 3000px; }
+
+.workflow-item {
+  padding: 14px 20px;
+  border-top: 1px solid var(--ink-3);
+}
+.workflow-item:hover { background: rgba(255,255,255,.02); }
+.wf-bot-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--cyan);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.wf-bot-name::before { content: '🤖'; }
+.wf-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 6px;
+  font-size: 12px;
+  line-height: 1.4;
+}
+.wf-label {
+  font-weight: 700;
+  flex-shrink: 0;
+  width: 70px;
+  text-transform: uppercase;
+  font-size: 10px;
+  padding-top: 1px;
+}
+.wf-label.trigger { color: var(--cta); }
+.wf-label.action { color: var(--green); }
+.wf-value { color: var(--muted); }
+.wf-badges {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+.wf-xp {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--green);
+  background: var(--green-dim);
+  padding: 2px 10px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+.wf-score {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--cyan);
+  background: var(--cyan-dim);
+  padding: 2px 10px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+/* ═══ GAMIFICATION ═══ */
+.gam-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+.gam-panel {
+  background: var(--ink-2);
+  border-radius: 16px;
+  padding: 24px;
+  border: 1px solid var(--ink-3);
+}
+.gam-panel-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--cta);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.tier-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.tier-card {
+  flex: 1;
+  padding: 16px;
+  border-radius: 12px;
+  background: var(--ink);
+  border: 2px solid var(--ink-3);
+  text-align: center;
+  transition: transform .2s;
+}
+.tier-card:hover { transform: scale(1.03); }
+.tier-name {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.tier-xp {
+  font-family: 'DM Mono', monospace;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.tier-label {
+  font-size: 10px;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+.tier-card.standard { border-color: var(--mid); }
+.tier-card.standard .tier-name, .tier-card.standard .tier-xp { color: var(--mid); }
+.tier-card.operator { border-color: var(--cyan); }
+.tier-card.operator .tier-name, .tier-card.operator .tier-xp { color: var(--cyan); }
+.tier-card.firstclass { border-color: var(--cta); }
+.tier-card.firstclass .tier-name, .tier-card.firstclass .tier-xp { color: var(--cta); }
+.tier-card.elite { border-color: var(--purple); }
+.tier-card.elite .tier-name, .tier-card.elite .tier-xp { color: var(--purple); }
+
+.score-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.score-card {
+  padding: 14px;
+  border-radius: 10px;
+  background: var(--ink);
+  border: 1px solid var(--ink-3);
+}
+.score-id {
+  font-family: 'DM Mono', monospace;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--cyan);
+}
+.score-name {
+  font-size: 11px;
+  color: var(--muted);
+  margin: 4px 0;
+}
+.score-range {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  color: var(--green);
+}
+.score-bar {
+  height: 4px;
+  background: var(--ink-3);
+  border-radius: 2px;
+  margin-top: 8px;
+  overflow: hidden;
+}
+.score-bar-fill {
+  height: 100%;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--cyan), var(--green));
+  transition: width 1s ease;
+}
+
+.badge-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.badge-card {
+  padding: 12px;
+  border-radius: 10px;
+  background: var(--ink);
+  border: 1px solid var(--ink-3);
+  text-align: center;
+  transition: transform .2s;
+}
+.badge-card:hover { transform: scale(1.04); }
+.badge-icon { font-size: 28px; margin-bottom: 6px; }
+.badge-name { font-size: 12px; font-weight: 700; color: var(--cta); }
+.badge-cond { font-size: 10px; color: var(--muted); margin: 4px 0; }
+.badge-xp {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--green);
+  font-weight: 600;
+}
+
+.ai-pattern {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  justify-content: center;
+  margin-top: 16px;
+}
+.pattern-step {
+  padding: 10px 24px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 8px;
+  background: var(--ink);
+  border: 2px solid var(--green);
+  color: var(--green);
+}
+.pattern-arrow {
+  font-size: 20px;
+  color: var(--cta);
+  padding: 0 8px;
+}
+
+/* ═══ BOT TABLE ═══ */
+.table-controls {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+.search-box {
+  flex: 1;
+  min-width: 250px;
+  padding: 10px 16px;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 14px;
+  background: var(--ink-2);
+  border: 1px solid var(--ink-3);
+  border-radius: 8px;
+  color: var(--white);
+  outline: none;
+}
+.search-box:focus { border-color: var(--cta); }
+.search-box::placeholder { color: var(--mid); }
+.filter-btn {
+  padding: 8px 16px;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  background: var(--ink-2);
+  border: 1px solid var(--ink-3);
+  border-radius: 8px;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all .2s;
+}
+.filter-btn:hover, .filter-btn.active { background: var(--ink-3); color: var(--white); border-color: var(--cta); }
+
+.bot-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+.bot-table thead th {
+  text-align: left;
+  padding: 10px 12px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--cta);
+  border-bottom: 2px solid var(--ink-3);
+  position: sticky;
+  top: 50px;
+  background: #0d1117;
+  cursor: pointer;
+}
+.bot-table thead th:hover { color: var(--white); }
+.bot-table tbody tr {
+  border-bottom: 1px solid var(--ink-3);
+  transition: background .15s;
+}
+.bot-table tbody tr:hover { background: rgba(255,255,255,.03); }
+.bot-table tbody td {
+  padding: 10px 12px;
+  color: var(--muted);
+  vertical-align: top;
+}
+.bot-table .col-dept { color: var(--white); font-weight: 600; }
+.bot-table .col-bot { color: var(--cyan); font-weight: 600; }
+.bot-table .col-trigger { color: var(--muted); max-width: 280px; }
+.bot-table .col-action { color: var(--muted); max-width: 320px; }
+.bot-table .col-xp { color: var(--green); font-family: 'DM Mono', monospace; font-weight: 600; }
+.bot-table .col-score { color: var(--cyan); font-family: 'DM Mono', monospace; font-weight: 600; }
+
+/* ═══ FUNNEL MAP ═══ */
+.funnel-visual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 24px 0;
+}
+.funnel-row {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.funnel-box {
+  padding: 20px 28px;
+  border-radius: 12px;
+  text-align: center;
+  min-width: 240px;
+  transition: transform .2s;
+}
+.funnel-box:hover { transform: scale(1.03); }
+.funnel-box.source {
+  background: var(--ink-2);
+  border: 2px solid var(--slate);
+}
+.funnel-box.content {
+  background: rgba(0,188,212,.08);
+  border: 2px solid var(--cyan);
+}
+.funnel-box.service {
+  background: rgba(201,146,10,.08);
+  border: 2px solid var(--cta);
+}
+.funnel-box.external {
+  background: rgba(107,114,128,.08);
+  border: 2px solid var(--mid);
+}
+.funnel-box.terminal {
+  background: linear-gradient(135deg, rgba(201,146,10,.15), rgba(201,146,10,.05));
+  border: 3px solid var(--cta);
+  min-width: 500px;
+}
+.funnel-box .f-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.funnel-box .f-desc {
+  font-size: 12px;
+  color: var(--muted);
+}
+.funnel-box .f-count {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  color: var(--green);
+  margin-top: 8px;
+}
+.funnel-arrow {
+  font-size: 32px;
+  color: var(--cta);
+}
+
+/* ═══ STATS BAR ═══ */
+.stats-bar {
+  display: flex;
+  gap: 0;
+  background: var(--ink);
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 24px 0;
+  border: 1px solid var(--ink-3);
+}
+.stat-item {
+  flex: 1;
+  padding: 20px;
+  text-align: center;
+  border-right: 1px solid var(--ink-3);
+}
+.stat-item:last-child { border-right: none; }
+.stat-value {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--cta);
+}
+.stat-label {
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ═══ COMPOSITE FORMULA ═══ */
+.formula-box {
+  background: var(--ink);
+  border: 2px solid var(--cta);
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+  margin: 24px 0;
+}
+.formula-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--cta);
+  margin-bottom: 12px;
+}
+.formula-text {
+  font-family: 'DM Mono', monospace;
+  font-size: 16px;
+  color: var(--green);
+  line-height: 1.8;
+}
+
+/* ═══ FOOTER ═══ */
+.page-footer {
+  padding: 24px;
+  text-align: center;
+  border-top: 1px solid var(--ink-3);
+  margin-top: 40px;
+}
+.page-footer p {
+  font-size: 12px;
+  color: var(--mid);
+}
+.page-footer .brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--cta);
+}
+
+/* ═══ RESPONSIVE ═══ */
+@media (max-width: 900px) {
+  .dept-grid { grid-template-columns: 1fr; }
+  .gam-grid { grid-template-columns: 1fr; }
+  .score-grid { grid-template-columns: repeat(2, 1fr); }
+  .badge-grid { grid-template-columns: repeat(2, 1fr); }
+  .tier-row { flex-wrap: wrap; }
+  .stats-bar { flex-wrap: wrap; }
+  .stat-item { flex: 0 0 50%; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ TOP BAR ═══ -->
+<header class="top-bar">
+  <div style="display:flex;align-items:center;">
+    <div class="top-bar-brand">HIRECAR <span>MarketWatch!</span></div>
+    <span class="top-bar-subtitle">Workflow Blueprint Visual — 16 Departments · 82 AI Bots · 5 Phases</span>
+  </div>
+  <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--mid);">v1.0 · 2026-03-03</div>
+</header>
+
+<!-- ═══ TAB NAV ═══ -->
+<nav class="tab-nav">
+  <button class="tab-btn active" data-tab="journey">Client Journey</button>
+  <button class="tab-btn" data-tab="departments">16 Departments</button>
+  <button class="tab-btn" data-tab="gamification">Gamification Engine</button>
+  <button class="tab-btn" data-tab="bots">Bot Trigger Table</button>
+  <button class="tab-btn" data-tab="funnel">Funnel Convergence</button>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- TAB 1: CLIENT MILESTONE JOURNEY                                -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div class="tab-content active" id="tab-journey">
+  <div class="section-title">Client Milestone Journey</div>
+  <div class="section-subtitle">Every client progresses through 5 phases — each phase activates different departments, workflows, and scoring systems</div>
+
+  <!-- Stats -->
+  <div class="stats-bar">
+    <div class="stat-item"><div class="stat-value">5</div><div class="stat-label">Phases</div></div>
+    <div class="stat-item"><div class="stat-value">16</div><div class="stat-label">Departments</div></div>
+    <div class="stat-item"><div class="stat-value">82</div><div class="stat-label">AI Bot Workflows</div></div>
+    <div class="stat-item"><div class="stat-value">6</div><div class="stat-label">Scoring Systems</div></div>
+    <div class="stat-item"><div class="stat-value">4</div><div class="stat-label">Tiers</div></div>
+    <div class="stat-item"><div class="stat-value">9</div><div class="stat-label">Badges</div></div>
+    <div class="stat-item"><div class="stat-value">219</div><div class="stat-label">Front Page Links</div></div>
+    <div class="stat-item"><div class="stat-value">3</div><div class="stat-label">Terminal Funnels</div></div>
+  </div>
+
+  <div class="journey-track" id="journey-track"></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- TAB 2: 16 DEPARTMENTS                                          -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div class="tab-content" id="tab-departments">
+  <div class="section-title">All 16 Departments — AI Bot Workflows</div>
+  <div class="section-subtitle">Click any department to expand and view all bot workflows with trigger conditions, actions, XP awards, and score impacts</div>
+  <div class="dept-grid" id="dept-grid"></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- TAB 3: GAMIFICATION ENGINE                                     -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div class="tab-content" id="tab-gamification">
+  <div class="section-title">Gamification Engine — Governing Rules</div>
+  <div class="section-subtitle">XP tiers, 6 scoring systems, 9 achievement badges, AI interaction pattern, and composite score formula</div>
+
+  <div class="gam-grid">
+    <!-- Tiers -->
+    <div class="gam-panel">
+      <div class="gam-panel-title">⚡ XP Tiers</div>
+      <div class="tier-row">
+        <div class="tier-card standard">
+          <div class="tier-name">Standard</div>
+          <div class="tier-xp">0</div>
+          <div class="tier-label">Starting XP</div>
+        </div>
+        <div class="tier-card operator">
+          <div class="tier-name">Operator</div>
+          <div class="tier-xp">1,000</div>
+          <div class="tier-label">XP Threshold</div>
+        </div>
+        <div class="tier-card firstclass">
+          <div class="tier-name">First Class</div>
+          <div class="tier-xp">5,000</div>
+          <div class="tier-label">XP Threshold</div>
+        </div>
+        <div class="tier-card elite">
+          <div class="tier-name">Elite</div>
+          <div class="tier-xp">15,000</div>
+          <div class="tier-label">XP Threshold</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AI Pattern -->
+    <div class="gam-panel">
+      <div class="gam-panel-title">🤖 Interactive AI Workflow Pattern</div>
+      <p style="font-size:12px;color:var(--muted);margin-bottom:16px;">Every AI bot follows this 5-step interaction pattern with the client:</p>
+      <div class="ai-pattern">
+        <div class="pattern-step">GREET</div>
+        <div class="pattern-arrow">→</div>
+        <div class="pattern-step">GUIDE</div>
+        <div class="pattern-arrow">→</div>
+        <div class="pattern-step">ACT</div>
+        <div class="pattern-arrow">→</div>
+        <div class="pattern-step">REWARD</div>
+        <div class="pattern-arrow">→</div>
+        <div class="pattern-step">NEXT</div>
+      </div>
+      <div style="margin-top:16px;font-size:11px;color:var(--muted);text-align:center;">
+        <strong style="color:var(--green)">GREET</strong> Welcome + context &nbsp;→&nbsp;
+        <strong style="color:var(--green)">GUIDE</strong> Explain what's needed &nbsp;→&nbsp;
+        <strong style="color:var(--green)">ACT</strong> Execute the workflow &nbsp;→&nbsp;
+        <strong style="color:var(--green)">REWARD</strong> Award XP + update scores &nbsp;→&nbsp;
+        <strong style="color:var(--green)">NEXT</strong> Suggest next action
+      </div>
+    </div>
+  </div>
+
+  <!-- 6 Scoring Systems -->
+  <div class="gam-panel" style="margin-bottom:24px;">
+    <div class="gam-panel-title">📊 6 Scoring Systems (0–100 each)</div>
+    <div class="score-grid" id="score-grid"></div>
+  </div>
+
+  <!-- Composite Score Formula -->
+  <div class="formula-box">
+    <div class="formula-title">HIRECAR Composite Score Formula</div>
+    <div class="formula-text">
+      Composite = (HBI × 0.25) + (VDI × 0.15) + (BRE × 0.20) + (CRI × 0.10) + (FPI × 0.15) + (MSI × 0.15)
+    </div>
+    <p style="font-size:12px;color:var(--muted);margin-top:12px;">
+      Weighted average across all 6 systems · Range: 0–100 · Determines tier eligibility, service access, and funding qualification
+    </p>
+  </div>
+
+  <!-- 9 Badges -->
+  <div class="gam-panel">
+    <div class="gam-panel-title">🏅 9 Achievement Badges</div>
+    <div class="badge-grid" id="badge-grid"></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- TAB 4: BOT TRIGGER TABLE                                       -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div class="tab-content" id="tab-bots">
+  <div class="section-title">Master Bot Trigger Table</div>
+  <div class="section-subtitle">All 82 AI bot workflows — searchable and filterable by department, score system, or keyword</div>
+
+  <div class="table-controls">
+    <input type="text" class="search-box" id="bot-search" placeholder="Search bots, triggers, actions, departments...">
+    <button class="filter-btn active" data-filter="all">All (82)</button>
+    <button class="filter-btn" data-filter="HBI">HBI</button>
+    <button class="filter-btn" data-filter="VDI">VDI</button>
+    <button class="filter-btn" data-filter="BRE">BRE</button>
+    <button class="filter-btn" data-filter="CRI">CRI</button>
+    <button class="filter-btn" data-filter="FPI">FPI</button>
+    <button class="filter-btn" data-filter="MSI">MSI</button>
+  </div>
+
+  <table class="bot-table">
+    <thead>
+      <tr>
+        <th>Department</th>
+        <th>Bot Name</th>
+        <th>Trigger Condition</th>
+        <th>Action</th>
+        <th>XP</th>
+        <th>Score</th>
+      </tr>
+    </thead>
+    <tbody id="bot-table-body"></tbody>
+  </table>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- TAB 5: FUNNEL CONVERGENCE                                      -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div class="tab-content" id="tab-funnel">
+  <div class="section-title">Master Funnel Convergence Map</div>
+  <div class="section-subtitle">Every link on the HIRECAR MarketWatch! front page feeds into one of 3 terminal funnels — all converging to Apply to Qualify</div>
+
+  <div class="funnel-visual">
+    <!-- Source -->
+    <div class="funnel-row">
+      <div class="funnel-box source">
+        <div class="f-title" style="color:var(--white);">ALL FRONT PAGE LINKS</div>
+        <div class="f-desc">219 total links across 13 Sigma sections</div>
+        <div class="f-count">57 active · 160 placeholder · 3 external</div>
+      </div>
+    </div>
+
+    <div class="funnel-arrow">▼</div>
+
+    <!-- Three funnels -->
+    <div class="funnel-row">
+      <div class="funnel-box content">
+        <div class="f-title" style="color:var(--cyan);">CONTENT FUNNEL</div>
+        <div class="f-desc">Read/Info actions → Desktop Mode<br>Scroll engagement → Article consumption</div>
+        <div class="f-count">~57 active links</div>
+      </div>
+      <div class="funnel-box service">
+        <div class="f-title" style="color:var(--cta);">SERVICE FUNNEL</div>
+        <div class="f-desc">Reserve/Purchase → Slide 5 Carousel<br>Product selection → Application</div>
+        <div class="f-count">~30 JS CTAs</div>
+      </div>
+      <div class="funnel-box external">
+        <div class="f-title" style="color:var(--mid);">EXTERNAL HANDOFF</div>
+        <div class="f-desc">HIRECAR.LA / Partner exits<br>Separate conversion funnels</div>
+        <div class="f-count">3 external exits</div>
+      </div>
+    </div>
+
+    <div class="funnel-arrow">▼</div>
+
+    <!-- Products -->
+    <div class="funnel-row">
+      <div class="funnel-box source" style="min-width:160px;">
+        <div class="f-title" style="color:var(--white);font-size:13px;">Credit Card</div>
+        <div class="f-desc">Application</div>
+      </div>
+      <div class="funnel-box source" style="min-width:160px;">
+        <div class="f-title" style="color:var(--white);font-size:13px;">Membership</div>
+        <div class="f-desc">Sign-Up</div>
+      </div>
+      <div class="funnel-box source" style="min-width:160px;">
+        <div class="f-title" style="color:var(--white);font-size:13px;">PIFR</div>
+        <div class="f-desc">SKU Select</div>
+      </div>
+      <div class="funnel-box source" style="min-width:160px;">
+        <div class="f-title" style="color:var(--white);font-size:13px;">Insurance</div>
+        <div class="f-desc">Quote</div>
+      </div>
+      <div class="funnel-box source" style="min-width:160px;">
+        <div class="f-title" style="color:var(--white);font-size:13px;">Chauffeur</div>
+        <div class="f-desc">Booking</div>
+      </div>
+      <div class="funnel-box source" style="min-width:160px;">
+        <div class="f-title" style="color:var(--white);font-size:13px;">MW Report</div>
+        <div class="f-desc">Purchase</div>
+      </div>
+    </div>
+
+    <div class="funnel-arrow">▼</div>
+
+    <!-- Terminal -->
+    <div class="funnel-row">
+      <div class="funnel-box terminal">
+        <div class="f-title" style="color:var(--cta);font-size:22px;">⚡ APPLY TO QUALIFY</div>
+        <div class="f-desc" style="font-size:14px;color:var(--white);">First Class Qualification — Terminal Conversion Point</div>
+        <div class="f-desc" style="margin-top:8px;">Lead Capture → Verify (4-digit code) → Thank You → LIVE Access → Full Hero Carousel Active</div>
+        <div class="f-count" style="font-size:14px;">The entire MarketWatch front page ecosystem converges here</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Remote Entry State Machine -->
+  <div class="gam-panel" style="margin-top:32px;">
+    <div class="gam-panel-title">🔄 Remote Entry State Machine</div>
+    <div class="ai-pattern" style="flex-wrap:wrap;gap:8px;">
+      <div class="pattern-step" style="border-color:var(--cyan);color:var(--cyan);">idle</div>
+      <div class="pattern-arrow">→</div>
+      <div class="pattern-step" style="border-color:var(--purple);color:var(--purple);">tronOverlay</div>
+      <div class="pattern-arrow">→</div>
+      <div class="pattern-step" style="border-color:var(--cta);color:var(--cta);">leadModal</div>
+      <div class="pattern-arrow">→</div>
+      <div class="pattern-step" style="border-color:var(--orange);color:var(--orange);">verify</div>
+      <div class="pattern-arrow">→</div>
+      <div class="pattern-step" style="border-color:var(--green);color:var(--green);">thankYou</div>
+      <div class="pattern-arrow">→</div>
+      <div class="pattern-step" style="border-color:var(--green);color:var(--green);">heroRevealed</div>
+    </div>
+    <p style="font-size:11px;color:var(--muted);text-align:center;margin-top:12px;">
+      Returning users (with remember flag) skip leadModal → pushToStart → heroRevealed
+    </p>
+  </div>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="page-footer">
+  <p class="brand">HIRECAR MarketWatch!</p>
+  <p>Workflow Blueprint Visual v1.0 · Generated 2026-03-03 · Auto Operator Intelligence</p>
+  <p style="margin-top:8px;">16 Departments · 82 AI Bot Workflows · 5 Milestone Phases · 6 Scoring Systems · 9 Badges · 4 Tiers</p>
+</footer>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- DATA + SCRIPTS                                                 -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<script>
+// ─── ALL DATA ─────────────────────────────────────────────────────
+const DEPARTMENTS = [
+  {
+    id:'CREDIT', name:'Credit Repair', icon:'💳', color:'var(--cta)',
+    phase:['INTAKE','RECOVERY','REBUILDING'],
+    desc:'HIRECREDIT — Post-Incident Financial Recovery',
+    workflows:[
+      {bot:'CreditScan Bot',trigger:'Client onboarding OR collision event detected',action:'Pull credit report, flag negatives, calculate HBI baseline',xp:100,score:'HBI'},
+      {bot:'DisputeEngine Bot',trigger:'HBI < 60 OR negative tradeline detected',action:'Auto-generate dispute letters, file with bureaus, track 30/60/90 day cycles',xp:200,score:'HBI'},
+      {bot:'CollectionsShield Bot',trigger:'Collection account appears on report',action:'Validate debt, send cease/desist, negotiate pay-for-delete',xp:150,score:'HBI'},
+      {bot:'CreditCoach Bot',trigger:'Client enters REBUILDING phase',action:'Weekly credit tips, spending alerts, utilization monitoring',xp:50,score:'HBI'},
+      {bot:'ApprovalPath Bot',trigger:'HBI >= 70 AND client requests funding',action:'Generate Approval Pathway Blueprint, map to funding products',xp:250,score:'FPI'},
+      {bot:'TradeLine Bot',trigger:'Dispute resolved OR new account opened',action:'Update tradeline tracker, recalculate HBI, notify client',xp:75,score:'HBI'},
+    ]
+  },
+  {
+    id:'COLLISION', name:'Collision + Claims', icon:'💥', color:'var(--live)',
+    phase:['INTAKE','RECOVERY'],
+    desc:'Multi-party collision claims management & PIFR',
+    workflows:[
+      {bot:'CollisionIntake Bot',trigger:'New collision report filed OR police report uploaded',action:'Parse collision data, identify all parties, create claims timeline',xp:150,score:'CRI'},
+      {bot:'ClaimsCycle Bot',trigger:'Collision intake complete',action:'Track insurance claims across all parties, flag delays, auto-follow-up',xp:200,score:'CRI'},
+      {bot:'PIFREngine Bot',trigger:'Claims cycle > 30 days OR admin failure detected',action:'Generate PIFR packet, compile evidence timeline, prepare dispute',xp:300,score:'CRI'},
+      {bot:'CustodyLog Bot',trigger:'Vehicle enters repair OR rental custody',action:'Track vehicle custody chain, document handoffs, flag gaps',xp:100,score:'VDI'},
+      {bot:'AdminFailure Bot',trigger:'Insurance company misses SLA OR documentation error found',action:'Flag admin failure, generate complaint letter, escalate to supervisor',xp:175,score:'CRI'},
+    ]
+  },
+  {
+    id:'OPERATOR', name:'Operator Standards', icon:'📋', color:'var(--member)',
+    phase:['REBUILDING','OPERATING'],
+    desc:'BRE System, HBI Scoring, VDI Standards compliance',
+    workflows:[
+      {bot:'HBIScoring Bot',trigger:'Weekly schedule OR manual trigger by client',action:'Calculate HBI score (0-100), flag cure items, generate report',xp:100,score:'HBI'},
+      {bot:'VDIAudit Bot',trigger:'Document uploaded OR monthly VDI cycle',action:'Audit vehicle documents, check expiration dates, score VDI (0-100)',xp:125,score:'VDI'},
+      {bot:'BREEngine Bot',trigger:'HBI + VDI scores updated',action:'Run Business Readiness Engine, classify Revenue vs Cure Lane',xp:150,score:'BRE'},
+      {bot:'VendorAudit Bot',trigger:'New vendor added OR quarterly review cycle',action:'Verify vendor credentials, insurance, compliance. Score vendor reliability',xp:100,score:'BRE'},
+      {bot:'CureWindow Bot',trigger:'BRE classifies client in Cure Lane',action:'Set 30-day cure window, daily check-ins, remediation tasks',xp:200,score:'BRE'},
+      {bot:'RevenueGate Bot',trigger:'Cure window complete AND all items resolved',action:'Clear for Revenue Lane, unlock premium services, notify account team',xp:300,score:'BRE'},
+    ]
+  },
+  {
+    id:'RECOVERY', name:'Recovery + PIFR', icon:'🔄', color:'var(--orange)',
+    phase:['RECOVERY','REBUILDING'],
+    desc:'Post-Incident Financial Recovery tiered products',
+    workflows:[
+      {bot:'PIFRTriage Bot',trigger:'New incident report OR collision claim filed',action:'Assess incident severity, recommend PIFR tier (Core/Plus/Max/Shield)',xp:150,score:'CRI'},
+      {bot:'RecoveryTimeline Bot',trigger:'PIFR tier selected',action:'Build full recovery timeline, set milestones, assign tasks',xp:200,score:'CRI'},
+      {bot:'EvidenceCompiler Bot',trigger:'New document uploaded for PIFR case',action:'Organize evidence, check completeness, flag missing items',xp:100,score:'CRI'},
+      {bot:'SettlementTracker Bot',trigger:'Settlement offer received OR negotiation milestone',action:'Track all settlement offers, compare to target, recommend accept/counter',xp:250,score:'FPI'},
+      {bot:'RecoveryScore Bot',trigger:'Monthly assessment OR case milestone reached',action:'Calculate recovery progress %, update CRI score, adjust timeline',xp:75,score:'CRI'},
+    ]
+  },
+  {
+    id:'INSURANCE', name:'Auto Insurance', icon:'🛡️', color:'var(--cyan)',
+    phase:['INTAKE','OPERATING'],
+    desc:'Operator policies, fleet coverage, gap insurance',
+    workflows:[
+      {bot:'PolicyScan Bot',trigger:'Client onboarding OR policy renewal date approaching',action:'Analyze current coverage, identify gaps, recommend upgrades',xp:125,score:'FPI'},
+      {bot:'QuoteEngine Bot',trigger:'Coverage gap identified OR client requests quote',action:'Pull multi-carrier quotes, compare rates, present options',xp:150,score:'FPI'},
+      {bot:'FleetCoverage Bot',trigger:'New vehicle added to fleet OR annual fleet review',action:'Ensure all fleet vehicles covered, batch policy updates',xp:100,score:'VDI'},
+      {bot:'ClaimsAssist Bot',trigger:'Insurance claim filed',action:'Guide through claims process, track status, flag delays',xp:175,score:'CRI'},
+      {bot:'BillingFog Bot',trigger:'Payment missed OR billing discrepancy detected',action:'Analyze billing, identify errors, dispute overcharges, prevent collections',xp:200,score:'FPI'},
+    ]
+  },
+  {
+    id:'FUNDING', name:'Business Funding', icon:'💰', color:'var(--green)',
+    phase:['OPERATING','SCALING'],
+    desc:'SeedXchange — 24hr qualification, fleet expansion capital',
+    workflows:[
+      {bot:'FundingReady Bot',trigger:'Client enters OPERATING phase OR requests funding assessment',action:'Run funding readiness check: HBI, BRE, revenue, time-in-business',xp:200,score:'FPI'},
+      {bot:'SeedXchange Bot',trigger:'Funding readiness score >= 70',action:'Submit to SeedXchange, 24hr qualification, match with capital sources',xp:300,score:'FPI'},
+      {bot:'FleetExpansion Bot',trigger:'Funding approved AND fleet growth plan submitted',action:'Calculate fleet expansion ROI, recommend vehicle types, project revenue',xp:250,score:'MSI'},
+      {bot:'CapitalDeploy Bot',trigger:'Funds disbursed',action:'Track capital deployment, monitor ROI, flag underperformance',xp:150,score:'FPI'},
+      {bot:'RepayTracker Bot',trigger:'Repayment schedule active',action:'Monitor payments, send reminders, flag risk of default',xp:100,score:'FPI'},
+    ]
+  },
+  {
+    id:'MOBILITY', name:'Mobility + Rentals', icon:'🚗', color:'var(--member)',
+    phase:['OPERATING','SCALING'],
+    desc:'Luxury fleet, daily drivers, airport transfers, long-term',
+    workflows:[
+      {bot:'FleetMatch Bot',trigger:'Client searches vehicles OR reservation request',action:'Match to available fleet, check eligibility, present options with pricing',xp:100,score:'MSI'},
+      {bot:'Reservation Bot',trigger:'Vehicle selected by client',action:'Process reservation, collect deposit, confirm availability, send confirmation',xp:150,score:'MSI'},
+      {bot:'HandoffCoordinator Bot',trigger:'Reservation date approaches (24hr)',action:'Coordinate vehicle prep, confirm pickup details, send directions',xp:75,score:'MSI'},
+      {bot:'FleetHealth Bot',trigger:'Daily fleet scan OR vehicle return',action:'Inspect vehicle condition, log mileage, schedule maintenance if needed',xp:100,score:'VDI'},
+      {bot:'RentalRevenue Bot',trigger:'Monthly cycle',action:'Calculate rental revenue per vehicle, utilization rates, pricing optimization',xp:125,score:'MSI'},
+    ]
+  },
+  {
+    id:'ROADSIDE', name:'Roadside + Emergency', icon:'🚨', color:'var(--live)',
+    phase:['INTAKE','OPERATING'],
+    desc:'24/7 roadside, EV charging, tire/battery, towing',
+    workflows:[
+      {bot:'EmergencyDispatch Bot',trigger:'Emergency request (roadside button OR call)',action:'Locate client via GPS, dispatch nearest provider, ETA tracking',xp:200,score:'MSI'},
+      {bot:'TowCoordinator Bot',trigger:'Vehicle non-drivable confirmed',action:'Arrange tow, coordinate with repair shop, update custody log',xp:150,score:'VDI'},
+      {bot:'EVCharge Bot',trigger:'EV battery low alert OR charge request',action:'Locate nearest charger, reserve spot, provide routing',xp:75,score:'MSI'},
+      {bot:'MaintenanceScheduler Bot',trigger:'Mileage threshold OR service interval reached',action:'Schedule oil change/tire/battery service, send reminders, confirm booking',xp:100,score:'VDI'},
+    ]
+  },
+  {
+    id:'ENTERTAINMENT', name:'Entertainment + Culture', icon:'🎬', color:'var(--purple)',
+    phase:['OPERATING','SCALING'],
+    desc:'Garage Series, Wrap Culture, community events',
+    workflows:[
+      {bot:'ContentCurator Bot',trigger:'New content published OR weekly content calendar',action:'Curate city-specific entertainment, auto-tag, push to relevant clients',xp:50,score:'MSI'},
+      {bot:'EventPromoter Bot',trigger:'Event created OR 7 days before event',action:'Generate event promotion, target eligible members, track RSVPs',xp:100,score:'MSI'},
+      {bot:'CommunityEngagement Bot',trigger:'Client completes 3+ interactions in week',action:'Suggest community content, invite to events, award engagement XP',xp:75,score:'MSI'},
+      {bot:'StorySpotlight Bot',trigger:'Operator milestone achieved (tier up, badge earned)',action:'Feature operator story, create content piece, share across channels',xp:150,score:'MSI'},
+    ]
+  },
+  {
+    id:'INTELLIGENCE', name:'MW Intelligence', icon:'📊', color:'var(--cyan)',
+    phase:['RECOVERY','REBUILDING','OPERATING','SCALING'],
+    desc:'MCI reports, HBI distribution, collision data analytics',
+    workflows:[
+      {bot:'DataCollector Bot',trigger:'New collision data available OR monthly data refresh',action:'Ingest LA collision data (810K+ records), update MCI dataset',xp:100,score:'MSI'},
+      {bot:'ReportGenerator Bot',trigger:'Client requests report OR quarterly schedule',action:'Generate custom intelligence report, market analysis, competitor data',xp:200,score:'MSI'},
+      {bot:'HBIDistribution Bot',trigger:'Monthly HBI recalculation complete',action:'Generate HBI distribution chart, rank operator, identify trends',xp:150,score:'HBI'},
+      {bot:'AlertEngine Bot',trigger:'Market anomaly detected OR threshold breach',action:'Push real-time alert to operators, recommend actions',xp:125,score:'MSI'},
+      {bot:'ExportEngine Bot',trigger:'Data export requested by client',action:'Package data export (239K format), apply access controls, deliver',xp:75,score:'MSI'},
+    ]
+  },
+  {
+    id:'PLAYBOOKS', name:'Playbooks + Guides', icon:'📖', color:'var(--cta)',
+    phase:['REBUILDING','OPERATING'],
+    desc:'Operator guides, HBI playbook, VDI checklist, cure window',
+    workflows:[
+      {bot:'PlaybookAssign Bot',trigger:'Client enters new phase OR score drops below threshold',action:'Assign relevant playbook, create checklist, set deadlines',xp:100,score:'BRE'},
+      {bot:'ChecklistTracker Bot',trigger:'Playbook assigned OR checklist item due',action:'Track checklist progress, send reminders, verify completions',xp:75,score:'BRE'},
+      {bot:'ExhibitReady Bot',trigger:'Client approaching audit OR compliance review',action:'Pre-audit check, compile required documents, generate exhibit packet',xp:200,score:'VDI'},
+      {bot:'GuideRecommender Bot',trigger:'Score improvement stalls OR client asks for help',action:'Analyze gaps, recommend specific playbook sections, create action plan',xp:125,score:'BRE'},
+    ]
+  },
+  {
+    id:'COACHING', name:'CreditWithKen', icon:'🎓', color:'var(--cta)',
+    phase:['RECOVERY','REBUILDING','OPERATING'],
+    desc:'1-on-1 credit coaching, funding readiness, approval pathway',
+    workflows:[
+      {bot:'SessionScheduler Bot',trigger:'Client books coaching OR follow-up due',action:'Schedule 1-on-1 session, send prep materials, set agenda',xp:100,score:'HBI'},
+      {bot:'CoachPrep Bot',trigger:'24hr before scheduled session',action:'Pull client data, generate coaching brief, highlight key focus areas',xp:75,score:'HBI'},
+      {bot:'ActionPlan Bot',trigger:'Post-session (coaching completed)',action:'Generate action items from session, set deadlines, track follow-through',xp:150,score:'HBI'},
+      {bot:'ProgressTracker Bot',trigger:'Weekly check-in OR action item due date',action:'Review progress on coaching goals, celebrate wins, flag at-risk items',xp:100,score:'HBI'},
+    ]
+  },
+  {
+    id:'MEMBERSHIP', name:'First Class Membership', icon:'⭐', color:'var(--cta)',
+    phase:['OPERATING','SCALING'],
+    desc:'Tiered membership, private driver, chauffeur access',
+    workflows:[
+      {bot:'QualificationEngine Bot',trigger:'Apply to Qualify submitted',action:'Run qualification matrix: HBI, BRE, revenue, fleet size, time-in-business',xp:200,score:'MSI'},
+      {bot:'MemberOnboard Bot',trigger:'Qualification approved',action:'Create member profile, assign tier, activate benefits, send welcome kit',xp:300,score:'MSI'},
+      {bot:'TierMonitor Bot',trigger:'Monthly score update OR significant activity',action:'Check tier eligibility, auto-upgrade/downgrade, notify member',xp:100,score:'MSI'},
+      {bot:'BenefitsEngine Bot',trigger:'Member accesses benefit OR new benefit available',action:'Serve eligible benefits, track usage, recommend unused perks',xp:75,score:'MSI'},
+      {bot:'RenewalBot',trigger:'30 days before membership renewal',action:'Assess member value, generate renewal offer, process auto-renewal',xp:150,score:'MSI'},
+    ]
+  },
+  {
+    id:'CHAUFFEUR', name:'Chauffeur + Private Driver', icon:'🎩', color:'var(--ink-3)',
+    phase:['OPERATING','SCALING'],
+    desc:'Private driver booking, chauffeur services, premium transport',
+    workflows:[
+      {bot:'DriverMatch Bot',trigger:'Chauffeur/Private Driver booking request',action:'Match available driver, check vehicle, confirm booking, send ETA',xp:150,score:'MSI'},
+      {bot:'RouteOptimizer Bot',trigger:'Booking confirmed',action:'Optimize route, calculate fare, set pickup/dropoff coordinates',xp:75,score:'MSI'},
+      {bot:'DriverRating Bot',trigger:'Trip completed',action:'Collect rating, update driver score, flag issues, reward excellence',xp:50,score:'MSI'},
+      {bot:'FleetScheduler Bot',trigger:'Daily morning schedule OR new booking added',action:'Optimize driver-vehicle assignments, minimize deadheading, balance load',xp:100,score:'MSI'},
+    ]
+  },
+  {
+    id:'FLEET', name:'Fleet Management', icon:'🏎️', color:'var(--slate)',
+    phase:['OPERATING','SCALING'],
+    desc:'Vehicle lifecycle, maintenance tracking, fleet analytics',
+    workflows:[
+      {bot:'VehicleOnboard Bot',trigger:'New vehicle acquired',action:'Register vehicle, set up VDI profile, schedule initial inspection, assign fleet ID',xp:200,score:'VDI'},
+      {bot:'MaintenanceAI Bot',trigger:'Mileage threshold OR time interval OR alert',action:'Schedule maintenance, coordinate with shop, update service history',xp:125,score:'VDI'},
+      {bot:'ComplianceWatch Bot',trigger:'Registration/insurance/smog expiration approaching',action:'Alert owner, auto-schedule renewal, track completion',xp:150,score:'VDI'},
+      {bot:'DepreciationTracker Bot',trigger:'Monthly valuation cycle',action:'Calculate vehicle value, depreciation rate, recommend sell/keep',xp:100,score:'FPI'},
+      {bot:'UtilizationBot',trigger:'Weekly fleet review',action:'Analyze per-vehicle utilization, revenue per mile, recommend rebalancing',xp:125,score:'MSI'},
+    ]
+  },
+  {
+    id:'CREDITCARD', name:'HIRECAR Credit Card', icon:'💎', color:'var(--cta)',
+    phase:['OPERATING','SCALING'],
+    desc:'Branded credit card program, rewards, spend tracking',
+    workflows:[
+      {bot:'CardQualification Bot',trigger:'Credit card application submitted',action:'Check HBI score, credit history, membership status, approve/deny',xp:200,score:'FPI'},
+      {bot:'CardOnboard Bot',trigger:'Application approved',action:'Issue virtual card, set limits, activate rewards program',xp:250,score:'FPI'},
+      {bot:'SpendAnalytics Bot',trigger:'Transaction posted OR weekly summary',action:'Categorize spend, track rewards earned, identify optimization opportunities',xp:75,score:'FPI'},
+      {bot:'RewardsEngine Bot',trigger:'Qualifying transaction OR reward threshold reached',action:'Award points/cashback, notify member, suggest redemption options',xp:50,score:'FPI'},
+      {bot:'FraudWatch Bot',trigger:'Unusual transaction pattern detected',action:'Flag transaction, alert cardholder, temporary hold if high risk',xp:100,score:'FPI'},
+    ]
+  },
+];
+
+const MILESTONES = [
+  {
+    phase:'INTAKE', icon:'📥',
+    title:'Phase 1: INTAKE',
+    subtitle:'Client onboarding, data capture, baseline assessment',
+    entry:'Lead captured via Apply to Qualify OR collision event reported',
+    departments:['CREDIT','COLLISION','INSURANCE','ROADSIDE'],
+    scoring:'HBI baseline calculated, VDI initial scan, CRI if collision',
+    exit:'All intake data captured, baseline scores set, assigned to track',
+    xpRange:'0 – 500 XP',
+  },
+  {
+    phase:'RECOVERY', icon:'🔧',
+    title:'Phase 2: RECOVERY',
+    subtitle:'Active dispute, claims management, financial triage',
+    entry:'Intake complete AND (HBI < 60 OR active collision claim OR collections)',
+    departments:['CREDIT','COLLISION','RECOVERY','COACHING','INTELLIGENCE'],
+    scoring:'HBI improving, CRI actively tracked, disputes in progress',
+    exit:'No active disputes > 90 days, HBI >= 55, no new collections 60 days',
+    xpRange:'500 – 2,000 XP',
+  },
+  {
+    phase:'REBUILDING', icon:'🏗️',
+    title:'Phase 3: REBUILDING',
+    subtitle:'Score improvement, compliance building, standard achievement',
+    entry:'Recovery exit criteria met AND assigned rebuilding track',
+    departments:['CREDIT','OPERATOR','RECOVERY','PLAYBOOKS','COACHING','INTELLIGENCE'],
+    scoring:'HBI 55-75+, VDI being built, BRE in Cure Lane moving to Revenue',
+    exit:'HBI >= 70, VDI >= 80, BRE = Revenue Lane, all playbooks complete',
+    xpRange:'2,000 – 5,000 XP',
+  },
+  {
+    phase:'OPERATING', icon:'✅',
+    title:'Phase 4: OPERATING',
+    subtitle:'Full services active, revenue generating, fleet growing',
+    entry:'BRE = Revenue Lane AND HBI >= 70 AND VDI >= 80',
+    departments:['OPERATOR','INSURANCE','FUNDING','MOBILITY','ROADSIDE','ENTERTAINMENT','INTELLIGENCE','PLAYBOOKS','COACHING','MEMBERSHIP','CHAUFFEUR','FLEET','CREDITCARD'],
+    scoring:'All 6 scores active, composite score tracked, tier progression',
+    exit:'Composite >= 85, Fleet >= 5, Revenue >= $10K/mo, 6+ months',
+    xpRange:'5,000 – 15,000 XP',
+  },
+  {
+    phase:'SCALING', icon:'🚀',
+    title:'Phase 5: SCALING',
+    subtitle:'Multi-fleet, advanced funding, elite membership, market expansion',
+    entry:'Operating exit criteria met AND Elite tier application approved',
+    departments:['FUNDING','MOBILITY','ENTERTAINMENT','INTELLIGENCE','MEMBERSHIP','CHAUFFEUR','FLEET','CREDITCARD'],
+    scoring:'All scores 85+, maximum XP accrual, Elite challenges/quests active',
+    exit:'N/A — continuous scaling, mentor status available',
+    xpRange:'15,000+ XP',
+  },
+];
+
+const SCORES = [
+  {id:'HBI',name:'Health & Business Index',desc:'Credit health + business viability',fill:72},
+  {id:'VDI',name:'Vehicle Documentation Index',desc:'Fleet documentation completeness',fill:65},
+  {id:'BRE',name:'Business Readiness Engine',desc:'Revenue vs Cure Lane classification',fill:58},
+  {id:'CRI',name:'Claims Recovery Index',desc:'Active claims + recovery progress',fill:45},
+  {id:'FPI',name:'Financial Performance Index',desc:'Revenue, funding, card activity',fill:70},
+  {id:'MSI',name:'Member Services Index',desc:'Engagement, services, community',fill:55},
+];
+
+const BADGES = [
+  {icon:'🔍',name:'First Scan',cond:'Complete first HBI scan',xp:100},
+  {icon:'📄',name:'Document Pro',cond:'VDI reaches 80+',xp:250},
+  {icon:'💵',name:'Revenue Ready',cond:'BRE classifies Revenue Lane',xp:500},
+  {icon:'🏆',name:'Recovery Champion',cond:'Complete a PIFR case successfully',xp:750},
+  {icon:'🚗',name:'Fleet Commander',cond:'Register 3+ vehicles',xp:400},
+  {icon:'💳',name:'Credit Hero',cond:'HBI improves 20+ points',xp:600},
+  {icon:'💰',name:'Funded',cond:'Receive first SeedXchange funding',xp:1000},
+  {icon:'⭐',name:'First Class',cond:'Achieve First Class Membership',xp:1500},
+  {icon:'👑',name:'Elite Operator',cond:'Reach Elite tier (15,000 XP)',xp:2000},
+];
+
+// ─── RENDER JOURNEY ───────────────────────────────────────────────
+const journeyTrack = document.getElementById('journey-track');
+MILESTONES.forEach((m, i) => {
+  if (i > 0) {
+    journeyTrack.insertAdjacentHTML('beforeend', '<div class="phase-connector">→</div>');
+  }
+  const deptTags = m.departments.map(d => `<span class="dept-tag">${d}</span>`).join('');
+  journeyTrack.insertAdjacentHTML('beforeend', `
+    <div class="phase-card" data-phase="${m.phase}">
+      <div class="phase-header"><span class="icon">${m.icon}</span>${m.title}</div>
+      <div class="phase-body">
+        <div style="font-size:12px;color:var(--muted);margin-bottom:8px;">${m.subtitle}</div>
+        <div class="label">Entry Criteria</div>
+        <div class="value">${m.entry}</div>
+        <div class="label">Active Departments</div>
+        <div class="dept-tags">${deptTags}</div>
+        <div class="label">Scoring</div>
+        <div class="value">${m.scoring}</div>
+        <div class="label">Exit Criteria</div>
+        <div class="value">${m.exit}</div>
+        <div class="xp-range">${m.xpRange}</div>
+      </div>
+    </div>
+  `);
+});
+
+// ─── RENDER DEPARTMENTS ───────────────────────────────────────────
+const deptGrid = document.getElementById('dept-grid');
+DEPARTMENTS.forEach(dept => {
+  const phaseBadges = dept.phase.map(p => `<span class="phase-badge ${p}">${p}</span>`).join('');
+  const workflows = dept.workflows.map(wf => `
+    <div class="workflow-item">
+      <div class="wf-bot-name">${wf.bot}</div>
+      <div class="wf-row"><span class="wf-label trigger">Trigger:</span><span class="wf-value">${wf.trigger}</span></div>
+      <div class="wf-row"><span class="wf-label action">Action:</span><span class="wf-value">${wf.action}</span></div>
+      <div class="wf-badges"><span class="wf-xp">+${wf.xp} XP</span><span class="wf-score">→ ${wf.score}</span></div>
+    </div>
+  `).join('');
+
+  deptGrid.insertAdjacentHTML('beforeend', `
+    <div class="dept-card" data-dept="${dept.id}">
+      <div class="dept-card-header" onclick="this.parentElement.classList.toggle('open')">
+        <div class="left">
+          <div class="dept-icon" style="background:${dept.color}20;font-size:24px;">${dept.icon}</div>
+          <div>
+            <div class="dept-name">${dept.name}</div>
+            <div class="dept-id">${dept.id}</div>
+          </div>
+        </div>
+        <div class="right">
+          <span class="bot-count">${dept.workflows.length} bots</span>
+          <span class="toggle">▼</span>
+        </div>
+      </div>
+      <div class="dept-card-meta">
+        <span class="desc">${dept.desc}</span>
+        ${phaseBadges}
+      </div>
+      <div class="dept-card-workflows">${workflows}</div>
+    </div>
+  `);
+});
+
+// ─── RENDER SCORES ────────────────────────────────────────────────
+const scoreGrid = document.getElementById('score-grid');
+SCORES.forEach(s => {
+  scoreGrid.insertAdjacentHTML('beforeend', `
+    <div class="score-card">
+      <div class="score-id">${s.id}</div>
+      <div class="score-name">${s.name}</div>
+      <div style="font-size:11px;color:var(--mid);margin-bottom:6px;">${s.desc}</div>
+      <div class="score-range">0 – 100</div>
+      <div class="score-bar"><div class="score-bar-fill" style="width:${s.fill}%"></div></div>
+    </div>
+  `);
+});
+
+// ─── RENDER BADGES ────────────────────────────────────────────────
+const badgeGrid = document.getElementById('badge-grid');
+BADGES.forEach(b => {
+  badgeGrid.insertAdjacentHTML('beforeend', `
+    <div class="badge-card">
+      <div class="badge-icon">${b.icon}</div>
+      <div class="badge-name">${b.name}</div>
+      <div class="badge-cond">${b.cond}</div>
+      <div class="badge-xp">+${b.xp} XP</div>
+    </div>
+  `);
+});
+
+// ─── RENDER BOT TABLE ─────────────────────────────────────────────
+const tableBody = document.getElementById('bot-table-body');
+let allRows = [];
+DEPARTMENTS.forEach(dept => {
+  dept.workflows.forEach(wf => {
+    allRows.push({ dept: dept.name, deptId: dept.id, icon: dept.icon, ...wf });
+  });
+});
+
+function renderTable(rows) {
+  tableBody.innerHTML = rows.map(r => `
+    <tr>
+      <td class="col-dept">${r.icon} ${r.dept}</td>
+      <td class="col-bot">${r.bot}</td>
+      <td class="col-trigger">${r.trigger}</td>
+      <td class="col-action">${r.action}</td>
+      <td class="col-xp">+${r.xp}</td>
+      <td class="col-score">${r.score}</td>
+    </tr>
+  `).join('');
+}
+renderTable(allRows);
+
+// Search
+document.getElementById('bot-search').addEventListener('input', function() {
+  const q = this.value.toLowerCase();
+  const activeFilter = document.querySelector('.filter-btn.active').dataset.filter;
+  let filtered = allRows;
+  if (activeFilter !== 'all') filtered = filtered.filter(r => r.score === activeFilter);
+  if (q) filtered = filtered.filter(r =>
+    r.dept.toLowerCase().includes(q) ||
+    r.bot.toLowerCase().includes(q) ||
+    r.trigger.toLowerCase().includes(q) ||
+    r.action.toLowerCase().includes(q) ||
+    r.score.toLowerCase().includes(q)
+  );
+  renderTable(filtered);
+});
+
+// Filter buttons
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+    const filter = this.dataset.filter;
+    const q = document.getElementById('bot-search').value.toLowerCase();
+    let filtered = allRows;
+    if (filter !== 'all') filtered = filtered.filter(r => r.score === filter);
+    if (q) filtered = filtered.filter(r =>
+      r.dept.toLowerCase().includes(q) ||
+      r.bot.toLowerCase().includes(q) ||
+      r.trigger.toLowerCase().includes(q) ||
+      r.action.toLowerCase().includes(q)
+    );
+    renderTable(filtered);
+  });
+});
+
+// ─── TAB SWITCHING ────────────────────────────────────────────────
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    this.classList.add('active');
+    document.getElementById('tab-' + this.dataset.tab).classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
