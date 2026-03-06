@@ -1,10 +1,7 @@
 <!DOCTYPE html>
-<!-- saved from url=(0065)file:///Users/hirecarken/Downloads/hirecar-marketwatch-v20_5.html -->
-<html lang="en" style="--rh-vh: 769px;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HIRECAR MarketWatch! — Auto Operator Intelligence · Los Angeles</title>
-<!-- v18: Desktop scroll fix, Remote edge-to-edge viewport, Logo wordmark cleanup, Hero city/time images, Enriched remote entry sequence, Top Stories CTA dynamic, Mobility 4-car gallery, Vegas centering, Weather-correlated travel -->
+<title>How HIRECREDIT Works — Credit Recovery for Auto Operators · HIRECAR MarketWatch!</title>
 <link rel="preconnect" href="https://fonts.googleapis.com/">
 <link href="./HIRECAR MarketWatch! — Auto Operator Intelligence · Los Angeles_files/css2" rel="stylesheet">
 <style>
@@ -4062,673 +4059,440 @@ body.remote-mode .brand-logo-light { mix-blend-mode: normal; }
 
 
 </style>
+
+/* ═══════════════════════════════════════════
+   ARTICLE PAGE — Content Layout
+═══════════════════════════════════════════ */
+.article-breadcrumb {
+  background: var(--border-lt);
+  border-bottom: 1px solid var(--border);
+  padding: 10px 0;
+}
+.article-breadcrumb-inner {
+  max-width: 1340px;
+  margin: 0 auto;
+  padding: 0 20px;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+.article-breadcrumb-inner a { color: var(--slate); transition: color .15s; }
+.article-breadcrumb-inner a:hover { color: var(--cta); }
+.bc-sep { margin: 0 8px; color: var(--border); }
+
+.article-page-wrap {
+  max-width: 1340px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 1fr 310px;
+  gap: 0;
+}
+.article-page-main {
+  padding: 36px 40px 60px 0;
+  border-right: 1px solid var(--border);
+}
+.article-page-side {
+  padding: 36px 0 60px 28px;
+}
+
+/* Article header */
+.ap-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cta);
+  margin-bottom: 10px;
+}
+.ap-headline {
+  font-family: 'Cormorant Garant', serif;
+  font-size: 44px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.08;
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+}
+.ap-deck {
+  font-size: 17px;
+  color: var(--slate);
+  line-height: 1.65;
+  margin-bottom: 20px;
+  max-width: 620px;
+}
+.ap-byline {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 28px;
+}
+
+/* Body copy */
+.ap-body h2 {
+  font-family: 'Cormorant Garant', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 36px 0 14px;
+  line-height: 1.15;
+}
+.ap-body h3 {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin: 28px 0 10px;
+}
+.ap-body p {
+  font-size: 15.5px;
+  color: var(--ink-2);
+  line-height: 1.78;
+  margin-bottom: 18px;
+}
+.ap-body ul, .ap-body ol {
+  margin: 0 0 18px 20px;
+  font-size: 15px;
+  color: var(--ink-2);
+  line-height: 1.78;
+}
+.ap-body li { margin-bottom: 6px; }
+.ap-body strong { color: var(--ink); }
+
+/* Highlight box */
+.ap-highlight {
+  background: var(--cta-bg);
+  border-left: 4px solid var(--cta);
+  padding: 20px 24px;
+  margin: 28px 0;
+}
+.ap-highlight p {
+  font-size: 14px;
+  color: var(--ink-2);
+  margin-bottom: 0;
+}
+.ap-highlight strong { color: var(--ink); }
+
+/* Stat row */
+.ap-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border: 1px solid var(--border);
+  margin: 28px 0;
+}
+.ap-stat-cell {
+  padding: 18px 20px;
+  border-right: 1px solid var(--border);
+  text-align: center;
+}
+.ap-stat-cell:last-child { border-right: none; }
+.ap-stat-num {
+  font-family: 'Cormorant Garant', serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1;
+}
+.ap-stat-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 6px;
+}
+
+/* CTA block */
+.ap-cta-block {
+  background: var(--ink);
+  padding: 28px 32px;
+  margin: 36px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.ap-cta-text {
+  color: var(--white);
+  font-family: 'Cormorant Garant', serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.ap-cta-btn {
+  background: var(--cta);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 14px 28px;
+  white-space: nowrap;
+  transition: background .2s;
+  flex-shrink: 0;
+}
+.ap-cta-btn:hover { background: var(--cta-hover); }
+
+/* Step flow */
+.ap-step-flow {
+  margin: 28px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.ap-step-item {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 0;
+  border: 1px solid var(--border);
+  border-bottom: none;
+}
+.ap-step-item:last-child { border-bottom: 1px solid var(--border); }
+.ap-step-num {
+  background: var(--ink);
+  color: var(--cta);
+  font-family: 'Cormorant Garant', serif;
+  font-size: 24px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ap-step-content { padding: 18px 22px; }
+.ap-step-title {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 5px;
+}
+.ap-step-desc {
+  font-size: 14px;
+  color: var(--mid);
+  line-height: 1.6;
+}
+
+/* Service grid */
+.ap-service-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  border: 1px solid var(--border);
+  margin: 28px 0;
+}
+.ap-service-cell {
+  padding: 22px 24px;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.ap-service-cell:nth-child(2n) { border-right: none; }
+.ap-service-cell:nth-last-child(-n+2) { border-bottom: none; }
+.ap-service-name {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.ap-service-desc {
+  font-size: 13.5px;
+  color: var(--mid);
+  line-height: 1.6;
+}
+
+/* ═══ SIDEBAR ═══ */
+.ap-side-label {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink);
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--rule);
+  margin-bottom: 16px;
+}
+.ap-side-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 32px;
+}
+.ap-side-link-item {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.ap-side-link-item a {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink-2);
+  transition: color .15s;
+}
+.ap-side-link-item a:hover { color: var(--cta); }
+.ap-side-link-cat {
+  font-family: 'DM Mono', monospace;
+  font-size: 8.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 3px;
+}
+
+.ap-tier-box {
+  border: 1px solid var(--border);
+  margin-bottom: 16px;
+  padding: 18px 20px;
+}
+.ap-tier-name {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.ap-tier-desc {
+  font-size: 13px;
+  color: var(--mid);
+  line-height: 1.55;
+}
+.ap-tier-box.featured {
+  border-color: var(--cta);
+  background: var(--cta-bg);
+}
+
+.ap-side-cta-box {
+  background: var(--cta-bg);
+  border: 1px solid var(--cta);
+  padding: 22px 20px;
+  margin-bottom: 28px;
+}
+.ap-side-cta-title {
+  font-family: 'Cormorant Garant', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.15;
+  margin-bottom: 8px;
+}
+.ap-side-cta-desc {
+  font-size: 13px;
+  color: var(--mid);
+  line-height: 1.55;
+  margin-bottom: 14px;
+}
+.ap-side-cta-btn {
+  display: block;
+  background: var(--cta);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 10px 18px;
+  text-align: center;
+  transition: background .2s;
+}
+.ap-side-cta-btn:hover { background: var(--cta-hover); }
+
+.ap-side-quote {
+  border-left: 3px solid var(--cta);
+  padding: 16px 20px;
+  margin-bottom: 28px;
+}
+.ap-side-quote-text {
+  font-family: 'Cormorant Garant', serif;
+  font-size: 18px;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--ink);
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+.ap-side-quote-attr {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Dark mode article overrides */
+body.dark-mode .article-breadcrumb { background: #0a1020; border-bottom-color: #1d2535; }
+body.dark-mode .article-breadcrumb-inner { color: #6a7a8a; }
+body.dark-mode .article-breadcrumb-inner a { color: #8899aa; }
+body.dark-mode .article-page-main { border-right-color: #1d2535; }
+body.dark-mode .ap-headline { color: #ffffff; }
+body.dark-mode .ap-deck { color: #8899aa; }
+body.dark-mode .ap-byline { border-bottom-color: #1d2535; }
+body.dark-mode .ap-body h2 { color: #ffffff; }
+body.dark-mode .ap-body h3 { color: #c8d0db; }
+body.dark-mode .ap-body p { color: #a0aab5; }
+body.dark-mode .ap-body strong { color: #ffffff; }
+body.dark-mode .ap-highlight { background: #0f1a2a; border-left-color: var(--cta); }
+body.dark-mode .ap-highlight p { color: #a0aab5; }
+body.dark-mode .ap-stat-grid { border-color: #1d2535; }
+body.dark-mode .ap-stat-cell { border-right-color: #1d2535; }
+body.dark-mode .ap-stat-num { color: var(--cta); }
+body.dark-mode .ap-stat-label { color: #6a7a8a; }
+body.dark-mode .ap-cta-block { background: #060c1a; }
+body.dark-mode .ap-step-item { border-color: #1d2535; }
+body.dark-mode .ap-step-num { background: #060c1a; }
+body.dark-mode .ap-step-title { color: #c8d0db; }
+body.dark-mode .ap-step-desc { color: #8899aa; }
+body.dark-mode .ap-service-grid { border-color: #1d2535; }
+body.dark-mode .ap-service-cell { border-color: #1d2535; }
+body.dark-mode .ap-service-name { color: #c8d0db; }
+body.dark-mode .ap-service-desc { color: #8899aa; }
+body.dark-mode .ap-side-label { color: #ffffff; border-bottom-color: var(--cta); }
+body.dark-mode .ap-side-link-item { border-bottom-color: #1d2535; }
+body.dark-mode .ap-side-link-item a { color: #8899aa; }
+body.dark-mode .ap-side-link-item a:hover { color: var(--cta); }
+body.dark-mode .ap-side-link-cat { color: #6a7a8a; }
+body.dark-mode .ap-tier-box { border-color: #1d2535; }
+body.dark-mode .ap-tier-box.featured { border-color: var(--cta); background: #0f1a2a; }
+body.dark-mode .ap-tier-name { color: #c8d0db; }
+body.dark-mode .ap-tier-desc { color: #8899aa; }
+body.dark-mode .ap-side-cta-box { background: #0f1a2a; border-color: var(--cta); }
+body.dark-mode .ap-side-cta-title { color: #ffffff; }
+body.dark-mode .ap-side-cta-desc { color: #8899aa; }
+body.dark-mode .ap-side-quote { border-left-color: var(--cta); }
+body.dark-mode .ap-side-quote-text { color: #c8d0db; }
+body.dark-mode .ap-side-quote-attr { color: #6a7a8a; }
+
+/* Responsive article */
+@media (max-width: 860px) {
+  .article-page-wrap { grid-template-columns: 1fr; }
+  .article-page-main { border-right: none; padding-right: 0; }
+  .article-page-side { padding-left: 0; border-top: 1px solid var(--border); }
+  .ap-headline { font-size: 34px; }
+  .ap-stat-grid { grid-template-columns: 1fr; }
+  .ap-stat-cell { border-right: none; border-bottom: 1px solid var(--border); }
+  .ap-stat-cell:last-child { border-bottom: none; }
+  .ap-service-grid { grid-template-columns: 1fr; }
+  .ap-service-cell { border-right: none; }
+  .ap-service-cell:nth-last-child(-n+2) { border-bottom: 1px solid var(--border); }
+  .ap-service-cell:last-child { border-bottom: none; }
+  .ap-cta-block { flex-direction: column; text-align: center; }
+  .ap-step-item { grid-template-columns: 44px 1fr; }
+}
+@media (max-width: 600px) {
+  .ap-headline { font-size: 28px; }
+}
 </head>
-<body class="" style="overflow-y: auto;">
-
-<!-- ═══ MODE GATE BANNER (first-run only) ═══ -->
-<div id="modeGateBanner">
-  <div class="gate-inner">
-    <div class="gate-label"><strong>HIRECAR MarketWatch!</strong> — Choose your experience</div>
-    <div class="gate-recommend" id="gateRecommendText">Detecting your device...</div>
-    <div class="gate-buttons">
-      <button class="gate-btn gate-btn--desktop" id="gateBtnDesktop">
-        <span class="gate-btn-icon">🖥</span> Desktop
-      </button>
-      <button class="gate-btn gate-btn--remote" id="gateBtnRemote">
-        <span class="gate-btn-icon">📱</span> Remote
-      </button>
-    </div>
-    <label class="gate-remember">
-      <input type="checkbox" id="gateRemember" checked=""> Remember on this device
-    </label>
-    <button class="gate-close" id="gateClose" aria-label="Dismiss">✕</button>
-  </div>
-</div>
-
-<!-- ═══ MOBILE APPLY BAR (always above fold on mobile) ═══ -->
-<div class="mobile-apply-bar">
-  <a href="file:///Users/hirecarken/Downloads/hirecar-marketwatch-v20_5.html#">
-    Apply to Qualify — HIRECAR First Class <span class="mab-arrow">→</span>
-  </a>
-</div>
-
-<!-- ═══ REMOTE HUB (shown in Remote mode only) ═══ -->
-<div id="remoteHub">
-
-  <!-- ═══ v19 TRON ENTRY SEQUENCE ═══════════════════════════════ -->
-  <!-- Phase 1: Tron loading overlay — black bg + neon logo -->
-  <div id="rhLoadOverlay" class="">
-    <div class="rh-load-scanline"></div>
-    <div class="rh-load-logo-wrap">
-      <img class="rh-load-logo-img" src="data:image/png;base64,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" alt="HIRECAR">
-      <div class="rh-load-wordmark">
-        <div class="rh-load-mw-name">MarketWatch<span class="bang">!</span></div>
-        <div class="rh-load-mw-est">HIRECAR, LLC · Est. Nov 2024</div>
-      </div>
-    </div>
-    <div class="rh-load-label">Initializing Remote Intelligence</div>
-  </div>
-
-  <!-- Phase 2: Lead Capture Modal — First Name, Last Name, Phone, TOS -->
-  <div id="rhLeadModal">
-    <div class="rh-lead-card">
-      <div class="rh-lead-title">Activate Remote<br>Intelligence</div>
-      <div class="rh-lead-subtitle">Quick activation · One-time entry</div>
-      <input type="text" class="rh-lead-input" id="rhLeadFirstName" placeholder="First Name" autocomplete="given-name">
-      <input type="text" class="rh-lead-input" id="rhLeadLastName" placeholder="Last Name" autocomplete="family-name">
-      <input type="tel" class="rh-lead-input" id="rhLeadMobile" placeholder="Mobile Number" autocomplete="tel">
-      <div class="rh-lead-tos">
-        <input type="checkbox" id="rhLeadTos">
-        <label class="rh-lead-tos-label" for="rhLeadTos">I agree to the <a href="file:///Users/hirecarken/Downloads/hirecar-marketwatch-v20_5.html#">Terms &amp; Conditions</a>, <a href="file:///Users/hirecarken/Downloads/hirecar-marketwatch-v20_5.html#">SMS Use Policy</a>, and <a href="file:///Users/hirecarken/Downloads/hirecar-marketwatch-v20_5.html#">Website Policy</a>.</label>
-      </div>
-      <label class="rh-lead-remember">
-        <input type="checkbox" id="rhLeadRemember" checked=""> Remember me on this device
-      </label>
-      <button class="rh-lead-btn" id="rhLeadSubmit" onclick="rhSubmitLead()">Start Now →</button>
-      <div class="rh-lead-error" id="rhLeadError">Please fill in all fields and accept the terms.</div>
-      <!-- v19: Phone Verification Step (hidden initially) -->
-      <div id="rhVerifyStep">
-        <div class="rh-verify-label">Enter verification code sent to your phone</div>
-        <div class="rh-verify-code-wrap">
-          <input type="text" class="rh-verify-digit" maxlength="1" data-idx="0" inputmode="numeric">
-          <input type="text" class="rh-verify-digit" maxlength="1" data-idx="1" inputmode="numeric">
-          <input type="text" class="rh-verify-digit" maxlength="1" data-idx="2" inputmode="numeric">
-          <input type="text" class="rh-verify-digit" maxlength="1" data-idx="3" inputmode="numeric">
-        </div>
-        <button class="rh-verify-resend" onclick="rhResendCode()">Resend Code</button>
-      </div>
-      <div class="rh-lead-instruction">Remote Intelligence delivers real-time market signals,<br>city data, and operator standards — all in one view.</div>
-    </div>
-  </div>
-
-  <!-- Phase 3: Thank You overlay -->
-  <div id="rhThankYou" style="display: none;">
-    <div class="rh-ty-text" id="rhTyText">Thank you</div>
-    <div class="rh-ty-sub">Preparing your experience...</div>
-  </div>
-
-  <div class="rh-masthead" id="rhMasthead">
-    <a href="https://www.hirecar.la/" target="_blank" class="rh-logo-link">
-      <img class="rh-logo" id="rhLogo" src="data:image/png;base64,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" alt="HIRECAR">
-      <span class="rh-logo-pipe" style="width:2px;height:22px;background:rgba(255,255,255,.25);margin:0 2px;flex-shrink:0;"></span>
-      <div class="rh-wordmark-block">
-        <div class="rh-wordmark">MarketWatch<span class="bang">!</span></div>
-        <div class="rh-wordmark-est">HIRECAR, LLC · Est. Nov 2024</div>
-      </div>
-    </a>
-    <div class="rh-masthead-center">
-      <!-- City + Weather Widget -->
-      <div class="rh-city-widget" id="rhCityWidget">
-        <button class="rh-city-trigger" id="rhCityTrigger" onclick="rhToggleCity()">
-          <span class="rh-city-dot" id="rhCityDot">🌆</span>
-          <span class="rh-city-name" id="rhCityName">Los Angeles</span>
-          <span class="rh-city-wx" id="rhCityWx">67° 🌤</span>
-          <span class="rh-city-chevron">▾</span>
-        </button>
-        <div class="rh-city-dropdown" id="rhCityDropdown">
-          <!-- Weather row inside dropdown -->
-          <div class="rh-city-wx-row" id="rhDropWx">
-            <span class="rh-drop-wx-icon" id="rhDropWxIcon">🌤</span>
-            <span class="rh-drop-wx-temp" id="rhDropWxTemp">67°F</span>
-            <span class="rh-drop-wx-desc" id="rhDropWxDesc">Los Angeles</span>
-          </div>
-          <div class="rh-city-opt active" data-city="los-angeles" data-label="Los Angeles" data-emoji="🌆" onclick="rhSelectCity(this)">
-            <span>🌆</span><span>Los Angeles, CA</span>
-          </div>
-          <div class="rh-city-opt" data-city="san-francisco" data-label="San Francisco" data-emoji="🌉" onclick="rhSelectCity(this)">
-            <span>🌉</span><span>San Francisco, CA</span>
-          </div>
-          <div class="rh-city-opt" data-city="new-york" data-label="New York" data-emoji="🗽" onclick="rhSelectCity(this)">
-            <span>🗽</span><span>New York, NY</span>
-          </div>
-          <div class="rh-city-opt" data-city="miami" data-label="Miami" data-emoji="🌴" onclick="rhSelectCity(this)">
-            <span>🌴</span><span>Miami, FL</span>
-          </div>
-          <div class="rh-city-opt" data-city="chicago" data-label="Chicago" data-emoji="🏙" onclick="rhSelectCity(this)">
-            <span>🏙</span><span>Chicago, IL</span>
-          </div>
-          <div class="rh-city-opt" data-city="las-vegas" data-label="Las Vegas" data-emoji="🎰" onclick="rhSelectCity(this)">
-            <span>🎰</span><span>Las Vegas, NV</span>
-          </div>
-          <!-- Switch to Desktop -->
-          <div class="rh-city-desktop-sw" onclick="setMode(&#39;desktop&#39;);rhToggleCity();">
-            <span>🖥</span><span>Switch to Full Desktop</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="rh-masthead-right">
-      <div class="rh-live-wrap" style="position:relative;">
-        <button class="rh-live-btn" id="rhLiveBtn" onclick="rhToggleLivePanel()">
-          <span class="rh-live-btn-dot"></span>
-          <span id="rhLiveLabel">LIVE</span>
-        </button>
-        <div class="rh-live-panel" id="rhLivePanel" style="display:none;position:absolute;top:100%;right:0;margin-top:8px;background:rgba(8,10,14,.97);border:1px solid rgba(0,230,118,.15);border-radius:6px;padding:0;min-width:260px;z-index:999;box-shadow:0 12px 40px rgba(0,0,0,.6),0 0 20px rgba(0,230,118,.05);overflow:hidden;">
-          <div style="padding:14px 16px 10px;border-bottom:1px solid rgba(255,255,255,.06);">
-            <div style="font-family:&#39;DM Mono&#39;,monospace;font-size:7px;letter-spacing:.16em;text-transform:uppercase;color:rgba(0,230,118,.6);">Preferences</div>
-          </div>
-          <div style="padding:10px 16px;">
-            <div style="font-family:&#39;DM Mono&#39;,monospace;font-size:7px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:6px;">Location + Weather</div>
-            <div style="display:flex;align-items:center;gap:8px;">
-              <span id="rhPrefCity" style="font-family:&#39;Nunito Sans&#39;,sans-serif;font-size:12px;color:#fff;">Los Angeles</span>
-              <span id="rhPrefWx" style="font-family:&#39;Nunito Sans&#39;,sans-serif;font-size:11px;color:rgba(255,255,255,.5);">72 ☀</span>
-            </div>
-          </div>
-          <div style="padding:8px 16px;border-top:1px solid rgba(255,255,255,.04);">
-            <div style="font-family:&#39;DM Mono&#39;,monospace;font-size:7px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:6px;">Language</div>
-            <div class="rh-lang-sw" style="display:flex;gap:4px;">
-              <button class="rh-lang-btn active" onclick="rhLang(&#39;en&#39;,this)" data-lang="en" style="padding:4px 10px;font-size:10px;">EN</button>
-              <button class="rh-lang-btn" onclick="rhLang(&#39;es&#39;,this)" data-lang="es" style="padding:4px 10px;font-size:10px;">ES</button>
-              <button class="rh-lang-btn" onclick="rhLang(&#39;fr&#39;,this)" data-lang="fr" style="padding:4px 10px;font-size:10px;">FR</button>
-              <button class="rh-lang-btn" onclick="rhLang(&#39;zh&#39;,this)" data-lang="zh" style="padding:4px 10px;font-size:10px;">CN</button>
-            </div>
-          </div>
-          <div style="padding:8px 16px;border-top:1px solid rgba(255,255,255,.04);">
-            <div style="font-family:&#39;DM Mono&#39;,monospace;font-size:7px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:6px;">View Mode</div>
-            <div class="rh-mode-sw" style="display:flex;gap:4px;">
-              <button class="rh-mode-sw-btn active" id="rhSwDesktop2" onclick="setMode(&#39;desktop&#39;)" style="padding:5px 12px;font-size:10px;">Desktop</button>
-              <button class="rh-mode-sw-btn" id="rhSwRemote2" onclick="setMode(&#39;remote&#39;)" style="padding:5px 12px;font-size:10px;">Remote</button>
-            </div>
-          </div>
-          <div style="padding:8px 16px;border-top:1px solid rgba(255,255,255,.04);">
-            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;">
-              <input type="checkbox" id="rhPrefRemember" checked="" style="accent-color:#00e676;">
-              <span style="font-family:&#39;Nunito Sans&#39;,sans-serif;font-size:11px;color:rgba(255,255,255,.7);">Remember preferences</span>
-            </label>
-          </div>
-          <div style="padding:10px 16px;border-top:1px solid rgba(255,255,255,.06);">
-            <button onclick="rhToggleLivePanel();rhToggleCity();" style="width:100%;background:rgba(0,230,118,.08);border:1px solid rgba(0,230,118,.2);border-radius:3px;padding:8px;color:rgba(0,230,118,.8);font-family:&#39;DM Mono&#39;,monospace;font-size:8px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;">Change Location</button>
-          </div>
-        </div>
-      </div>
-      <a href="file:///Users/hirecarken/Downloads/hirecar-marketwatch-v20_5.html#" class="rh-apply-pill">Apply →</a>
-    </div>
-  </div>
-
-  <!-- ═══ SLIDE RAIL: scroll-snap container ═══════════════════════ -->
-  <div class="rh-rail" id="rhRail">
-
-    <!-- ── SECTION 0: HERO — Credit · LA ──────────── -->
-    <section class="rh-slide visible" id="rhs-hero" data-idx="0">
-      <!-- Dynamic image slides -->
-      <div class="rh-hero-slides">
-        <!-- v19: Slide 0: City skyline + supercar — always city first -->
-        <!-- v20: Time-based LA hero slides (JS sets images based on local time) -->
-        <div class="rh-hero-slide active" id="rhHeroSlide0" style="background-image:url(&#39;https://images.unsplash.com/photo-1647152548885-4881b06bfdd3?w=1920&amp;q=90&amp;fit=crop&amp;crop=center&#39;);background-position:center 40%;"></div>
-        <div class="rh-hero-slide" id="rhHeroSlide1" style="background-image:url(&#39;https://images.unsplash.com/photo-1694026006855-6f4f0cdee8c0?w=1920&amp;q=90&amp;fit=crop&amp;crop=center&#39;);background-position:center 45%;"></div>
-        <div class="rh-hero-slide" id="rhHeroSlide2" style="background-image:url(&#39;https://images.unsplash.com/photo-1763441127541-23ebac405a55?w=1920&amp;q=90&amp;fit=crop&amp;crop=center&#39;);background-position:center 40%;"></div>
-        <div class="rh-hero-slide" id="rhHeroSlide3" style="background-image:url(&#39;https://images.unsplash.com/photo-1763566649314-959e735e3685?w=1920&amp;q=90&amp;fit=crop&amp;crop=center&#39;);background-position:center 42%;"></div>
-        <div class="rh-hero-slide" id="rhHeroSlide4" style="background-image:url(&#39;https://images.unsplash.com/photo-1706242270818-5f53da8d33da?w=1920&amp;q=90&amp;fit=crop&amp;crop=center&#39;);background-position:center 40%;"></div>
-      </div>
-      <div class="rh-hero-vignette"></div>
-      <div class="rh-grain"></div>
-
-      <!-- Push-to-Start removed in v20 — entry collapses into LIVE button -->
-
-      <!-- Slide dot indicators -->
-      <div class="rh-hero-dots">
-        <button class="rh-hero-dot active" onclick="rhGoHeroSlide(0)"></button>
-        <button class="rh-hero-dot" onclick="rhGoHeroSlide(1)"></button>
-        <button class="rh-hero-dot" onclick="rhGoHeroSlide(2)"></button>
-        <button class="rh-hero-dot" onclick="rhGoHeroSlide(3)"></button>
-        <button class="rh-hero-dot" onclick="rhGoHeroSlide(4)"></button>
-      </div>
-
-      <div class="rh-content center">
-        <div class="rh-eyebrow">
-          <span class="rh-live-dot"></span>
-          <span id="rh-credit-eye">Credit Recovery · Lead Category · Q1 2026</span>
-        </div>
-        <h2 class="rh-headline" id="rh-credit-hl">Your credit took<br>a hit. We bring<br>it back.</h2>
-        <p class="rh-sub" id="rh-credit-sub">From incident to resolution — one record, one timeline, one clean outcome.</p>
-        <!-- DOUBLE-SELECT CTA PANEL -->
-        <div class="rh-dsel">
-          <button class="rh-dsel-btn primary" onclick="rhCTA(&#39;credit&#39;,&#39;read&#39;)">
-            <span class="rh-dsel-icon">📖</span>
-            <span class="rh-dsel-lbl">Read Now</span>
-            <span class="rh-dsel-sub">Full report</span>
-          </button>
-          <button class="rh-dsel-btn" onclick="rhCTA(&#39;credit&#39;,&#39;info&#39;)">
-            <span class="rh-dsel-icon">ℹ️</span>
-            <span class="rh-dsel-lbl">More Info</span>
-            <span class="rh-dsel-sub">How it works</span>
-          </button>
-          <button class="rh-dsel-btn" onclick="rhCTA(&#39;credit&#39;,&#39;reserve&#39;)">
-            <span class="rh-dsel-icon">📅</span>
-            <span class="rh-dsel-lbl">Reservation</span>
-            <span class="rh-dsel-sub">Book consult</span>
-          </button>
-          <button class="rh-dsel-btn gold" id="rhHeroPurchaseBtn" onclick="rhCTA(&#39;credit&#39;,&#39;purchase&#39;)">
-            <span class="rh-dsel-icon">⚡</span>
-            <span class="rh-dsel-lbl">Purchase Now</span>
-            <span class="rh-dsel-sub">Start today</span>
-          </button>
-        </div>
-        <!-- v20: Floating CTA reservation tile with swipe -->
-        <div style="margin-top:12px;overflow-x:auto;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory;display:flex;gap:12px;padding:0 4px 8px;">
-          <div onclick="rhCTA(&#39;credit&#39;,&#39;reserve&#39;)" style="scroll-snap-align:start;min-width:85%;border-radius:10px;overflow:hidden;flex-shrink:0;box-shadow:0 6px 24px rgba(0,0,0,.35);cursor:pointer;position:relative;">
-            <div style="height:100px;background:url(&#39;https://images.unsplash.com/photo-1694026006855-6f4f0cdee8c0?w=800&amp;q=85&amp;fit=crop&amp;crop=center&#39;) center/cover;"></div>
-            <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(0,0,0,.7) 100%);display:flex;align-items:flex-end;padding:10px 14px;">
-              <div>
-                <div style="font-family:&#39;DM Mono&#39;,monospace;font-size:7px;letter-spacing:.14em;text-transform:uppercase;color:rgba(201,146,10,.9);">Reserve</div>
-                <div style="font-family:&#39;Cormorant Garant&#39;,serif;font-size:16px;font-weight:700;color:#fff;">Book a Consultation</div>
-              </div>
-            </div>
-          </div>
-          <div onclick="rhCTA(&#39;credit&#39;,&#39;purchase&#39;)" style="scroll-snap-align:start;min-width:85%;border-radius:10px;overflow:hidden;flex-shrink:0;box-shadow:0 6px 24px rgba(0,0,0,.35);cursor:pointer;position:relative;">
-            <div style="height:100px;background:url(&#39;https://images.unsplash.com/photo-1647152548885-4881b06bfdd3?w=800&amp;q=85&amp;fit=crop&amp;crop=center&#39;) center/cover;"></div>
-            <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(0,0,0,.7) 100%);display:flex;align-items:flex-end;padding:10px 14px;">
-              <div>
-                <div style="font-family:&#39;DM Mono&#39;,monospace;font-size:7px;letter-spacing:.14em;text-transform:uppercase;color:rgba(0,230,118,.9);">Purchase</div>
-                <div style="font-family:&#39;Cormorant Garant&#39;,serif;font-size:16px;font-weight:700;color:#fff;">Start Recovery Today</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="rh-news-strip">
-          <div class="rh-news-card" onclick="rhCTA(&#39;credit&#39;,&#39;news1&#39;)">
-            <div class="rh-news-tag">Credit Recovery</div>
-            <div class="rh-news-title">HIRECREDIT Closes 900+ Disputes in Q1 2026</div>
-            <div class="rh-news-time">2h ago · LA Metro</div>
-          </div>
-          <div class="rh-news-card" onclick="rhCTA(&#39;credit&#39;,&#39;news2&#39;)">
-            <div class="rh-news-tag">Industry</div>
-            <div class="rh-news-title">Medical Debt Removal Boosts Operator Scores by 40pts</div>
-            <div class="rh-news-time">4h ago · National</div>
-          </div>
-          <div class="rh-news-card" onclick="rhCTA(&#39;credit&#39;,&#39;news3&#39;)">
-            <div class="rh-news-tag">Platform</div>
-            <div class="rh-news-title">New Timeline Dashboard: Track Every Dispute Live</div>
-            <div class="rh-news-time">Today · HIRECAR</div>
-          </div>
-        </div>
-      </div>
-      <!-- Scroll next hint -->
-      <button class="rh-next-btn" onclick="rhNavSlide(1)" aria-label="Next section">
-        <span class="rh-scroll-line"></span>
-        <span class="rh-scroll-label">scroll</span>
-      </button>
-    </section>
-
-    <!-- ── SECTION 1: Top Stories ──────────────────────────────── -->
-    <section class="rh-slide" id="rhs-stories" data-idx="1">
-      <div class="rh-section-bg rh-parallax" style="background-image:url(&#39;https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=1800&amp;q=90&amp;fit=crop&amp;crop=center&#39;);background-position:center 30%;"></div>
-      <div class="rh-overlay-left"></div>
-      <div class="rh-grain"></div>
-      <div class="rh-content left">
-        <div class="rh-eyebrow"><span class="rh-eyebrow-cat">News + Intelligence</span></div>
-        <h2 class="rh-headline mid" id="rh-stories-hl">Top<br>Stories.</h2>
-        <p class="rh-sub" id="rh-stories-sub">Market signals, operator intel, and standards that move the industry.</p>
-        <div class="rh-dsel compact">
-          <button class="rh-dsel-btn primary" onclick="rhCTA(&#39;stories&#39;,&#39;read&#39;)">
-            <span class="rh-dsel-icon">📰</span>
-            <span class="rh-dsel-lbl">Read Now</span>
-          </button>
-          <button class="rh-dsel-btn" onclick="rhCTA(&#39;stories&#39;,&#39;info&#39;)">
-            <span class="rh-dsel-icon">ℹ️</span>
-            <span class="rh-dsel-lbl">More Info</span>
-          </button>
-          <button class="rh-dsel-btn" onclick="rhCTA(&#39;stories&#39;,&#39;reserve&#39;)">
-            <span class="rh-dsel-icon">📅</span>
-            <span class="rh-dsel-lbl">Reservation</span>
-          </button>
-          <button class="rh-dsel-btn gold" onclick="rhCTA(&#39;stories&#39;,&#39;purchase&#39;)">
-            <span class="rh-dsel-icon">⚡</span>
-            <span class="rh-dsel-lbl">Purchase</span>
-          </button>
-        </div>
-        <div class="rh-news-strip">
-          <div class="rh-news-card" onclick="rhCTA(&#39;stories&#39;,&#39;n1&#39;)">
-            <div class="rh-news-tag">Market Watch</div>
-            <div class="rh-news-title">LA Operator Rates Hit 3-Year High as Spring Fleet Demand Surges</div>
-            <div class="rh-news-time">1h ago · LA</div>
-          </div>
-          <div class="rh-news-card" onclick="rhCTA(&#39;stories&#39;,&#39;n2&#39;)">
-            <div class="rh-news-tag">Standards</div>
-            <div class="rh-news-title">HBI Score Now Required for Premium Fleet Qualification</div>
-            <div class="rh-news-time">3h ago · Industry</div>
-          </div>
-          <div class="rh-news-card" onclick="rhCTA(&#39;stories&#39;,&#39;n3&#39;)">
-            <div class="rh-news-tag">Intelligence</div>
-            <div class="rh-news-title">Q1 2026 Collision Cost Index: Luxury Segment Up 18%</div>
-            <div class="rh-news-time">Today · HIRECAR</div>
-          </div>
-        </div>
-      </div>
-      <button class="rh-prev-btn" onclick="rhNavSlide(-1)">↑</button>
-      <button class="rh-next-btn" onclick="rhNavSlide(1)"><span class="rh-scroll-line"></span><span class="rh-scroll-label">next</span></button>
-    </section>
-
-    <!-- ── SECTION 2: First Class Mobility ───────────────────────── -->
-    <section class="rh-slide" id="rhs-mobility" data-idx="2">
-      <div class="rh-section-bg rh-parallax" style="background-image:url(&#39;https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46?w=1800&amp;q=90&amp;fit=crop&amp;crop=center&#39;);background-position:center 35%;"></div>
-      <div class="rh-overlay-right"></div>
-      <div class="rh-grain"></div>
-      <div class="rh-content right">
-        <div class="rh-eyebrow"><span class="rh-eyebrow-cat">Rentals · Fleet · Mobility</span></div>
-        <h2 class="rh-headline mid" id="rh-mobility-hl">First Class<br>Mobility.</h2>
-        <p class="rh-sub" id="rh-mobility-sub">Rideshare-ready vehicles, black car service, and fleet-grade standards.</p>
-        <div class="rh-dsel compact">
-          <button class="rh-dsel-btn primary" onclick="rhCTA(&#39;mobility&#39;,&#39;read&#39;)">
-            <span class="rh-dsel-icon">🚗</span>
-            <span class="rh-dsel-lbl">Read Now</span>
-          </button>
-          <button class="rh-dsel-btn" onclick="rhCTA(&#39;mobility&#39;,&#39;info&#39;)">
-            <span class="rh-dsel-icon">ℹ️</span>
-            <span class="rh-dsel-lbl">More Info</span>
-          </button>
-          <button class="rh-dsel-btn" onclick="rhCTA(&#39;mobility&#39;,&#39;reserve&#39;)">
-            <span class="rh-dsel-icon">📅</span>
-            <span class="rh-dsel-lbl">Reservation</span>
-          </button>
-          <button class="rh-dsel-btn gold" onclick="rhCTA(&#39;mobility&#39;,&#39;purchase&#39;)">
-            <span class="rh-dsel-icon">⚡</span>
-            <span class="rh-dsel-lbl">Purchase</span>
-          </button>
-          <button class="rh-dsel-btn" onclick="rhCTA(&#39;mobility&#39;,&#39;broker&#39;)" style="border:1px solid rgba(201,146,10,.5);">
-            <span class="rh-dsel-icon">🤝</span>
-            <span class="rh-dsel-lbl">Broker</span>
-          </button>
-        </div>
-        <div class="rh-news-strip">
-          <div class="rh-news-card" onclick="rhCTA(&#39;mobility&#39;,&#39;n1&#39;)">
-            <div class="rh-news-tag">Fleet</div>
-            <div class="rh-news-title">Black Car Demand in LA Up 23% — HIRECAR Operators Leading</div>
-            <div class="rh-news-time">2h ago · LA Metro</div>
-          </div>
-          <div class="rh-news-card" onclick="rhCTA(&#39;mobility&#39;,&#39;n2&#39;)">
-            <div class="rh-news-tag">Rideshare</div>
-            <div class="rh-news-title">Luxury Rental Standards Update: New Operator Tier Released</div>
-            <div class="rh-news-time">5h ago · Platform</div>
-          </div>
-          <div class="rh-news-card" onclick="rhCTA(&#39;mobility&#39;,&#39;n3&#39;)">
-            <div class="rh-news-tag">EV</div>
-            <div class="rh-news-title">Tesla + Rivian Fleet Integration Now Live for HIRECAR Members</div>
-            <div class="rh-news-time">Today · Fleet</div>
-          </div>
-        </div>
-      </div>
-      <div class="rh-num">02</div>
-      <button class="rh-prev-btn" onclick="rhNavSlide(-1)">↑</button>
-      <button class="rh-next-btn" onclick="rhNavSlide(1)"><span class="rh-scroll-line"></span><span class="rh-scroll-label">next</span></button>
-    </section>
-
-    <!-- ── SECTION 3: Full Services ───────────────────────────────── -->
-    <section class="rh-slide" id="rhs-services" data-idx="3">
-      <div class="rh-section-bg rh-parallax" style="background-image:url(&#39;https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1800&amp;q=90&amp;fit=crop&amp;crop=center&#39;);background-position:center 42%;"></div>
-      <div class="rh-overlay-dark"></div>
-      <div class="rh-grain"></div>
-      <div class="rh-content center">
-        <div class="rh-eyebrow"><span class="rh-eyebrow-cat">Full Ecosystem</span></div>
-        <h2 class="rh-headline mid" id="rh-services-hl">Every service.<br>One standard.</h2>
-        <p class="rh-sub" id="rh-services-sub">Collision repair, credit recovery, chauffeuring, insurance access.</p>
-        <div class="rh-dsel compact">
-          <button class="rh-dsel-btn primary" onclick="rhCTA(&#39;services&#39;,&#39;read&#39;)">
-            <span class="rh-dsel-icon">🛠️</span>
-            <span class="rh-dsel-lbl">Read Now</span>
-          </button>
-          <button class="rh-dsel-btn" onclick="rhCTA(&#39;services&#39;,&#39;info&#39;)">
-            <span class="rh-dsel-icon">ℹ️</span>
-            <span class="rh-dsel-lbl">More Info</span>
-          </button>
-          <button class="rh-dsel-btn" onclick="rhCTA(&#39;services&#39;,&#39;reserve&#39;)">
-            <span class="rh-dsel-icon">📅</span>
-            <span class="rh-dsel-lbl">Reservation</span>
-          </button>
-          <button class="rh-dsel-btn gold" onclick="rhCTA(&#39;services&#39;,&#39;purchase&#39;)">
-            <span class="rh-dsel-icon">⚡</span>
-            <span class="rh-dsel-lbl">Purchase</span>
-          </button>
-        </div>
-      
-        <!-- v19: Service Visual Slides — Live/Coming Soon pattern -->
-        <div class="rh-svc-slides" style="display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;margin-top:16px;padding-bottom:8px;-webkit-overflow-scrolling:touch;">
-          <div style="scroll-snap-align:start;min-width:72%;border-radius:8px;overflow:hidden;flex-shrink:0;box-shadow:0 8px 32px rgba(0,0,0,.4);transform:translateY(0);transition:transform .3s;">
-            <div style="height:120px;background:url(&#39;https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&amp;q=85&amp;fit=crop&#39;) center/cover;position:relative;">
-              <div style="position:absolute;top:8px;left:8px;background:#00e676;color:#000;font-family:&#39;DM Mono&#39;,monospace;font-size:7px;padding:3px 8px;letter-spacing:.12em;text-transform:uppercase;border-radius:1px;">LIVE</div>
-            </div>
-            <div style="padding:8px;background:rgba(255,255,255,.05);"><span style="font-family:&#39;Nunito Sans&#39;,sans-serif;font-size:11px;color:#fff;font-weight:700;">Collision Repair</span></div>
-          </div>
-          <div style="scroll-snap-align:start;min-width:72%;border-radius:8px;overflow:hidden;flex-shrink:0;box-shadow:0 8px 32px rgba(0,0,0,.4);">
-            <div style="height:110px;background:url(&#39;https://images.unsplash.com/photo-1619405399517-d7fce0f13302?w=600&amp;q=85&amp;fit=crop&#39;) center/cover;position:relative;">
-              <div style="position:absolute;top:8px;left:8px;background:rgba(201,146,10,.9);color:#000;font-family:&#39;DM Mono&#39;,monospace;font-size:7px;padding:3px 8px;letter-spacing:.12em;text-transform:uppercase;border-radius:1px;">COMING SOON</div>
-            </div>
-            <div style="padding:8px;background:rgba(255,255,255,.03);"><span style="font-family:&#39;Nunito Sans&#39;,sans-serif;font-size:11px;color:rgba(255,255,255,.6);font-weight:700;">Detailing Studio</span></div>
-          </div>
-          <div style="scroll-snap-align:start;min-width:72%;border-radius:8px;overflow:hidden;flex-shrink:0;box-shadow:0 8px 32px rgba(0,0,0,.4);">
-            <div style="height:110px;background:url(&#39;https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46?w=600&amp;q=85&amp;fit=crop&#39;) center/cover;position:relative;">
-              <div style="position:absolute;top:8px;left:8px;background:#00e676;color:#000;font-family:&#39;DM Mono&#39;,monospace;font-size:7px;padding:3px 8px;letter-spacing:.12em;text-transform:uppercase;border-radius:1px;">LIVE</div>
-            </div>
-            <div style="padding:8px;background:rgba(255,255,255,.05);"><span style="font-family:&#39;Nunito Sans&#39;,sans-serif;font-size:11px;color:#fff;font-weight:700;">Chauffeur Service</span></div>
-          </div>
-          <div style="scroll-snap-align:start;min-width:72%;border-radius:8px;overflow:hidden;flex-shrink:0;box-shadow:0 8px 32px rgba(0,0,0,.4);">
-            <div style="height:110px;background:url(&#39;https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=600&amp;q=85&amp;fit=crop&#39;) center/cover;position:relative;">
-              <div style="position:absolute;top:8px;left:8px;background:rgba(201,146,10,.9);color:#000;font-family:&#39;DM Mono&#39;,monospace;font-size:7px;padding:3px 8px;letter-spacing:.12em;text-transform:uppercase;border-radius:1px;">COMING SOON</div>
-            </div>
-            <div style="padding:8px;background:rgba(255,255,255,.03);"><span style="font-family:&#39;Nunito Sans&#39;,sans-serif;font-size:11px;color:rgba(255,255,255,.6);font-weight:700;">Insurance Broker</span></div>
-          </div>
-          <div style="scroll-snap-align:start;min-width:72%;border-radius:8px;overflow:hidden;flex-shrink:0;box-shadow:0 8px 32px rgba(0,0,0,.4);">
-            <div style="height:110px;background:url(&#39;https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?w=600&amp;q=85&amp;fit=crop&#39;) center/cover;position:relative;">
-              <div style="position:absolute;top:8px;left:8px;background:#00e676;color:#000;font-family:&#39;DM Mono&#39;,monospace;font-size:7px;padding:3px 8px;letter-spacing:.12em;text-transform:uppercase;border-radius:1px;">LIVE</div>
-            </div>
-            <div style="padding:8px;background:rgba(255,255,255,.05);"><span style="font-family:&#39;Nunito Sans&#39;,sans-serif;font-size:11px;color:#fff;font-weight:700;">Credit Recovery</span></div>
-          </div>
-          <div style="scroll-snap-align:start;min-width:72%;border-radius:8px;overflow:hidden;flex-shrink:0;box-shadow:0 8px 32px rgba(0,0,0,.4);">
-            <div style="height:110px;background:url(&#39;https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=600&amp;q=85&amp;fit=crop&#39;) center/cover;position:relative;">
-              <div style="position:absolute;top:8px;left:8px;background:rgba(201,146,10,.9);color:#000;font-family:&#39;DM Mono&#39;,monospace;font-size:7px;padding:3px 8px;letter-spacing:.12em;text-transform:uppercase;border-radius:1px;">COMING SOON</div>
-            </div>
-            <div style="padding:8px;background:rgba(255,255,255,.03);"><span style="font-family:&#39;Nunito Sans&#39;,sans-serif;font-size:11px;color:rgba(255,255,255,.6);font-weight:700;">Fleet Management</span></div>
-          </div>
-        </div></div>
-      <div class="rh-num">03</div>
-      <button class="rh-prev-btn" onclick="rhNavSlide(-1)">↑</button>
-      <button class="rh-next-btn" onclick="rhNavSlide(1)"><span class="rh-scroll-line"></span><span class="rh-scroll-label">next</span></button>
-    </section>
-
-    <!-- ── SECTION 4: Entertainment + Auto ───────────────────────── -->
-    <section class="rh-slide" id="rhs-ent" data-idx="4">
-      <!-- Hero image: women and children road trip at LA beach -->
-      <div class="rh-section-bg rh-parallax" id="rhEntBg" style="background-image:url(&#39;https://images.unsplash.com/photo-1515896769750-31548aa180ed?w=1800&amp;q=90&amp;fit=crop&amp;crop=center&#39;);background-position:center 45%;"></div>
-      <div class="rh-overlay-left"></div>
-      <div class="rh-grain"></div>
-      <!-- Entertainment mini-gallery strip (tappable) -->
-      <div class="rh-ent-strip" id="rhEntStrip">
-        <div class="rh-ent-thumb active" onclick="rhSetEntBg(this,&#39;https://images.unsplash.com/photo-1515896769750-31548aa180ed?w=1800&amp;q=90&amp;fit=crop&#39;)">
-          <div style="background-image:url(&#39;https://images.unsplash.com/photo-1515896769750-31548aa180ed?w=200&amp;q=80&amp;fit=crop&#39;);"></div>
-          <span>LA Night</span>
-        </div>
-        <div class="rh-ent-thumb" onclick="rhSetEntBg(this,&#39;https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=1800&amp;q=90&amp;fit=crop&#39;)">
-          <div style="background-image:url(&#39;https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=200&amp;q=80&amp;fit=crop&#39;);"></div>
-          <span>Beach Trip</span>
-        </div>
-        <div class="rh-ent-thumb" onclick="rhSetEntBg(this,&#39;https://images.unsplash.com/photo-1517926967795-31943e805dae?w=1800&amp;q=90&amp;fit=crop&#39;)">
-          <div style="background-image:url(&#39;https://images.unsplash.com/photo-1517926967795-31943e805dae?w=200&amp;q=80&amp;fit=crop&#39;);"></div>
-          <span>Scenic Drive</span>
-        </div>
-        <div class="rh-ent-thumb" onclick="rhSetEntBg(this,&#39;https://images.unsplash.com/photo-1536749567281-b93f89bb665c?w=1800&amp;q=90&amp;fit=crop&#39;)">
-          <div style="background-image:url(&#39;https://images.unsplash.com/photo-1536749567281-b93f89bb665c?w=200&amp;q=80&amp;fit=crop&#39;);"></div>
-          <span>Car Culture</span>
-        </div>
-      </div>
-      <div class="rh-content left">
-        <div class="rh-eyebrow"><span class="rh-eyebrow-cat">Culture · Auto · Life</span></div>
-        <h2 class="rh-headline mid" id="rh-ent-hl">Entertainment<br>+ Auto.</h2>
-        <p class="rh-sub" id="rh-ent-sub">Where Los Angeles car culture meets operator intelligence.</p>
-        <div class="rh-dsel compact">
-          <button class="rh-dsel-btn primary" onclick="rhCTA(&#39;ent&#39;,&#39;trending&#39;)">
-            <span class="rh-dsel-icon">🔥</span>
-            <span class="rh-dsel-lbl">Trending</span>
-          </button>
-          <button class="rh-dsel-btn" onclick="rhCTA(&#39;ent&#39;,&#39;news&#39;)">
-            <span class="rh-dsel-icon">📰</span>
-            <span class="rh-dsel-lbl" id="rhEntNewsLabel">LA News</span>
-          </button>
-          <button class="rh-dsel-btn" onclick="rhCTA(&#39;ent&#39;,&#39;weekend&#39;)">
-            <span class="rh-dsel-icon">🗓️</span>
-            <span class="rh-dsel-lbl">Plans this Weekend</span>
-          </button>
-          <button class="rh-dsel-btn gold" onclick="rhCTA(&#39;ent&#39;,&#39;culture&#39;)">
-            <span class="rh-dsel-icon">🏎️</span>
-            <span class="rh-dsel-lbl">Car Culture</span>
-          </button>
-        </div>
-      </div>
-      <div class="rh-num">04</div>
-      <button class="rh-prev-btn" onclick="rhNavSlide(-1)">↑</button>
-      <button class="rh-next-btn" onclick="rhNavSlide(1)"><span class="rh-scroll-line"></span><span class="rh-scroll-label">next</span></button>
-    </section>
-
-    <!-- ── SECTION 5: Purchase / Products Carousel ────────────────── -->
-    <section class="rh-slide rh-slide--purchase" id="rhs-apply" data-idx="5">
-      <div class="rh-grain"></div>
-
-      <div class="rh-purchase-wrap">
-        <!-- Left: brand + apply -->
-        <div class="rh-purchase-left">
-          <img class="rh-apply-logo" style="filter:brightness(0) invert(1);" src="data:image/png;base64,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" alt="HIRECAR">
-          <h2 class="rh-apply-hl" id="rh-apply-hl">First Class<br>Qualification</h2>
-          <p class="rh-apply-txt" id="rh-apply-txt">Standards are the price of volume. Apply to qualify for HIRECAR First Class.</p>
-          <a href="file:///Users/hirecarken/Downloads/hirecar-marketwatch-v20_5.html#" class="rh-apply-pill">Apply to Qualify →</a>
-          <div class="rh-apply-meta" id="rh-apply-meta">By application only · Los Angeles, CA · HIRECAR.LA</div>
-        </div>
-
-        <!-- Right: auto-sliding product carousel -->
-        <div class="rh-carousel-wrap">
-          <div class="rh-carousel-track" id="rhCarouselTrack" style="transform: translateX(-100%);">
-
-            <div class="rh-carousel-card">
-              <div class="rh-carousel-img" style="background-image:url(&#39;https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=600&amp;q=85&amp;fit=crop&#39;)"></div>
-              <div class="rh-carousel-body">
-                <div class="rh-carousel-cat">HIRECREDIT</div>
-                <div class="rh-carousel-name">Credit Recovery Program</div>
-                <div class="rh-carousel-desc">Incident-to-resolution routing. Single record, clean outcome.</div>
-                <div class="rh-carousel-btns">
-                  <button class="rh-cbtn" onclick="rhCTA(&#39;credit-prog&#39;,&#39;info&#39;)">ℹ️ Info</button>
-                  <button class="rh-cbtn gold" onclick="rhCTA(&#39;credit-prog&#39;,&#39;purchase&#39;)">⚡ Buy</button>
-                </div>
-              </div>
-            </div>
-
-            <div class="rh-carousel-card">
-              <div class="rh-carousel-img" style="background-image:url(&#39;https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=600&amp;q=85&amp;fit=crop&#39;)"></div>
-              <div class="rh-carousel-body">
-                <div class="rh-carousel-cat">HIRECAR FIRST CLASS</div>
-                <div class="rh-carousel-name">Black Car Membership</div>
-                <div class="rh-carousel-desc">Fleet-grade vehicles. LA operator standards. Monthly or annual.</div>
-                <div class="rh-carousel-btns">
-                  <button class="rh-cbtn" onclick="rhCTA(&#39;membership&#39;,&#39;reserve&#39;)">📅 Reserve</button>
-                  <button class="rh-cbtn gold" onclick="rhCTA(&#39;membership&#39;,&#39;purchase&#39;)">⚡ Buy</button>
-                </div>
-              </div>
-            </div>
-
-            <div class="rh-carousel-card">
-              <div class="rh-carousel-img" style="background-image:url(&#39;https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=600&amp;q=85&amp;fit=crop&#39;)"></div>
-              <div class="rh-carousel-body">
-                <div class="rh-carousel-cat">COLLISION SERVICES</div>
-                <div class="rh-carousel-name">Rapid Response Repair</div>
-                <div class="rh-carousel-desc">24hr evidence velocity. Multi-party claims handled end-to-end.</div>
-                <div class="rh-carousel-btns">
-                  <button class="rh-cbtn" onclick="rhCTA(&#39;collision&#39;,&#39;info&#39;)">ℹ️ Info</button>
-                  <button class="rh-cbtn gold" onclick="rhCTA(&#39;collision&#39;,&#39;purchase&#39;)">⚡ Buy</button>
-                </div>
-              </div>
-            </div>
-
-            <div class="rh-carousel-card">
-              <div class="rh-carousel-img" style="background-image:url(&#39;https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46?w=600&amp;q=85&amp;fit=crop&#39;)"></div>
-              <div class="rh-carousel-body">
-                <div class="rh-carousel-cat">CHAUFFEUR SERVICE</div>
-                <div class="rh-carousel-name">Executive Ground Transport</div>
-                <div class="rh-carousel-desc">On-demand Audi fleet. Airport, studio, corporate events.</div>
-                <div class="rh-carousel-btns">
-                  <button class="rh-cbtn" onclick="rhCTA(&#39;chauffeur&#39;,&#39;reserve&#39;)">📅 Reserve</button>
-                  <button class="rh-cbtn gold" onclick="rhCTA(&#39;chauffeur&#39;,&#39;purchase&#39;)">⚡ Buy</button>
-                </div>
-              </div>
-            </div>
-
-            <div class="rh-carousel-card">
-              <div class="rh-carousel-img" style="background-image:url(&#39;https://images.unsplash.com/photo-1517026575980-3e1e2dedeab4?w=600&amp;q=85&amp;fit=crop&#39;)"></div>
-              <div class="rh-carousel-body">
-                <div class="rh-carousel-cat">INSURANCE ACCESS</div>
-                <div class="rh-carousel-name">Operator Coverage Bundle</div>
-                <div class="rh-carousel-desc">TNC-ready insurance packages. Rideshare, rental, commercial.</div>
-                <div class="rh-carousel-btns">
-                  <button class="rh-cbtn" onclick="rhCTA(&#39;insurance&#39;,&#39;info&#39;)">ℹ️ Info</button>
-                  <button class="rh-cbtn gold" onclick="rhCTA(&#39;insurance&#39;,&#39;purchase&#39;)">⚡ Buy</button>
-                </div>
-              </div>
-            </div>
-
-            <div class="rh-carousel-card">
-              <div class="rh-carousel-img" style="background-image:url(&#39;https://images.unsplash.com/photo-1534430480872-3498386e7856?w=600&amp;q=85&amp;fit=crop&#39;)"></div>
-              <div class="rh-carousel-body">
-                <div class="rh-carousel-cat">MARKETWATCH</div>
-                <div class="rh-carousel-name">Operator Intelligence Report</div>
-                <div class="rh-carousel-desc">Q1 2026 full access. LA basin collision data + market signals.</div>
-                <div class="rh-carousel-btns">
-                  <button class="rh-cbtn" onclick="setMode(&#39;desktop&#39;)">📰 Read</button>
-                  <button class="rh-cbtn gold" onclick="rhCTA(&#39;report&#39;,&#39;purchase&#39;)">⚡ Buy</button>
-                </div>
-              </div>
-            </div>
-
-          </div><!-- /track -->
-          <!-- Carousel dots -->
-          <div class="rh-carousel-dots" id="rhCarouselDots"><button class="rh-cdot" onclick="rhCarouselGo(0)"></button><button class="rh-cdot active" onclick="rhCarouselGo(1)"></button><button class="rh-cdot" onclick="rhCarouselGo(2)"></button><button class="rh-cdot" onclick="rhCarouselGo(3)"></button><button class="rh-cdot" onclick="rhCarouselGo(4)"></button><button class="rh-cdot" onclick="rhCarouselGo(5)"></button></div>
-        </div><!-- /carousel-wrap -->
-      </div><!-- /purchase-wrap -->
-
-      <!-- Stats row -->
-      <div class="rh-apply-stats-row">
-        <div><span class="rh-stat-n">810K+</span><span class="rh-stat-l">Records</span></div>
-        <div class="rh-stat-div"></div>
-        <div><span class="rh-stat-n">24hr</span><span class="rh-stat-l">Velocity</span></div>
-        <div class="rh-stat-div"></div>
-        <div><span class="rh-stat-n">3-Lane</span><span class="rh-stat-l">BRE Routing</span></div>
-      </div>
-
-      <button class="rh-prev-btn" onclick="rhNavSlide(-1)">↑ Back</button>
-    </section>
-
-  </div><!-- /rh-rail -->
-
-  <!-- Side nav dots -->
-  <nav class="rh-sidenav" id="rhSidenav">
-    <button class="rh-sidenav-dot active" data-idx="0" onclick="rhNavTo(0)"><span class="rh-sidenav-tip">Credit Recovery</span></button>
-    <button class="rh-sidenav-dot" data-idx="1" onclick="rhNavTo(1)"><span class="rh-sidenav-tip">Top Stories</span></button>
-    <button class="rh-sidenav-dot" data-idx="2" onclick="rhNavTo(2)"><span class="rh-sidenav-tip">Mobility</span></button>
-    <button class="rh-sidenav-dot" data-idx="3" onclick="rhNavTo(3)"><span class="rh-sidenav-tip">Services</span></button>
-    <button class="rh-sidenav-dot" data-idx="4" onclick="rhNavTo(4)"><span class="rh-sidenav-tip">Entertainment</span></button>
-    <button class="rh-sidenav-dot" data-idx="5" onclick="rhNavTo(5)"><span class="rh-sidenav-tip">Purchase</span></button>
-  </nav>
-
-</div>
-
-<!-- ═══ REMOTE BOTTOM BAR ═══ -->
-<div id="remoteBottomBar" class="">
-  <div class="rbb-inner">
-    <button class="rbb-btn" id="rbbMenu" onclick="document.getElementById(&#39;remoteHub&#39;).scrollIntoView({behavior:&#39;smooth&#39;})">
-      <span class="rbb-icon">⊞</span>
-      <span class="rbb-label" id="rbbMenuLabel">Menu</span>
-    </button>
-    <button class="rbb-btn" onclick="window.scrollTo({top:0,behavior:&#39;smooth&#39;})">
-      <span class="rbb-icon">↑</span>
-      <span class="rbb-label">Top</span>
-    </button>
-    <button class="rbb-btn" onclick="setMode(&#39;desktop&#39;)">
-      <span class="rbb-icon">🖥</span>
-      <span class="rbb-label">Desktop</span>
-    </button>
-    <a href="file:///Users/hirecarken/Downloads/hirecar-marketwatch-v20_5.html#" class="rbb-btn" style="text-decoration:none">
-      <span class="rbb-icon">→</span>
-      <span class="rbb-label">Apply</span>
-    </a>
-  </div>
-</div>
-
-
+<body>
 <!-- ═══ UTILITY BAR (ticker + member actions) ═══ -->
 <div class="util-bar">
   <div class="util-inner">
@@ -4922,7 +4686,7 @@ body.remote-mode .brand-logo-light { mix-blend-mode: normal; }
           <div class="dd-col-head">Services</div>
           <ul class="dd-links">
             <li><a href="file:///Users/hirecarken/Downloads/hirecar-marketwatch-v20_5.html#">HIRECREDIT Overview</a></li>
-            <li><a href="./what-is-pifr.htm">Post-Incident Recovery (PIFR)</a></li>
+            <li><a href="file:///Users/hirecarken/Downloads/hirecar-marketwatch-v20_5.html#">Post-Incident Recovery (PIFR)</a></li>
             <li><a href="file:///Users/hirecarken/Downloads/hirecar-marketwatch-v20_5.html#">Credit Dispute + Tradeline Strategy</a></li>
             <li><a href="file:///Users/hirecarken/Downloads/hirecar-marketwatch-v20_5.html#">Collections Protection</a></li>
             <li><a href="file:///Users/hirecarken/Downloads/hirecar-marketwatch-v20_5.html#">Auto Loan Catch-Up</a></li>
@@ -4941,7 +4705,7 @@ body.remote-mode .brand-logo-light { mix-blend-mode: normal; }
           <ul class="dd-links">
             <li><a href="file:///Users/hirecarken/Downloads/hirecar-marketwatch-v20_5.html#">Collision → Credit Event Timeline</a></li>
             <li><a href="file:///Users/hirecarken/Downloads/hirecar-marketwatch-v20_5.html#">Billing Fog Guide</a></li>
-            <li><a href="./how-hirecredit-works.htm">How HIRECREDIT Works</a></li>
+            <li><a href="file:///Users/hirecarken/Downloads/hirecar-marketwatch-v20_5.html#">How HIRECREDIT Works</a></li>
           </ul>
         </div>
       </div>
@@ -5243,642 +5007,205 @@ body.remote-mode .brand-logo-light { mix-blend-mode: normal; }
     <a href="https://www.hirecar.la/" class="nav-external">HIRECAR.LA ↗</a>
   </div>
 </nav>
-
-<!-- ═══ HIRECREDIT LEAD MODULE (replaces LA Times streaming module) ═══ -->
-<div class="credit-module" id="sec-credit">
-  <div class="credit-module-inner">
-    <div class="credit-module-main">
-      <div class="credit-icon" style="padding:0;overflow:hidden;border-radius:4px;min-width:280px;max-width:340px;flex-shrink:0;">
-        <img src="./HIRECAR MarketWatch! — Auto Operator Intelligence · Los Angeles_files/photo-1579621970563-ebec7560ff3e" alt="Financial stress — credit recovery" style="width:100%;height:220px;object-fit:cover;display:block;filter:grayscale(15%);">
-      </div>
-      <div class="credit-module-text">
-        <div class="credit-eyebrow">Credit Repair · Lead Category · Q1 2026 — HIRECREDIT dba HIRECAR, LLC</div>
-        <h1 class="credit-headline serif">Your Credit Took a Hit.<br>We Bring It Back.</h1>
-        <p class="credit-sub">Incidents become credit events. Billing fog becomes collections. HIRECREDIT routes you from event to resolution — one record, one timeline, one clean outcome.</p>
-        <div class="credit-stat-row" style="margin-top:18px; border-top:1px solid var(--border-lt); padding-top:14px;">
-          <div class="credit-stat">
-            <div class="credit-stat-n serif">810K+</div>
-            <div class="credit-stat-l">LA Collisions · 2024</div>
-          </div>
-          <div class="credit-stat">
-            <div class="credit-stat-n serif">PIFR</div>
-            <div class="credit-stat-l">Recovery SKU Active</div>
-          </div>
-          <div class="credit-stat">
-            <div class="credit-stat-n serif">24hr</div>
-            <div class="credit-stat-l">Intake Response</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="credit-module-actions">
-      <a href="./what-is-pifr.htm" class="credit-cta-primary">What is PIFR? →</a>
-      <a href="./how-hirecredit-works.htm" class="credit-cta-secondary">How HIRECREDIT Works</a>
-    </div>
+<!-- ═══ BREADCRUMB ═══ -->
+<div class="article-breadcrumb">
+  <div class="article-breadcrumb-inner">
+    <a href="./HIRECAR MarketWatch! — Auto Operator Intelligence · Los Angeles.htm">MarketWatch!</a>
+    <span class="bc-sep">/</span>
+    <a href="#">Credit Repair</a>
+    <span class="bc-sep">/</span>
+    <a href="#">HIRECREDIT</a>
+    <span class="bc-sep">/</span>
+    How HIRECREDIT Works
   </div>
 </div>
 
-<!-- ═══ MAIN CONTENT ═══ -->
-<div class="page-wrap">
+<!-- ═══ ARTICLE ═══ -->
+<div class="article-page-wrap">
 
-  <!-- Top Stories label -->
-  <div class="section-label" id="sec-stories">Top Stories</div>
+  <article class="article-page-main">
 
-  <!-- HERO AREA: big story left, ICYMI right -->
-  <div class="hero-area">
-    <div class="hero-main">
-      <div class="hero-img-placeholder" style="
-        background-image: url(&#39;https://images.unsplash.com/photo-1647152548885-4881b06bfdd3?w=1400&amp;q=90&amp;fit=crop&amp;crop=center&#39;);
-        background-size: cover;
-        background-position: center 40%;
-        height: 380px;
-        border-radius: 0;
-        position: relative;
-        overflow: hidden;
-      ">
-        <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.1) 0%,rgba(0,0,0,0.55) 100%);"></div>
-        <div style="position:absolute;bottom:18px;left:20px;display:flex;align-items:center;gap:8px;">
-          <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#e53935;animation:pulse-dot 1.4s ease-in-out infinite;"></span>
-          <span style="font-family:&#39;DM Mono&#39;,monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.7);">Live Coverage · Los Angeles</span>
-        </div>
-      </div>
-      <div class="hero-cat-tag">Collision + Claims</div>
-      <h2 class="hero-title serif">Your credit took a hit.<br>We bring it back.</h2>
-      <p class="hero-blurb">Los Angeles logged 810,839 collision records last year. That number is not a headline — it's an operating condition. For every operator in the basin, it means sustained incident volume, multi-party claims complexity, and a recovery cycle that doesn't pause for admin lag.</p>
-      <div class="hero-byline">
-        <span>By Ken Eckman</span>
-        <span class="sep">·</span>
-        <span>HIRECAR MarketWatch</span>
-        <span class="sep">·</span>
-        <span><span class="live-dot"></span>Just Published</span>
-        <span class="sep">·</span>
-        <span>3 min read</span>
-      </div>
-    </div>
+    <div class="ap-eyebrow">Credit Repair · HIRECREDIT · Lead Category</div>
+    <h1 class="ap-headline serif">How HIRECREDIT Works</h1>
+    <div class="ap-deck">HIRECREDIT is the credit recovery system built for auto operators. When incidents, billing fog, and delayed insurance payouts land on your credit file, HIRECREDIT routes you from event to resolution — one record, one timeline, one clean outcome.</div>
+    <div class="ap-byline">HIRECAR MarketWatch! Intelligence Desk · Credit Repair · Updated Q1 2026</div>
 
-    <!-- ICYMI sidebar -->
-    <div class="hero-sidebar">
-      <div style="position:relative;">
-      <div class="scroll-arrow" style="top:0;right:0;transform:none;font-size:11px;width:28px;height:28px;position:absolute;" onclick="this.parentElement.nextElementSibling &amp;&amp; this.parentElement.closest(&#39;.hero-sidebar&#39;).scrollBy({top:100,behavior:&#39;smooth&#39;})">↓</div>
-      </div>
-      <div class="icymi-head">In Case You Missed It</div>
+    <div class="ap-body">
 
-      <div class="icymi-item" style="opacity: 1; transform: translateY(0px); transition: opacity 0.5s, transform 0.5s;">
-        <div class="icymi-cat">Operator Standards</div>
-        <div class="icymi-title serif">Why Admin Failure — Not the Incident — Is Destroying Operator Margins in LA</div>
-        <div class="icymi-time">Feb 20, 2026 · 2 min read</div>
-      </div>
-      <div class="icymi-item" style="opacity: 0; transform: translateY(14px); transition: opacity 0.5s 0.04s, transform 0.5s 0.04s;">
-        <div class="icymi-cat">Credit Repair</div>
-        <div class="icymi-title serif">Auto Credit After a Collision: How an Incident Becomes a Credit Event</div>
-        <div class="icymi-time">Feb 20, 2026 · 4 min read</div>
-      </div>
-      <div class="icymi-item" style="opacity: 0; transform: translateY(14px); transition: opacity 0.5s 0.08s, transform 0.5s 0.08s;">
-        <div class="icymi-cat">Small Business Funding</div>
-        <div class="icymi-title serif">SeedXchange Q1 2026: What Auto Operators in the HIRECAR Network Can Qualify For</div>
-        <div class="icymi-time">Feb 19, 2026 · 5 min read</div>
-      </div>
-      <div class="icymi-item" style="opacity: 0; transform: translateY(14px); transition: opacity 0.5s 0.12s, transform 0.5s 0.12s;">
-        <div class="icymi-cat">MW Intelligence</div>
-        <div class="icymi-title serif">Cure Window Sensitivity: When to Tighten and When to Hold in Q1 2026</div>
-        <div class="icymi-time">Feb 18, 2026 · 3 min read</div>
-      </div>
-      <div class="icymi-item" style="opacity: 0; transform: translateY(14px); transition: opacity 0.5s 0.16s, transform 0.5s 0.16s;">
-        <div class="icymi-cat">Operator Playbooks</div>
-        <div class="icymi-title serif">HBI Scoring: The 5 Behaviors That Move Vendors Into Premium Volume Lanes</div>
-        <div class="icymi-time">Feb 17, 2026 · 4 min read</div>
-      </div>
-    </div>
-  </div>
+      <p>Traditional credit repair focuses on disputing inaccurate items after the damage is done. HIRECREDIT is different. It was built specifically for the auto operator economy — for drivers, fleet operators, and vehicle professionals whose credit profiles are shaped by collision events, insurance delays, and billing systems that weren't designed for how operators actually work.</p>
 
-</div><!-- /page-wrap -->
+      <div class="ap-highlight">
+        <p><strong>HIRECREDIT's principle:</strong> Incidents become credit events. Billing fog becomes collections. The system that understands the incident timeline is the only system that can effectively recover the credit file.</p>
+      </div>
 
-<!-- ═══ TRENDING STRIP ═══ -->
-<div class="scroll-section" style="position:relative;">
-<div class="scroll-arrow" onclick="this.closest(&#39;.scroll-section&#39;).querySelector(&#39;.trending-inner&#39;).scrollBy({left:300,behavior:&#39;smooth&#39;})">→</div>
-<div class="trending-strip" id="trendingStrip" style="overflow-x:auto;-webkit-overflow-scrolling:touch;">
-  <div class="trending-inner">
-    <div class="trending-label">Trending</div>
-    <div class="trending-items">
-      <div class="trending-item">
-        <span class="t-num">1</span>
-        <span class="t-text serif">810K LA Collisions — What It Means for Operators</span>
-      </div>
-      <div class="trending-item">
-        <span class="t-num">2</span>
-        <span class="t-text serif">HIRECREDIT: Credit Recovery After an Incident</span>
-      </div>
-      <div class="trending-item">
-        <span class="t-num">3</span>
-        <span class="t-text serif">Admin Failure Is the Real Margin Killer</span>
-      </div>
-      <div class="trending-item">
-        <span class="t-num">4</span>
-        <span class="t-text serif">SeedXchange Q1 2026 — Apply Now</span>
-      </div>
-      <div class="trending-item">
-        <span class="t-num">5</span>
-        <span class="t-text serif">HBI Scoring: Revenue Lane vs Cure Lane</span>
-      </div>
-      <div class="trending-item">
-        <span class="t-num">6</span>
-        <span class="t-text serif">Custody Log Standards: What HIRECAR Requires</span>
-      </div>
-    </div>
-  </div>
-</div>
-</div><!-- /scroll-section trending -->
+      <h2 class="serif">The HIRECREDIT Process</h2>
 
-<div class="page-wrap">
+      <p>HIRECREDIT operates through a structured four-step process, from initial intake through ongoing credit health management:</p>
 
-  <!-- ── Credit Repair + Auto Insurance section ── -->
-  <div class="section-label" style="margin-top:4px;" id="sec-credit-repair">Credit Repair · Auto Insurance</div>
-
-  <div class="content-grid">
-    <div class="content-main">
-
-      <div class="art-row" style="opacity: 0; transform: translateY(14px); transition: opacity 0.5s 0.2s, transform 0.5s 0.2s;">
-        <div class="art-thumb" style="background-image:url(&#39;https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=200&amp;q=80&amp;fit=crop&#39;);background-size:cover;background-position:center;font-size:0;"></div>
-        <div class="art-text">
-          <div>
-            <div class="art-cat">Credit Repair</div>
-            <div class="art-title serif">Auto Credit After a Collision: How an Incident Becomes a Credit Event — And What to Do About It</div>
-            <p class="art-blurb">Billing fog, delayed insurance payouts, and missed payments create a cascade that lands on your credit file. HIRECREDIT maps the path from incident to resolution.</p>
+      <div class="ap-step-flow">
+        <div class="ap-step-item">
+          <div class="ap-step-num">1</div>
+          <div class="ap-step-content">
+            <div class="ap-step-title">Intake + Credit Assessment</div>
+            <div class="ap-step-desc">We pull your credit profile across all three bureaus, map every negative item to its source event, and identify which items are incident-related, which are billing fog, and which are legitimate. Every item gets a recovery pathway.</div>
           </div>
-          <div class="art-meta"><span class="live-dot"></span>Just Published · 2 min read</div>
         </div>
-      </div>
-
-      <div class="art-row" style="opacity: 0; transform: translateY(14px); transition: opacity 0.5s 0.24s, transform 0.5s 0.24s;">
-        <div class="art-thumb">🏦</div>
-        <div class="art-text">
-          <div>
-            <div class="art-cat">Auto Insurance</div>
-            <div class="art-title serif">When Insurance Delays Become Collections Threats: A Timeline Every Driver in LA Should Know</div>
-            <p class="art-blurb">Claims delays of 30, 60, 90 days can transform a recoverable incident into a credit crisis. Here's how to track yours before it tracks you.</p>
+        <div class="ap-step-item">
+          <div class="ap-step-num">2</div>
+          <div class="ap-step-content">
+            <div class="ap-step-title">Dispute Strategy + Documentation</div>
+            <div class="ap-step-desc">Using PIFR exhibit-ready packets (when available) or reconstructed timelines, we build dispute-grade evidence for every item targeted for removal. Each dispute is backed by timestamped records, carrier communications, and billing chain documentation.</div>
           </div>
-          <div class="art-meta">1 day ago · 4 min read</div>
         </div>
-      </div>
-
-      <div class="art-row" style="opacity: 0; transform: translateY(14px); transition: opacity 0.5s 0.28s, transform 0.5s 0.28s;">
-        <div class="art-thumb" style="background-image:url(&#39;https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=200&amp;q=80&amp;fit=crop&#39;);background-size:cover;background-position:center;font-size:0;"></div>
-        <div class="art-text">
-          <div>
-            <div class="art-cat">Small Business Funding</div>
-            <div class="art-title serif">SeedXchange Q1 2026: What Auto Operators in the HIRECAR Network Can Qualify For Right Now</div>
+        <div class="ap-step-item">
+          <div class="ap-step-num">3</div>
+          <div class="ap-step-content">
+            <div class="ap-step-title">Bureau Intervention + Tradeline Optimization</div>
+            <div class="ap-step-desc">Disputes are filed with Equifax, Experian, and TransUnion simultaneously. While disputes are active, we optimize your tradeline mix — identifying opportunities to add positive history and improve utilization ratios.</div>
           </div>
-          <div class="art-meta">2 days ago · 5 min read</div>
         </div>
-      </div>
-
-      <div class="art-row" style="opacity: 0; transform: translateY(14px); transition: opacity 0.5s 0.32s, transform 0.5s 0.32s;">
-        <div class="art-thumb" style="background-image:url(&#39;https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=200&amp;q=80&amp;fit=crop&#39;);background-size:cover;background-position:center;font-size:0;"></div>
-        <div class="art-text">
-          <div>
-            <div class="art-cat">Credit Repair</div>
-            <div class="art-title serif">Gap Coverage, Deductibles, and the Billing Fog That Costs Operators Thousands After an Incident</div>
+        <div class="ap-step-item">
+          <div class="ap-step-num">4</div>
+          <div class="ap-step-content">
+            <div class="ap-step-title">Collections Protection + Ongoing Monitoring</div>
+            <div class="ap-step-desc">Active collections are intercepted, validated, and — where documentation supports it — challenged or settled. Credit monitoring continues to catch new incidents before they become embedded damage.</div>
           </div>
-          <div class="art-meta">3 days ago · 3 min read</div>
         </div>
       </div>
 
-    </div>
+      <h2 class="serif">What Makes HIRECREDIT Different</h2>
 
-    <div class="content-side">
-      <!-- SeedXchange CTA widget -->
-      <div class="side-cta-widget">
-        <div class="cta-widget-eyebrow">Business Funding · Q1 2026</div>
-        <div class="cta-widget-title serif">Auto Operator Funding Is Open. Qualify in 24 Hours.</div>
-        <a href="file:///Users/hirecarken/Downloads/hirecar-marketwatch-v20_5.html#" class="cta-widget-btn">Apply for SeedXchange Funding →</a>
-      </div>
+      <p>Most credit repair companies treat every negative item the same way: file a generic dispute and hope the bureau doesn't verify it. HIRECREDIT takes a fundamentally different approach because it understands the <strong>source events</strong> behind the credit damage.</p>
 
-      <!-- Most Read -->
-      <div class="side-block">
-        <div class="side-head">Most Read This Week</div>
-        <div class="side-art" style="opacity: 0; transform: translateY(14px); transition: opacity 0.5s 0.36s, transform 0.5s 0.36s;">
-          <div class="side-art-cat">Collision + Claims</div>
-          <div class="side-art-title serif">810K Collisions in LA — What It Means for Every Auto Operator</div>
-          <div class="side-art-meta">Feb 20, 2026</div>
+      <div class="ap-service-grid">
+        <div class="ap-service-cell">
+          <div class="ap-service-name">Incident-Linked Disputes</div>
+          <div class="ap-service-desc">Every dispute is tied to a documented incident timeline, not a generic template. Bureau response rates are significantly higher when the dispute includes exhibit-grade evidence.</div>
         </div>
-        <div class="side-art" style="opacity: 0; transform: translateY(14px); transition: opacity 0.5s 0.4s, transform 0.5s 0.4s;">
-          <div class="side-art-cat">Credit Repair</div>
-          <div class="side-art-title serif">HIRECREDIT: How Credit Recovery Works After an Incident</div>
-          <div class="side-art-meta">Feb 19, 2026</div>
+        <div class="ap-service-cell">
+          <div class="ap-service-name">PIFR Integration</div>
+          <div class="ap-service-desc">When PIFR packets exist, recovery is faster and more effective. Documentation generated at the point of incident is stronger than anything reconstructed months later.</div>
         </div>
-        <div class="side-art" style="opacity: 0; transform: translateY(14px); transition: opacity 0.5s 0.44s, transform 0.5s 0.44s;">
-          <div class="side-art-cat">Operator Standards</div>
-          <div class="side-art-title serif">Admin Failure Is the Real Margin Killer — Not the Incident</div>
-          <div class="side-art-meta">Feb 18, 2026</div>
+        <div class="ap-service-cell">
+          <div class="ap-service-name">Operator-Grade Strategy</div>
+          <div class="ap-service-desc">Credit profiles shaped by vehicle operations have specific patterns — fleet financing, rental insurance, commercial billing. HIRECREDIT reads these patterns natively.</div>
         </div>
-        <div class="side-art" style="opacity: 0; transform: translateY(14px); transition: opacity 0.5s 0.48s, transform 0.5s 0.48s;">
-          <div class="side-art-cat">Playbooks</div>
-          <div class="side-art-title serif">Custody Log Standards: What HIRECAR Requires and Why It Protects You</div>
-          <div class="side-art-meta">Feb 17, 2026</div>
+        <div class="ap-service-cell">
+          <div class="ap-service-name">Collections Shield</div>
+          <div class="ap-service-desc">Active collection accounts linked to incident chains are intercepted and validated before payment. If the documentation doesn't support the claim, we challenge it.</div>
         </div>
       </div>
 
-      <!-- Operator Playbooks -->
-      <div class="side-block">
-        <div class="side-head">Operator Playbooks</div>
-        <div class="side-art" style="opacity: 0; transform: translateY(14px); transition: opacity 0.5s 0.52s, transform 0.5s 0.52s;">
-          <div class="side-art-title serif">How to Build an Exhibit-Ready Packet Before the First Dispute Arrives</div>
+      <h2 class="serif">HIRECREDIT Services</h2>
+
+      <h3>Credit Dispute + Tradeline Strategy</h3>
+      <p>The core service. We identify, document, and dispute every item that doesn't belong on your credit file. Simultaneously, we build a tradeline strategy to strengthen your profile — not just remove negatives, but add positives that demonstrate creditworthiness to lenders and fleet operators.</p>
+
+      <h3>Post-Incident Financial Recovery (PIFR)</h3>
+      <p>PIFR is the upstream prevention system. When an incident occurs, PIFR creates the documentation and manages the timeline before billing fog becomes credit damage. <a href="./what-is-pifr.htm" style="color:var(--cta);font-weight:700;">Learn more about PIFR →</a></p>
+
+      <h3>Collections Protection</h3>
+      <p>Collections tied to auto incidents follow a specific pattern: delayed insurance payouts create billing gaps, which create missed payments, which get sold to collection agencies. HIRECREDIT traces the chain back to the source event and challenges the collection where documentation supports it.</p>
+
+      <h3>Auto Loan Catch-Up</h3>
+      <p>When a collision disrupts your income (vehicle out of service, rental gaps, medical recovery), loan payments get missed. HIRECREDIT works with lenders to restructure payment timelines and prevent charge-offs while the incident chain resolves.</p>
+
+      <div class="ap-stat-grid">
+        <div class="ap-stat-cell">
+          <div class="ap-stat-num serif">900+</div>
+          <div class="ap-stat-label">Disputes Closed · Q1 2026</div>
         </div>
-        <div class="side-art" style="opacity: 0; transform: translateY(14px); transition: opacity 0.5s 0.56s, transform 0.5s 0.56s;">
-          <div class="side-art-title serif">HBI Scoring: The 5 Behaviors That Move You Into Premium Volume Lanes</div>
+        <div class="ap-stat-cell">
+          <div class="ap-stat-num serif">3</div>
+          <div class="ap-stat-label">Bureaus · Simultaneous</div>
         </div>
-        <div class="side-art" style="opacity: 0; transform: translateY(14px); transition: opacity 0.5s 0.6s, transform 0.5s 0.6s;">
-          <div class="side-art-title serif">VDI Checklist: Getting Your Vehicle to 80+ for Revenue Lane Access</div>
+        <div class="ap-stat-cell">
+          <div class="ap-stat-num serif">24hr</div>
+          <div class="ap-stat-label">Intake Response Time</div>
         </div>
       </div>
-    </div>
-  </div>
 
-  <!-- ── 3-COL GRID: Mobility + Rentals (lifted above PIFR) ── -->
-  <div class="scroll-section" style="position:relative;" id="sec-mobility">
-  <div class="scroll-arrow" onclick="var g=this.closest(&#39;.scroll-section&#39;).querySelector(&#39;.card-grid&#39;);g.scrollBy ? g.scrollBy({left:300,behavior:&#39;smooth&#39;}) : g.scrollLeft+=300">→</div>
-  <div class="section-label">Mobility + Rentals · Roadside + Emergency</div>
-  <div class="card-grid scroll-cards" style="">
-    <div class="card" style="opacity: 0; transform: translateY(14px); transition: opacity 0.5s 0.64s, transform 0.5s 0.64s;">
-      <div class="card-img" style="background-image:url(&#39;https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=500&amp;q=80&amp;fit=crop&#39;);background-size:cover;background-position:center;height:140px;"></div>
-      <div class="card-cat">Mobility + Rentals</div>
-      <div class="card-title serif">Luxury Rental vs. Daily Driver: Choosing the Right Fleet Tier for Your LA Lifestyle</div>
-      <div class="card-meta">2 days ago · 3 min read</div>
-    </div>
-    <div class="card" style="opacity: 0; transform: translateY(14px); transition: opacity 0.5s 0.68s, transform 0.5s 0.68s;">
-      <div class="card-img" style="background-image:url(&#39;https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=500&amp;q=80&amp;fit=crop&#39;);background-size:cover;background-position:center;height:140px;"></div>
-      <div class="card-cat">Mobility + Rentals</div>
-      <div class="card-title serif">Airport Services + Private Drivers: What First Class Membership Covers End-to-End</div>
-      <div class="card-meta">3 days ago · 2 min read</div>
-    </div>
-    <div class="card" style="opacity: 0; transform: translateY(14px); transition: opacity 0.5s 0.72s, transform 0.5s 0.72s;">
-      <div class="card-img" style="background-image:url(&#39;https://images.unsplash.com/photo-1530046339160-ce3e530de191?w=500&amp;q=80&amp;fit=crop&#39;);background-size:cover;background-position:center;height:140px;"></div>
-      <div class="card-cat">Roadside + Emergency</div>
-      <div class="card-title serif">EV Roadside Assistance in LA: The Gap Most Operators Don't Know Exists</div>
-      <div class="card-meta">4 days ago · 4 min read</div>
-    </div>
-  </div>
-  <!-- v18: Mobility 4-Car Swipe Gallery -->
-  <div class="rh-car-gallery" id="rhMobilityGallery">
-    <div class="rh-car-card">
-      <div class="rh-car-card-img" style="background-image:url(&#39;https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=600&amp;q=85&amp;fit=crop&#39;);"></div>
-      <div class="rh-car-card-body">
-        <div class="rh-car-card-name">Ferrari 488 Spider</div>
-        <div class="rh-car-card-meta">Luxury Fleet · Available Now · LA Basin</div>
-      </div>
-    </div>
-    <div class="rh-car-card">
-      <div class="rh-car-card-img" style="background-image:url(&#39;https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=600&amp;q=85&amp;fit=crop&#39;);"></div>
-      <div class="rh-car-card-body">
-        <div class="rh-car-card-name">Lamborghini Huracán</div>
-        <div class="rh-car-card-meta">Supercar Tier · Weekend Rates · First Class</div>
-      </div>
-    </div>
-    <div class="rh-car-card">
-      <div class="rh-car-card-img" style="background-image:url(&#39;https://images.unsplash.com/photo-1617814076367-b759c7d7e738?w=600&amp;q=85&amp;fit=crop&#39;);"></div>
-      <div class="rh-car-card-body">
-        <div class="rh-car-card-name">Mercedes-AMG GT</div>
-        <div class="rh-car-card-meta">Premium Fleet · Daily Driver · All Locations</div>
-      </div>
-    </div>
-    <div class="rh-car-card">
-      <div class="rh-car-card-img" style="background-image:url(&#39;https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=600&amp;q=85&amp;fit=crop&#39;);"></div>
-      <div class="rh-car-card-body">
-        <div class="rh-car-card-name">Tesla Model S Plaid</div>
-        <div class="rh-car-card-meta">EV Fleet · Long Range · Airport Ready</div>
-      </div>
-    </div>
-  </div>
-  <div class="mobility-cta-row">
-    <a href="file:///Users/hirecarken/Downloads/hirecar-marketwatch-v20_5.html#" class="mobility-cta-btn">HIRECAR Rental Broker + Dealerships →</a>
-  </div>
+      <h2 class="serif">CreditWithKen — 1-on-1 Sessions</h2>
 
-  </div><!-- /scroll-section mobility -->
+      <p>For operators who want hands-on guidance, CreditWithKen provides direct 1-on-1 sessions with a credit strategist. These aren't generic financial coaching calls — they're operator-specific credit planning sessions that address your fleet financing, insurance billing, and post-incident recovery in real time.</p>
 
-</div><!-- /page-wrap -->
+      <p>Sessions cover credit file review, dispute prioritization, tradeline planning, and funding readiness assessment. Whether you're preparing for a fleet expansion, recovering from an incident, or building toward qualification for HIRECAR First Class Membership, CreditWithKen maps the path.</p>
 
-<!-- ═══ MCI INTELLIGENCE BAR ═══ -->
-<div class="mci-bar">
-  <div class="mci-inner">
-    <div class="mci-label">
-      <div class="mci-label-top">MARKETWATCH Intelligence</div>
-      <div class="mci-label-name serif">MCI<br>Live<br>Feb '26</div>
+      <div class="ap-cta-block">
+        <div class="ap-cta-text serif">Your credit took a hit.<br>We bring it back.</div>
+        <a href="#" class="ap-cta-btn">Apply to Qualify →</a>
+      </div>
+
+      <h2 class="serif">Getting Started</h2>
+
+      <p>HIRECREDIT intake starts with a qualification application. Once submitted, you'll receive a 24-hour response with an initial assessment, recommended service tier, and recovery timeline estimate. No obligation, no upfront fees before assessment.</p>
+
+      <p>If you've been in a recent incident and credit damage hasn't yet appeared, consider starting with PIFR to prevent it. If damage is already on the file, HIRECREDIT recovery can begin immediately.</p>
+
     </div>
-    <div class="mci-metric">
-      <div class="mci-val serif">810,839 <span class="mci-delta-up">↑</span></div>
-      <div class="mci-key">LA Collisions · 2024</div>
-      <div class="mci-sub">Structural incident demand confirmed</div>
+
+  </article>
+
+  <aside class="article-page-side">
+
+    <div class="ap-side-cta-box">
+      <div class="ap-side-cta-title serif">Ready to recover?</div>
+      <div class="ap-side-cta-desc">Start with a free credit assessment. 24-hour response, no obligation.</div>
+      <a href="#" class="ap-side-cta-btn">Apply to Qualify →</a>
     </div>
-    <div class="mci-metric">
-      <div class="mci-val serif">239,725</div>
-      <div class="mci-key">2025 Partial Export</div>
-      <div class="mci-sub">+ 459,612 person records</div>
+
+    <div class="ap-side-quote">
+      <div class="ap-side-quote-text">"Incidents don't destroy credit. The gap between incident and resolution does."</div>
+      <div class="ap-side-quote-attr">HIRECREDIT Recovery Methodology</div>
     </div>
-    <div class="mci-metric">
-      <div class="mci-val serif">HBI &gt;80 <span class="mci-delta-up">✓</span></div>
-      <div class="mci-key">Revenue Lane Threshold</div>
-      <div class="mci-sub">Below 80 = Cure Lane routing</div>
-    </div>
-    <div class="mci-actions">
-      <a href="file:///Users/hirecarken/Downloads/hirecar-marketwatch-v20_5.html#" class="mci-btn">View Full MCI Reports →</a>
-      <a href="file:///Users/hirecarken/Downloads/hirecar-marketwatch-v20_5.html#" class="mci-btn outline">HBI Score Report</a>
-    </div>
-  </div>
+
+    <div class="ap-side-label">HIRECREDIT Services</div>
+    <ul class="ap-side-links">
+      <li class="ap-side-link-item">
+        <div class="ap-side-link-cat">Core Service</div>
+        <a href="#">Credit Dispute + Tradeline Strategy</a>
+      </li>
+      <li class="ap-side-link-item">
+        <div class="ap-side-link-cat">Prevention</div>
+        <a href="./what-is-pifr.htm">Post-Incident Recovery (PIFR)</a>
+      </li>
+      <li class="ap-side-link-item">
+        <div class="ap-side-link-cat">Protection</div>
+        <a href="#">Collections Protection</a>
+      </li>
+      <li class="ap-side-link-item">
+        <div class="ap-side-link-cat">Auto Financing</div>
+        <a href="#">Auto Loan Catch-Up</a>
+      </li>
+      <li class="ap-side-link-item">
+        <div class="ap-side-link-cat">Consulting</div>
+        <a href="#">CreditWithKen — 1-on-1 Sessions</a>
+      </li>
+    </ul>
+
+    <div class="ap-side-label">Related Intelligence</div>
+    <ul class="ap-side-links">
+      <li class="ap-side-link-item">
+        <div class="ap-side-link-cat">Recovery</div>
+        <a href="./what-is-pifr.htm">What is PIFR?</a>
+      </li>
+      <li class="ap-side-link-item">
+        <div class="ap-side-link-cat">Data</div>
+        <a href="#">LA Collision Data · 2024</a>
+      </li>
+      <li class="ap-side-link-item">
+        <div class="ap-side-link-cat">Education</div>
+        <a href="#">Billing Fog Guide</a>
+      </li>
+      <li class="ap-side-link-item">
+        <div class="ap-side-link-cat">Standards</div>
+        <a href="#">HBI Scoring Overview</a>
+      </li>
+    </ul>
+
+  </aside>
+
 </div>
-
-<div class="page-wrap">
-
-  <!-- ── 3-COL GRID: Collision + Recovery (PIFR — moved below Mobility) ── -->
-  <div class="scroll-section" style="position:relative;">
-  <div class="scroll-arrow" onclick="var g=this.closest(&#39;.scroll-section&#39;).querySelector(&#39;.card-grid&#39;);g.scrollBy ? g.scrollBy({left:300,behavior:&#39;smooth&#39;}) : g.scrollLeft+=300">→</div>
-  <div class="section-label">Collision + Claims · Recovery + PIFR</div>
-  <div class="card-grid scroll-cards" style="">
-    <div class="card" style="opacity: 0; transform: translateY(14px); transition: opacity 0.5s 0.76s, transform 0.5s 0.76s;">
-      <div class="card-img" style="background-image:url(&#39;https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&amp;q=80&amp;fit=crop&#39;);background-size:cover;background-position:center;height:140px;"></div>
-      <div class="card-cat">Collision + Claims</div>
-      <div class="card-title serif">Multi-Party Complexity Is the New Normal in LA Collision Recovery</div>
-      <p class="card-blurb">How PIFR keeps incident chains clean when multiple parties, insurers, and timelines converge.</p>
-      <div class="card-meta">1 day ago · 3 min read</div>
-    </div>
-    <div class="card" style="opacity: 0; transform: translateY(14px); transition: opacity 0.5s 0.8s, transform 0.5s 0.8s;">
-      <div class="card-img" style="background-image:url(&#39;https://images.unsplash.com/photo-1589578527966-fdac0f44566c?w=500&amp;q=80&amp;fit=crop&#39;);background-size:cover;background-position:center;height:140px;"></div>
-      <div class="card-cat">Recovery + PIFR</div>
-      <div class="card-title serif">PIFR SKU: What "One Packet" Actually Means in a Claims Dispute</div>
-      <p class="card-blurb">Core vs Plus vs Max — which tier matches your incident complexity and timeline needs.</p>
-      <div class="card-meta">2 days ago · 4 min read</div>
-    </div>
-    <div class="card" style="opacity: 0; transform: translateY(14px); transition: opacity 0.5s 0.84s, transform 0.5s 0.84s;">
-      <div class="card-img" style="background-image:url(&#39;https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&amp;q=80&amp;fit=crop&#39;);background-size:cover;background-position:center;height:140px;"></div>
-      <div class="card-cat">MW Intelligence</div>
-      <div class="card-title serif">Why Admin Failure — Not the Incident — Is Destroying Operator Margins in LA</div>
-      <p class="card-blurb">The data is clear: the gap between incident and resolution is where most operators lose money.</p>
-      <div class="card-meta">Just Published · 2 min read</div>
-    </div>
-  </div>
-  </div><!-- /scroll-section pifr -->
-
-</div><!-- /page-wrap -->
-
-<!-- ═══ ENTERTAINMENT SECTION ═══ -->
-<div class="ent-section" id="sec-ent">
-  <div class="ent-section-inner" style="position:relative;">
-    <div class="scroll-arrow" style="top:40px;background:rgba(0,0,0,.4);border-color:rgba(255,255,255,.15);color:#fff;" onclick="var g=document.querySelector(&#39;.ent-grid&#39;);g.scrollBy ? g.scrollBy({left:300,behavior:&#39;smooth&#39;}) : g.scrollLeft+=300">→</div>
-    <div class="section-label">Entertainment · Culture · Auto · City Life</div>
-    <div class="ent-grid">
-      <div class="ent-card" style="background-image: url(&quot;https://images.unsplash.com/photo-1476234251651-f353703a034d?w=800&amp;q=85&amp;fit=crop&amp;crop=center&quot;); background-size: cover; background-position: center center; opacity: 1; transform: translateY(0px); transition: opacity 0.5s 0.88s, transform 0.5s 0.88s;">
-        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.85) 0%,rgba(0,0,0,.2) 60%);"></div>
-        <div style="position:relative;z-index:2;">
-          <div class="ent-cat">Road Trip Culture</div>
-          <div class="ent-title serif" style="text-shadow:0 2px 12px rgba(0,0,0,.7);">Couples on the Road: LA to Las Vegas in a HIRECAR First Class Vehicle</div>
-          <p class="ent-desc" style="text-shadow:0 1px 8px rgba(0,0,0,.6);">The best road trips start with the right vehicle. We follow real couples and families on California's most iconic drives.</p>
-        </div>
-      </div>
-      <div class="ent-card" style="background-image: url(&quot;https://images.unsplash.com/photo-1488085061387-422e29b40080?w=800&amp;q=85&amp;fit=crop&amp;crop=center&quot;); background-size: cover; background-position: center center; opacity: 1; transform: translateY(0px); transition: opacity 0.5s 0.92s, transform 0.5s 0.92s;">
-        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.85) 0%,rgba(0,0,0,.2) 60%);"></div>
-        <div style="position:relative;z-index:2;">
-          <div class="ent-cat">Family Mobility</div>
-          <div class="ent-title serif" style="text-shadow:0 2px 12px rgba(0,0,0,.7);">Family First: How LA Families are Using Premium Fleet for Weekend Getaways</div>
-          <p class="ent-desc" style="text-shadow:0 1px 8px rgba(0,0,0,.6);">From Malibu to Joshua Tree — families choosing First Class mobility over traditional rentals are setting a new standard.</p>
-        </div>
-      </div>
-      <div class="ent-card" style="background-image: url(&quot;https://images.unsplash.com/photo-1562441289-f82a53fe2dd5?w=800&amp;q=85&amp;fit=crop&amp;crop=center&quot;); background-size: cover; background-position: center center; opacity: 1; transform: translateY(0px); transition: opacity 0.5s 0.96s, transform 0.5s 0.96s;">
-        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.85) 0%,rgba(0,0,0,.2) 60%);"></div>
-        <div style="position:relative;z-index:2;">
-          <div class="ent-cat">Collision + Recovery</div>
-          <div class="ent-title serif" style="text-shadow:0 2px 12px rgba(0,0,0,.7);">Inside the Shop: Collision Centers Restoring LA's Most Expensive Cars</div>
-          <p class="ent-desc" style="text-shadow:0 1px 8px rgba(0,0,0,.6);">HIRECAR-certified collision centers working on Lamborghinis, Rolls-Royces, and Tesla Plaids — a behind-the-scenes look.</p>
-        </div>
-      </div>
-      <div class="ent-card" style="background-image: url(&quot;https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=800&amp;q=85&amp;fit=crop&amp;crop=center&quot;); background-size: cover; background-position: center center; opacity: 1; transform: translateY(0px); transition: opacity 0.5s 1s, transform 0.5s 1s;">
-        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.85) 0%,rgba(0,0,0,.2) 60%);"></div>
-        <div style="position:relative;z-index:2;">
-          <div class="ent-cat">Private Driver Life</div>
-          <div class="ent-title serif" style="text-shadow:0 2px 12px rgba(0,0,0,.7);">On the Road: Inside HIRECAR's Private Driver Network After Dark</div>
-          <p class="ent-desc" style="text-shadow:0 1px 8px rgba(0,0,0,.6);">Chauffeur services, exclusive events — a look inside the private driver economy powering premium LA mobility.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ═══ MEMBER PAGE MODULE ═══ -->
-<div class="member-module" id="sec-member">
-  <div class="member-inner">
-    <div class="member-brand-col">
-      <div class="member-brand-label">First Class · Member Access</div>
-      <div class="member-brand-title serif">HIRECAR<br>First Class<br>Membership</div>
-      <p class="member-brand-desc">The all-in auto membership for LA operators who don't have time for gaps in coverage, service, or intelligence. One membership. Everything covered.</p>
-    </div>
-    <div class="member-perks-col">
-      <div class="member-perks-head">What's Included</div>
-      <ul class="perk-list">
-        <li><span class="perk-check">✓</span>Priority HIRECREDIT intake &amp; recovery</li>
-        <li><span class="perk-check">✓</span>HIRECAR Credit Card access + cashback</li>
-        <li><span class="perk-check">✓</span>Roadside, glass, tire, oil — all covered</li>
-        <li><span class="perk-check">✓</span>Airport transfers + private driver access</li>
-        <li><span class="perk-check">✓</span>SeedXchange funding pre-qualification</li>
-        <li><span class="perk-check">✓</span>MARKETWATCH Intelligence full access</li>
-        <li><span class="perk-check">✓</span>HBI + BRE standards coaching</li>
-        <li><span class="perk-check">✓</span>CreditWithKen session credit (1/qtr)</li>
-      </ul>
-    </div>
-    <div class="member-cta-col">
-      <div>
-        <div class="member-price serif">$1,380</div>
-        <div class="member-price-sub">per year · cancel anytime</div>
-      </div>
-      <a href="file:///Users/hirecarken/Downloads/hirecar-marketwatch-v20_5.html#" class="member-join-btn">Become a Member →</a>
-      <a href="file:///Users/hirecarken/Downloads/hirecar-marketwatch-v20_5.html#" class="member-login-link">Already a member? Sign in →</a>
-    </div>
-  </div>
-</div>
-
-<!-- ═══ HIRECAR SERVICES — Horizontal Scroll ═══ -->
-<div class="svc-scroll-section" id="sec-services">
-  <div class="svc-scroll-head-row">
-    <div class="svc-scroll-title">HIRECAR Services</div>
-    <div class="svc-scroll-sub">Active now · Coming Soon in 2026</div>
-    <div class="svc-scroll-nav">
-      <button class="svc-scroll-btn" id="svcPrev" onclick="document.getElementById(&#39;svcTrack&#39;).scrollBy({left:-440,behavior:&#39;smooth&#39;})">←</button>
-      <button class="svc-scroll-btn" id="svcNext" onclick="document.getElementById(&#39;svcTrack&#39;).scrollBy({left:440,behavior:&#39;smooth&#39;})">→</button>
-    </div>
-  </div>
-  <div class="svc-scroll-track" id="svcTrack">
-
-    <a href="https://www.hirecar.la/services" class="svc-scroll-item">
-      <div class="svc-scroll-img" style="background-image:url(&#39;https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=500&amp;q=85&amp;fit=crop&#39;)"></div>
-      <div class="svc-scroll-body">
-        <span class="svc-scroll-badge active">Active</span>
-        <div class="svc-scroll-name">Credit Repair</div>
-        <div class="svc-scroll-desc">HIRECREDIT recovery, disputes &amp; tradelines</div>
-      </div>
-    </a><div class="svc-scroll-divider"></div>
-
-    <a href="https://www.hirecar.la/services" class="svc-scroll-item">
-      <div class="svc-scroll-img" style="background-image:url(&#39;https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=500&amp;q=85&amp;fit=crop&#39;)"></div>
-      <div class="svc-scroll-body">
-        <span class="svc-scroll-badge active">Active</span>
-        <div class="svc-scroll-name">Biz Funding</div>
-        <div class="svc-scroll-desc">SeedXchange operator capital · 24hr qualify</div>
-      </div>
-    </a><div class="svc-scroll-divider"></div>
-
-    <a href="https://www.hirecar.la/services" class="svc-scroll-item">
-      <div class="svc-scroll-img" style="background-image:url(&#39;https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&amp;q=85&amp;fit=crop&#39;)"></div>
-      <div class="svc-scroll-body">
-        <span class="svc-scroll-badge active">Active</span>
-        <div class="svc-scroll-name">Auto Glass</div>
-        <div class="svc-scroll-desc">Windshield repair, replacement, ADAS recal</div>
-      </div>
-    </a><div class="svc-scroll-divider"></div>
-
-    <a href="https://www.hirecar.la/services" class="svc-scroll-item">
-      <div class="svc-scroll-img" style="background-image:url(&#39;https://images.unsplash.com/photo-1558981852-426c349d3a4e?w=500&amp;q=85&amp;fit=crop&#39;)"></div>
-      <div class="svc-scroll-body">
-        <span class="svc-scroll-badge active">Active</span>
-        <div class="svc-scroll-name">Chauffeuring</div>
-        <div class="svc-scroll-desc">Professional chauffeur · executive transport</div>
-      </div>
-    </a><div class="svc-scroll-divider"></div>
-
-    <a href="https://www.hirecar.la/services" class="svc-scroll-item">
-      <div class="svc-scroll-img" style="background-image:url(&#39;https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=500&amp;q=85&amp;fit=crop&#39;)"></div>
-      <div class="svc-scroll-body">
-        <span class="svc-scroll-badge active">Active</span>
-        <div class="svc-scroll-name">Private Driver</div>
-        <div class="svc-scroll-desc">Airport, events, personal · First Class only</div>
-      </div>
-    </a><div class="svc-scroll-divider"></div>
-
-    <div class="svc-scroll-item">
-      <div class="svc-scroll-img" style="background-image:url(&#39;https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=500&amp;q=85&amp;fit=crop&#39;)"></div>
-      <div class="svc-scroll-body">
-        <span class="svc-scroll-badge soon">Coming Soon</span>
-        <div class="svc-scroll-name">Luxury Rentals</div>
-        <div class="svc-scroll-desc">Premium fleet · Audi, Mercedes, Tesla</div>
-      </div>
-    </div><div class="svc-scroll-divider"></div>
-
-    <div class="svc-scroll-item">
-      <div class="svc-scroll-img" style="background-image:url(&#39;https://images.unsplash.com/photo-1502877338535-766e1452684a?w=500&amp;q=85&amp;fit=crop&#39;)"></div>
-      <div class="svc-scroll-body">
-        <span class="svc-scroll-badge soon">Coming Soon</span>
-        <div class="svc-scroll-name">Daily Drivers</div>
-        <div class="svc-scroll-desc">Reliable daily rentals · operator rates</div>
-      </div>
-    </div><div class="svc-scroll-divider"></div>
-
-    <div class="svc-scroll-item">
-      <div class="svc-scroll-img" style="background-image:url(&#39;https://images.unsplash.com/photo-1487754180451-c456f719a1fc?w=500&amp;q=85&amp;fit=crop&#39;)"></div>
-      <div class="svc-scroll-body">
-        <span class="svc-scroll-badge soon">Coming Soon</span>
-        <div class="svc-scroll-name">Auto Insurance</div>
-        <div class="svc-scroll-desc">Operator-grade coverage · fleet plans</div>
-      </div>
-    </div><div class="svc-scroll-divider"></div>
-
-    <div class="svc-scroll-item">
-      <div class="svc-scroll-img" style="background-image:url(&#39;https://images.unsplash.com/photo-1530046339160-ce3e530de191?w=500&amp;q=85&amp;fit=crop&#39;)"></div>
-      <div class="svc-scroll-body">
-        <span class="svc-scroll-badge soon">Coming Soon</span>
-        <div class="svc-scroll-name">Roadside Assist</div>
-        <div class="svc-scroll-desc">24/7 emergency · EV + ICE covered</div>
-      </div>
-    </div><div class="svc-scroll-divider"></div>
-
-    <div class="svc-scroll-item">
-      <div class="svc-scroll-img" style="background-image:url(&#39;https://images.unsplash.com/photo-1566393028639-d108a42c46a7?w=500&amp;q=85&amp;fit=crop&#39;)"></div>
-      <div class="svc-scroll-body">
-        <span class="svc-scroll-badge soon">Coming Soon</span>
-        <div class="svc-scroll-name">Tire Service</div>
-        <div class="svc-scroll-desc">Rotation, replacement, balancing</div>
-      </div>
-    </div><div class="svc-scroll-divider"></div>
-
-    <div class="svc-scroll-item">
-      <div class="svc-scroll-img" style="background-image:url(&#39;https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=500&amp;q=85&amp;fit=crop&#39;)"></div>
-      <div class="svc-scroll-body">
-        <span class="svc-scroll-badge soon">Coming Soon</span>
-        <div class="svc-scroll-name">Oil Change</div>
-        <div class="svc-scroll-desc">Express service · synthetic available</div>
-      </div>
-    </div><div class="svc-scroll-divider"></div>
-
-    <div class="svc-scroll-item">
-      <div class="svc-scroll-img" style="background-image:url(&#39;https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?w=500&amp;q=85&amp;fit=crop&#39;)"></div>
-      <div class="svc-scroll-body">
-        <span class="svc-scroll-badge soon">Coming Soon</span>
-        <div class="svc-scroll-name">Detailing</div>
-        <div class="svc-scroll-desc">Interior, exterior, ceramic coating</div>
-      </div>
-    </div><div class="svc-scroll-divider"></div>
-
-    <div class="svc-scroll-item">
-      <div class="svc-scroll-img" style="background-image:url(&#39;https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=500&amp;q=85&amp;fit=crop&#39;)"></div>
-      <div class="svc-scroll-body">
-        <span class="svc-scroll-badge soon">Coming Soon</span>
-        <div class="svc-scroll-name">Gas + EV Charge</div>
-        <div class="svc-scroll-desc">Fuel delivery · EV charging network</div>
-      </div>
-    </div><div class="svc-scroll-divider"></div>
-
-    <div class="svc-scroll-item">
-      <div class="svc-scroll-img" style="background-image:url(&#39;https://images.unsplash.com/photo-1632823469850-2f77dd9c7f93?w=500&amp;q=85&amp;fit=crop&#39;)"></div>
-      <div class="svc-scroll-body">
-        <span class="svc-scroll-badge soon">Coming Soon</span>
-        <div class="svc-scroll-name">Photography</div>
-        <div class="svc-scroll-desc">Automotive + fleet shoots · listings</div>
-      </div>
-    </div><div class="svc-scroll-divider"></div>
-
-    <div class="svc-scroll-item">
-      <div class="svc-scroll-img" style="background-image:url(&#39;https://images.unsplash.com/photo-1614293993615-ae9cb81b07f9?w=500&amp;q=85&amp;fit=crop&#39;)"></div>
-      <div class="svc-scroll-body">
-        <span class="svc-scroll-badge soon">Coming Soon</span>
-        <div class="svc-scroll-name">Tint + Wraps</div>
-        <div class="svc-scroll-desc">Window tint, vinyl wraps, branding</div>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<!-- ═══ COMPANY BAR ═══ -->
-<div class="co-bar">
-  <div class="co-bar-inner">
-    <div class="co-item">
-      <div class="co-type">Flagship</div>
-      <div class="co-name serif">HIRECAR, LLC</div>
-      <div class="co-desc">Premium mobility, vehicle services, First Class Membership, fleet access, and the PIFR recovery system.</div>
-      <a href="https://www.hirecar.la/" class="co-arrow">Visit HIRECAR.LA →</a>
-    </div>
-    <div class="co-item">
-      <div class="co-type">Credit Repair</div>
-      <div class="co-name serif">HIRECREDIT</div>
-      <div class="co-desc">Post-incident financial recovery. Credit disputes, tradeline strategy, collections protection.</div>
-      <a href="file:///Users/hirecarken/Downloads/hirecar-marketwatch-v20_5.html#" class="co-arrow">Visit HIRECREDIT →</a>
-    </div>
-    <div class="co-item">
-      <div class="co-type">Coaching</div>
-      <div class="co-name serif">CreditWithKen</div>
-      <div class="co-desc">1-on-1 credit coaching with Ken Eckman. Strategy sessions, funding readiness, approval pathways.</div>
-      <a href="file:///Users/hirecarken/Downloads/hirecar-marketwatch-v20_5.html#" class="co-arrow">Book a Session →</a>
-    </div>
-    <div class="co-item">
-      <div class="co-type">Business Funding</div>
-      <div class="co-name serif">SeedXchange</div>
-      <div class="co-desc">Auto operator funding. Small business capital, fleet expansion financing, and growth programs.</div>
-      <a href="file:///Users/hirecarken/Downloads/hirecar-marketwatch-v20_5.html#" class="co-arrow">Apply Now →</a>
-    </div>
-    <div class="co-item">
-      <div class="co-type">Intelligence · You Are Here</div>
-      <div class="co-name serif">MarketWatch<span class="bang">!</span></div>
-      <div class="co-desc">Operator intelligence, standards bulletins, data signals, and the qualification funnel for the HIRECAR network.</div>
-      <a href="file:///Users/hirecarken/Downloads/hirecar-marketwatch-v20_5.html#" class="co-arrow">· Current Site ·</a>
-    </div>
-  </div>
-</div>
-
 <!-- ═══ FOOTER ═══ -->
 <footer>
   <div class="footer-grid">
@@ -5951,7 +5278,6 @@ body.remote-mode .brand-logo-light { mix-blend-mode: normal; }
     <div class="footer-classify">CONFIDENTIAL · INTERNAL DRAFT · marketwatch.hirecar.la · v18.0</div>
   </div>
 </footer>
-
 <!-- ═══════════════════════════════════════════════════════════
      MARKETWATCH! · INTELLIGENCE LAYER
      · Auto light/dark theme based on local time
