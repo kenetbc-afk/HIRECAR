@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HIRECAR Member Services — Credit Repair Document Preparation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500;600;700&family=Geist:wght@300;400;500;600;700" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+--bg-deep:#0c1020;--bg-main:#182030;--bg-card:#182440;--bg-deep2:#14243c;
+--bg-row:#18243c;--bg-hover:#202c44;--bg-surface:#1c2c48;
+--border:rgba(255,255,255,.07);--border-mid:rgba(255,255,255,.12);--border-high:rgba(32,208,236,.35);
+--teal:#20d0ec;--teal-dim:#147a90;--blue:#2c6cbc;--blue-hover:#3c7cd0;
+--green:#30d098;--gold:#b89028;--gold-bright:#d4ac30;
+--text:#e2eaf6;--dim:#7888a0;--muted:#3c4e66;
+--font:'Geist',sans-serif;--mono:'Geist Mono',monospace;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg-deep);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--teal);text-decoration:none}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:100;background:var(--bg-deep);border-bottom:1px solid var(--border)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.nav-brand{display:flex;align-items:baseline;gap:10px;flex-shrink:0}
+.nav-logo{font-family:var(--mono);font-weight:700;font-size:20px;letter-spacing:1px;color:var(--text)}
+.nav-sub{font-size:13px;color:var(--dim);font-weight:400}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-link{font-size:14px;color:var(--dim);transition:color .2s}
+.nav-link:hover{color:var(--text)}
+.nav-link.active{color:var(--teal);font-weight:600}
+.btn-cta{display:inline-flex;align-items:center;gap:6px;padding:10px 22px;border-radius:8px;background:var(--teal);color:var(--bg-deep);font-weight:600;font-size:14px;border:none;cursor:pointer;transition:background .2s,transform .15s}
+.btn-cta:hover{background:#2ce0fc;transform:translateY(-1px)}
+.btn-outline{background:transparent;border:1px solid var(--teal);color:var(--teal)}
+.btn-outline:hover{background:rgba(32,208,236,.1)}
+
+/* HERO */
+.hero{padding:100px 0 80px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:800px;height:800px;background:radial-gradient(circle,rgba(32,208,236,.06) 0%,transparent 70%);pointer-events:none}
+.hero h1{font-size:clamp(32px,5vw,56px);font-weight:700;line-height:1.15;margin-bottom:20px;position:relative}
+.hero h1 span{color:var(--teal)}
+.hero .subtitle{font-size:18px;color:var(--dim);max-width:640px;margin:0 auto 32px;line-height:1.7}
+.hero .compliance-badge{display:inline-block;margin-top:24px;padding:10px 20px;border:1px solid var(--border-mid);border-radius:6px;font-family:var(--mono);font-size:12px;color:var(--dim);letter-spacing:.5px;background:rgba(20,36,60,.5)}
+
+/* SERVICE GRID */
+.section{padding:80px 0}
+.section-label{font-family:var(--mono);font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--teal);margin-bottom:8px}
+.section-title{font-size:clamp(24px,3.5vw,36px);font-weight:700;margin-bottom:16px}
+.section-desc{color:var(--dim);max-width:560px;margin-bottom:48px;font-size:15px}
+.service-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px}
+.service-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:28px;transition:border-color .3s,transform .3s}
+.service-card:hover{border-color:var(--border-mid);transform:translateY(-3px)}
+.service-icon{font-size:28px;margin-bottom:14px;display:block}
+.service-card h3{font-size:17px;font-weight:600;margin-bottom:8px}
+.service-card p{font-size:14px;color:var(--dim);line-height:1.6}
+
+/* TIMELINE */
+.timeline{position:relative;padding-left:40px;max-width:700px}
+.timeline::before{content:'';position:absolute;left:14px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--teal),var(--teal-dim))}
+.tl-step{position:relative;padding-bottom:40px}
+.tl-step:last-child{padding-bottom:0}
+.tl-dot{position:absolute;left:-40px;top:2px;width:30px;height:30px;border-radius:50%;background:var(--bg-deep);border:2px solid var(--teal);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:12px;font-weight:600;color:var(--teal)}
+.tl-step h3{font-size:17px;font-weight:600;margin-bottom:4px}
+.tl-step p{font-size:14px;color:var(--dim)}
+
+/* SCORE SECTION */
+.score-bands{display:flex;flex-direction:column;gap:12px;max-width:700px}
+.score-bar{display:flex;align-items:center;gap:16px}
+.score-label{width:120px;font-size:14px;font-weight:500;text-align:right;flex-shrink:0}
+.score-fill{height:36px;border-radius:6px;display:flex;align-items:center;padding:0 14px;font-family:var(--mono);font-size:13px;font-weight:500;color:var(--bg-deep);transition:width .8s ease}
+.score-range{font-size:13px;color:var(--dim);width:80px;flex-shrink:0}
+
+/* PLAN CARDS */
+.plan-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;align-items:start}
+.plan-card{background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:36px 28px;position:relative;transition:transform .3s}
+.plan-card:hover{transform:translateY(-4px)}
+.plan-card.popular{border-color:var(--border-high);box-shadow:0 0 30px rgba(32,208,236,.1)}
+.plan-badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--teal);color:var(--bg-deep);font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:5px 16px;border-radius:20px}
+.plan-name{font-size:20px;font-weight:700;margin-bottom:4px}
+.plan-price{font-family:var(--mono);font-size:36px;font-weight:700;color:var(--gold-bright);margin:16px 0 4px}
+.plan-price span{font-size:16px;color:var(--dim);font-weight:400}
+.plan-detail{font-size:13px;color:var(--dim);margin-bottom:20px}
+.plan-features{list-style:none;margin-bottom:28px}
+.plan-features li{padding:8px 0;font-size:14px;color:var(--dim);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px}
+.plan-features li::before{content:'\2713';color:var(--teal);font-weight:700;font-size:14px}
+.plan-card .btn-cta{width:100%;justify-content:center}
+
+/* TESTIMONIALS */
+.testimonial-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.testimonial-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:28px}
+.testimonial-stars{color:var(--gold-bright);font-size:16px;margin-bottom:12px;letter-spacing:2px}
+.testimonial-card blockquote{font-size:15px;color:var(--dim);line-height:1.7;margin-bottom:16px;font-style:italic}
+.testimonial-card .author{font-size:13px;font-weight:600;color:var(--text)}
+.testimonial-card .author span{color:var(--dim);font-weight:400}
+
+/* CTA STRIP */
+.cta-strip{padding:64px 0;background:linear-gradient(135deg,var(--teal-dim),var(--teal));text-align:center;margin:40px 0 0}
+.cta-strip h2{font-size:clamp(24px,4vw,40px);font-weight:700;color:var(--bg-deep);margin-bottom:12px}
+.cta-strip p{color:rgba(12,16,32,.7);font-size:16px;margin-bottom:28px}
+.cta-strip .btn-cta{background:var(--bg-deep);color:var(--teal);font-size:16px;padding:14px 32px}
+.cta-strip .btn-cta:hover{background:#101830}
+
+/* FOOTER */
+.footer{background:var(--bg-deep);border-top:1px solid var(--border);padding:48px 0 32px}
+.footer-top{display:flex;flex-wrap:wrap;gap:40px;margin-bottom:32px}
+.footer-col h4{font-size:13px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--dim);margin-bottom:12px}
+.footer-col p,.footer-col a{font-size:13px;color:var(--muted);display:block;line-height:1.8}
+.footer-col a:hover{color:var(--teal)}
+.footer-compliance{border-top:1px solid var(--border);padding-top:24px;font-size:12px;color:var(--muted);line-height:1.8}
+.footer-compliance strong{color:var(--dim);font-weight:600}
+
+/* ANIMATIONS */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .nav .wrap{flex-wrap:wrap;height:auto;padding:12px 24px}
+  .nav-links{gap:16px;flex-wrap:wrap}
+  .hero{padding:64px 0 48px}
+  .service-grid,.plan-grid,.testimonial-grid{grid-template-columns:1fr}
+  .score-bar{flex-wrap:wrap;gap:8px}
+  .score-label{width:100%;text-align:left}
+  .section{padding:56px 0}
+  .timeline{padding-left:36px}
+  .footer-top{flex-direction:column;gap:24px}
+}
+@media(max-width:480px){
+  .nav-sub{display:none}
+  .plan-card{padding:28px 20px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="wrap">
+    <div class="nav-brand">
+      <a href="#" class="nav-logo">HIRECAR</a>
+      <span class="nav-sub">Member Services</span>
+    </div>
+    <div class="nav-links">
+      <a href="#services" class="nav-link">Services</a>
+      <a href="#process" class="nav-link">Process</a>
+      <a href="#plans" class="nav-link">Plans</a>
+      <a href="#" class="nav-link active">Credit Repair</a>
+      <a href="./hirecar-enrollment-v4.html" class="btn-cta">Enroll Now</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <h1>Your Credit Took a Hit.<br><span>We Bring It Back.</span></h1>
+    <p class="subtitle">HIRECAR Member Services Document Preparation Division helps you challenge inaccurate, unfair, and unverifiable items on your credit reports through professionally prepared dispute documents.</p>
+    <a href="./hirecar-enrollment-v4.html" class="btn-cta" style="font-size:16px;padding:14px 32px">Start Enrollment &rarr;</a>
+    <div class="compliance-badge">Document Preparation Services Only &mdash; Not Legal or Financial Advice</div>
+  </div>
+</section>
+
+<!-- SERVICE GRID -->
+<section class="section" id="services">
+  <div class="wrap">
+    <div class="section-label">What We Prepare</div>
+    <h2 class="section-title">Professional Document Preparation Services</h2>
+    <p class="section-desc">Every document is custom-drafted for your unique credit situation. We prepare the paperwork &mdash; you retain full control.</p>
+    <div class="service-grid">
+      <div class="service-card reveal">
+        <span class="service-icon">&#x1F4E8;</span>
+        <h3>Bureau Dispute Letters</h3>
+        <p>Professionally crafted dispute letters targeting inaccurate, outdated, or unverifiable items across all three major credit bureaus under FCRA &sect; 611.</p>
+      </div>
+      <div class="service-card reveal">
+        <span class="service-icon">&#x1F4CB;</span>
+        <h3>Debt Validation Packages</h3>
+        <p>Comprehensive debt validation request documents sent to collection agencies demanding full verification of alleged debts under FDCPA &sect; 809(b).</p>
+      </div>
+      <div class="service-card reveal">
+        <span class="service-icon">&#x1F91D;</span>
+        <h3>Goodwill Adjustment Letters</h3>
+        <p>Carefully worded goodwill letters requesting removal of negative marks from creditors where you have re-established a positive payment history.</p>
+      </div>
+      <div class="service-card reveal">
+        <span class="service-icon">&#x1F6D1;</span>
+        <h3>Cease &amp; Desist Notices</h3>
+        <p>Formal cease and desist documents to stop harassing collection calls and unauthorized contact from third-party debt collectors.</p>
+      </div>
+      <div class="service-card reveal">
+        <span class="service-icon">&#x1F6E1;</span>
+        <h3>Identity Theft Response Kit</h3>
+        <p>Complete identity theft documentation package including FTC affidavits, police report templates, and fraud dispute letters for all three bureaus.</p>
+      </div>
+      <div class="service-card reveal">
+        <span class="service-icon">&#x1F4C8;</span>
+        <h3>Credit Building Strategy Brief</h3>
+        <p>Personalized credit-building action plan with recommended steps for establishing positive tradelines and improving your utilization ratios.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS TIMELINE -->
+<section class="section" id="process" style="background:var(--bg-main)">
+  <div class="wrap">
+    <div class="section-label">How It Works</div>
+    <h2 class="section-title">Our 5-Step Process</h2>
+    <p class="section-desc">A clear, repeatable cycle designed to systematically address every disputable item on your reports.</p>
+    <div class="timeline">
+      <div class="tl-step reveal">
+        <div class="tl-dot">1</div>
+        <h3>Intake Call</h3>
+        <p>We review your current credit reports (soft pull only &mdash; FCRA &sect; 604), identify disputable items, and build your case file.</p>
+      </div>
+      <div class="tl-step reveal">
+        <div class="tl-dot">2</div>
+        <h3>Document Preparation</h3>
+        <p>Our team prepares customized dispute letters, validation requests, and any supporting documents tailored to your specific accounts.</p>
+      </div>
+      <div class="tl-step reveal">
+        <div class="tl-dot">3</div>
+        <h3>Bureau Disputes Filed</h3>
+        <p>Prepared documents are submitted to the credit bureaus and/or creditors on your behalf via certified mail with tracking.</p>
+      </div>
+      <div class="tl-step reveal">
+        <div class="tl-dot">4</div>
+        <h3>Response Window</h3>
+        <p>Bureaus have 30&ndash;45 days to investigate and respond. We monitor progress and prepare follow-up documents as needed.</p>
+      </div>
+      <div class="tl-step reveal">
+        <div class="tl-dot">5</div>
+        <h3>Next Cycle</h3>
+        <p>We review results, update your case file, and begin the next round of disputes targeting remaining items until your goals are met.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCORE SECTION -->
+<section class="section" id="scores">
+  <div class="wrap">
+    <div class="section-label">Know Your Number</div>
+    <h2 class="section-title">Where Do You Stand?</h2>
+    <p class="section-desc">Understanding your current score range is the first step toward improving it.</p>
+    <div class="score-bands">
+      <div class="score-bar reveal">
+        <span class="score-label">Poor</span>
+        <div class="score-fill" style="width:30%;background:#e04040" data-width="30%">300 &ndash; 579</div>
+      </div>
+      <div class="score-bar reveal">
+        <span class="score-label">Fair</span>
+        <div class="score-fill" style="width:42%;background:#d48030" data-width="42%">580 &ndash; 619</div>
+      </div>
+      <div class="score-bar reveal">
+        <span class="score-label">Good</span>
+        <div class="score-fill" style="width:54%;background:var(--gold-bright)" data-width="54%">620 &ndash; 659</div>
+      </div>
+      <div class="score-bar reveal">
+        <span class="score-label">Very Good</span>
+        <div class="score-fill" style="width:68%;background:#60b840" data-width="68%">660 &ndash; 699</div>
+      </div>
+      <div class="score-bar reveal">
+        <span class="score-label">Great</span>
+        <div class="score-fill" style="width:82%;background:var(--green)" data-width="82%">700 &ndash; 739</div>
+      </div>
+      <div class="score-bar reveal">
+        <span class="score-label">Excellent</span>
+        <div class="score-fill" style="width:100%;background:var(--teal)" data-width="100%">740+</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLAN CARDS -->
+<section class="section" id="plans" style="background:var(--bg-main)">
+  <div class="wrap">
+    <div class="section-label">Pricing</div>
+    <h2 class="section-title">Choose Your Plan</h2>
+    <p class="section-desc">Transparent pricing. No hidden fees. Cancel anytime with 3-day written notice per CROA.</p>
+    <div class="plan-grid">
+      <!-- Foundation -->
+      <div class="plan-card reveal">
+        <div class="plan-name">Foundation</div>
+        <div class="plan-price">$79<span>/mo</span></div>
+        <div class="plan-detail">1 Bureau &middot; 5 Letters/Month</div>
+        <ul class="plan-features">
+          <li>Single bureau dispute coverage</li>
+          <li>Up to 5 custom dispute letters per month</li>
+          <li>Initial credit report review</li>
+          <li>Dedicated case file</li>
+          <li>Email support</li>
+          <li>Monthly progress report</li>
+        </ul>
+        <a href="./hirecar-enrollment-v4.html" class="btn-cta btn-outline">Get Started</a>
+      </div>
+      <!-- Momentum -->
+      <div class="plan-card popular reveal">
+        <div class="plan-badge">Most Popular</div>
+        <div class="plan-name">Momentum</div>
+        <div class="plan-price">$149<span>/mo</span></div>
+        <div class="plan-detail">3 Bureaus &middot; 15 Letters/Month</div>
+        <ul class="plan-features">
+          <li>All three bureau dispute coverage</li>
+          <li>Up to 15 custom dispute letters per month</li>
+          <li>Debt validation packages included</li>
+          <li>Goodwill adjustment letters</li>
+          <li>Priority email &amp; phone support</li>
+          <li>Bi-weekly progress updates</li>
+          <li>Credit building strategy brief</li>
+        </ul>
+        <a href="./hirecar-enrollment-v4.html" class="btn-cta">Get Started</a>
+      </div>
+      <!-- Command -->
+      <div class="plan-card reveal">
+        <div class="plan-name">Command</div>
+        <div class="plan-price">$249<span>/mo</span></div>
+        <div class="plan-detail">3 Bureaus &middot; Unlimited Letters</div>
+        <ul class="plan-features">
+          <li>All three bureau dispute coverage</li>
+          <li>Unlimited custom dispute letters</li>
+          <li>Full document preparation suite</li>
+          <li>Cease &amp; desist notices</li>
+          <li>Identity theft response kit</li>
+          <li>Dedicated account specialist</li>
+          <li>Weekly progress updates</li>
+          <li>Priority processing</li>
+        </ul>
+        <a href="./hirecar-enrollment-v4.html" class="btn-cta btn-outline">Get Started</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section" id="testimonials">
+  <div class="wrap">
+    <div class="section-label">Member Results</div>
+    <h2 class="section-title">What Our Members Say</h2>
+    <p class="section-desc">Real experiences from HIRECAR Member Services clients. Individual results may vary &mdash; results are not guaranteed.</p>
+    <div class="testimonial-grid">
+      <div class="testimonial-card reveal">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>"Within two cycles, three collection accounts that weren't mine were removed from my Equifax report. The team prepared everything &mdash; I just had to sign and send."</blockquote>
+        <div class="author">Marcus T. <span>&mdash; Momentum Plan Member</span></div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>"I was overwhelmed trying to dispute items on my own. HIRECAR's document preparation team made the process simple and handled everything professionally."</blockquote>
+        <div class="author">Danielle R. <span>&mdash; Command Plan Member</span></div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+        <blockquote>"Clear communication throughout the entire process. They explained every letter they prepared and kept me updated on bureau responses. Highly recommend."</blockquote>
+        <div class="author">Jason K. <span>&mdash; Foundation Plan Member</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA STRIP -->
+<section class="cta-strip">
+  <div class="wrap">
+    <h2>Ready to Take Control?</h2>
+    <p>Start your enrollment today and let our document preparation team go to work for you.</p>
+    <a href="./hirecar-enrollment-v4.html" class="btn-cta">Start Enrollment &rarr;</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-col">
+        <h4>Entity</h4>
+        <p>HIRECAR, LLC (dba HireCar.la)</p>
+        <p>Creditwitken</p>
+        <p>SeedXchange, LLC</p>
+      </div>
+      <div class="footer-col">
+        <h4>Division</h4>
+        <p>HIRECAR Member Services</p>
+        <p>Document Preparation Division</p>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:members@hirecar.la">members@hirecar.la</a>
+      </div>
+      <div class="footer-col">
+        <h4>Compliance</h4>
+        <p>CROA &middot; FCRA &middot; FDCPA &middot; CCPA</p>
+      </div>
+    </div>
+    <div class="footer-compliance">
+      <p><strong>DOCUMENT PREPARATION SERVICES ONLY.</strong> HIRECAR Member Services is a document preparation service. We are not a law firm, and we do not provide legal, financial, or tax advice. We do not guarantee specific results or outcomes. Individual results will vary.</p>
+      <p style="margin-top:12px"><strong>CREDIT REPAIR ORGANIZATIONS ACT (CROA) NOTICE:</strong> You have the right to cancel your contract with HIRECAR Member Services without penalty within 3 business days of signing. No payment shall be charged to you until services are fully performed. You have the right to sue a credit repair organization that violates the Credit Repair Organizations Act.</p>
+      <p style="margin-top:12px"><strong>FCRA &sect; 604 DISCLOSURE:</strong> Credit report reviews are conducted via soft pull only, which does not affect your credit score.</p>
+      <p style="margin-top:12px"><strong>RESULTS NOT GUARANTEED.</strong> Credit repair is not guaranteed. The removal of negative items depends on the accuracy and verifiability of the information reported by creditors and credit bureaus.</p>
+      <p style="margin-top:16px;color:var(--muted)">&copy; 2026 HIRECAR, LLC. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  /* Scroll reveal */
+  var els=document.querySelectorAll('.reveal');
+  if(!els.length)return;
+  var observer=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  },{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(el){observer.observe(el);});
+
+  /* Smooth anchor scroll for nav links */
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click',function(e){
+      var id=this.getAttribute('href');
+      if(id==='#')return;
+      var target=document.querySelector(id);
+      if(target){
+        e.preventDefault();
+        target.scrollIntoView({behavior:'smooth',block:'start'});
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>
