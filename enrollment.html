@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HIRECAR — Credit Repair Enrollment</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:wght@400;600;700&family=DM+Mono:wght@400;500&family=Nunito+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════
+   TOKENS  (matches HIRECAR MarketWatch)
+═══════════════════════════════════════════ */
+:root {
+  --ink:       #111820;
+  --ink-2:     #1e2530;
+  --ink-3:     #2d3540;
+  --slate:     #3d4a58;
+  --mid:       #6b7280;
+  --muted:     #9aa3ad;
+  --border:    #dde1e7;
+  --border-lt: #edf0f3;
+  --bg:        #ffffff;
+  --white:     #ffffff;
+  --rule:      #111820;
+  --cta:       #c9920a;
+  --cta-hover: #b07d06;
+  --cta-bg:    #fef3d0;
+  --live:      #c0392b;
+  --member:    #0f4c75;
+  --member-lt: #e8f2f9;
+  --success:   #27ae60;
+  --success-lt:#e8f8f0;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink);
+  background: #f5f6f8;
+  min-height: 100vh;
+}
+
+a { text-decoration: none; color: inherit; }
+.serif { font-family: 'Cormorant Garant', Georgia, serif; }
+.mono  { font-family: 'DM Mono', monospace; }
+
+/* ═══════════════════════════════════════════
+   TOP BAR
+═══════════════════════════════════════════ */
+.top-bar {
+  background: var(--ink);
+  padding: 10px 0;
+  border-bottom: 3px solid var(--cta);
+}
+.top-bar-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  font-family: 'Cormorant Garant', Georgia, serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.04em;
+}
+.logo span { color: var(--cta); }
+.top-tag {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-family: 'DM Mono', monospace;
+}
+
+/* ═══════════════════════════════════════════
+   HERO BANNER
+═══════════════════════════════════════════ */
+.hero {
+  background: var(--ink);
+  padding: 48px 20px 40px;
+  text-align: center;
+}
+.hero h1 {
+  font-family: 'Cormorant Garant', Georgia, serif;
+  font-size: clamp(28px, 5vw, 42px);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+.hero h1 em {
+  font-style: normal;
+  color: var(--cta);
+}
+.hero p {
+  font-size: 15px;
+  color: var(--muted);
+  max-width: 540px;
+  margin: 0 auto 24px;
+}
+.hero-badges {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.hero-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cta);
+  font-family: 'DM Mono', monospace;
+}
+.hero-badge .icon {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--cta);
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+/* ═══════════════════════════════════════════
+   PROGRESS STEPPER
+═══════════════════════════════════════════ */
+.stepper-wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 32px 20px 0;
+}
+.stepper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin-bottom: 8px;
+}
+.step-node {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--border);
+  color: var(--mid);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 800;
+  transition: all 0.3s;
+  position: relative;
+  flex-shrink: 0;
+}
+.step-node.active {
+  background: var(--cta);
+  color: var(--white);
+  box-shadow: 0 0 0 4px var(--cta-bg);
+}
+.step-node.done {
+  background: var(--success);
+  color: var(--white);
+}
+.step-line {
+  height: 3px;
+  width: 80px;
+  background: var(--border);
+  transition: background 0.3s;
+}
+.step-line.done {
+  background: var(--success);
+}
+.step-labels {
+  display: flex;
+  justify-content: center;
+  gap: 62px;
+  margin-bottom: 4px;
+}
+.step-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-family: 'DM Mono', monospace;
+  text-align: center;
+  transition: color 0.3s;
+}
+.step-label.active { color: var(--cta); }
+.step-label.done { color: var(--success); }
+
+/* ═══════════════════════════════════════════
+   FORM CARD
+═══════════════════════════════════════════ */
+.form-card {
+  max-width: 720px;
+  margin: 24px auto 48px;
+  padding: 0 20px;
+}
+.card-inner {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 36px 40px 40px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+}
+@media (max-width: 600px) {
+  .card-inner { padding: 28px 20px 32px; }
+}
+.card-section-title {
+  font-family: 'Cormorant Garant', Georgia, serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+.card-section-sub {
+  font-size: 13px;
+  color: var(--mid);
+  margin-bottom: 28px;
+}
+
+/* ═══════════════════════════════════════════
+   FORM FIELDS
+═══════════════════════════════════════════ */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+@media (max-width: 500px) {
+  .form-row { grid-template-columns: 1fr; }
+}
+.form-row.full { grid-template-columns: 1fr; }
+
+.field {
+  display: flex;
+  flex-direction: column;
+}
+.field label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--slate);
+  margin-bottom: 6px;
+  font-family: 'DM Mono', monospace;
+}
+.field label .req {
+  color: var(--live);
+  margin-left: 2px;
+}
+.field input,
+.field select,
+.field textarea {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 15px;
+  padding: 11px 14px;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  color: var(--ink);
+  background: var(--white);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+  width: 100%;
+}
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: var(--cta);
+  box-shadow: 0 0 0 3px var(--cta-bg);
+}
+.field input.error,
+.field select.error {
+  border-color: var(--live);
+  box-shadow: 0 0 0 3px rgba(192,57,43,0.1);
+}
+.field .error-msg {
+  font-size: 12px;
+  color: var(--live);
+  margin-top: 4px;
+  display: none;
+}
+.field .error-msg.show { display: block; }
+.field textarea { resize: vertical; min-height: 80px; }
+.field select { cursor: pointer; }
+
+/* Radio / Checkbox Groups */
+.option-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.option-group label {
+  text-transform: none;
+  letter-spacing: 0;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+}
+.option-card {
+  flex: 1;
+  min-width: 140px;
+  padding: 14px 16px;
+  border: 2px solid var(--border);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+}
+.option-card:hover { border-color: var(--cta); background: var(--cta-bg); }
+.option-card input { display: none; }
+.option-card.selected {
+  border-color: var(--cta);
+  background: var(--cta-bg);
+  box-shadow: 0 0 0 2px var(--cta);
+}
+.option-card .opt-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink);
+  display: block;
+  margin-bottom: 2px;
+}
+.option-card .opt-desc {
+  font-size: 11px;
+  color: var(--mid);
+  display: block;
+}
+
+/* Checkbox list */
+.check-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+@media (max-width: 500px) {
+  .check-list { grid-template-columns: 1fr; }
+}
+.check-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.check-item:hover { border-color: var(--cta); background: #fffdf5; }
+.check-item.selected { border-color: var(--cta); background: var(--cta-bg); }
+.check-item input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--cta);
+  flex-shrink: 0;
+}
+.check-item span {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* ═══════════════════════════════════════════
+   BUTTONS
+═══════════════════════════════════════════ */
+.btn-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 28px;
+  gap: 12px;
+}
+.btn {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 13px 32px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-primary {
+  background: var(--cta);
+  color: var(--white);
+}
+.btn-primary:hover { background: var(--cta-hover); }
+.btn-secondary {
+  background: transparent;
+  color: var(--mid);
+  border: 1px solid var(--border);
+}
+.btn-secondary:hover { border-color: var(--slate); color: var(--ink); }
+.btn-submit {
+  background: var(--member);
+  color: var(--white);
+  padding: 14px 40px;
+  font-size: 14px;
+}
+.btn-submit:hover { background: #0a3a5c; }
+
+/* ═══════════════════════════════════════════
+   TRUST / DISCLOSURE
+═══════════════════════════════════════════ */
+.trust-strip {
+  text-align: center;
+  padding: 0 20px 12px;
+  max-width: 720px;
+  margin: -12px auto 0;
+}
+.trust-strip p {
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+.trust-strip a {
+  color: var(--member);
+  text-decoration: underline;
+}
+
+/* ═══════════════════════════════════════════
+   SUCCESS STATE
+═══════════════════════════════════════════ */
+.success-card {
+  text-align: center;
+  padding: 48px 20px 56px;
+}
+.success-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--success);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  margin: 0 auto 20px;
+}
+.success-card h2 {
+  font-family: 'Cormorant Garant', Georgia, serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+.success-card p {
+  font-size: 15px;
+  color: var(--mid);
+  max-width: 400px;
+  margin: 0 auto 24px;
+}
+.success-ref {
+  display: inline-block;
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--member);
+  background: var(--member-lt);
+  padding: 8px 20px;
+  border-radius: 3px;
+  letter-spacing: 0.06em;
+}
+
+/* ═══════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════ */
+.footer {
+  background: var(--ink);
+  padding: 24px 20px;
+  text-align: center;
+}
+.footer p {
+  font-size: 11px;
+  color: var(--slate);
+  font-family: 'DM Mono', monospace;
+}
+.footer a { color: var(--cta); }
+
+/* Slide transitions */
+.form-step { display: none; }
+.form-step.active { display: block; animation: fadeUp 0.35s ease; }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+<body>
+
+<!-- ── TOP BAR ── -->
+<div class="top-bar">
+  <div class="top-bar-inner">
+    <div class="logo">HIRE<span>CAR</span></div>
+    <div class="top-tag">Credit Repair · Enrollment</div>
+  </div>
+</div>
+
+<!-- ── HERO ── -->
+<div class="hero">
+  <h1>Take Control of Your <em>Credit Score</em></h1>
+  <p>Join thousands of operators who have improved their credit and unlocked better financing. Start your free consultation today.</p>
+  <div class="hero-badges">
+    <div class="hero-badge"><span class="icon">✓</span> Free Consultation</div>
+    <div class="hero-badge"><span class="icon">✓</span> No Obligation</div>
+    <div class="hero-badge"><span class="icon">✓</span> Results in 45 Days</div>
+  </div>
+</div>
+
+<!-- ── STEPPER ── -->
+<div class="stepper-wrap">
+  <div class="stepper">
+    <div class="step-node active" id="sn1">1</div>
+    <div class="step-line" id="sl1"></div>
+    <div class="step-node" id="sn2">2</div>
+    <div class="step-line" id="sl2"></div>
+    <div class="step-node" id="sn3">3</div>
+  </div>
+  <div class="step-labels">
+    <span class="step-label active" id="slbl1">Contact</span>
+    <span class="step-label" id="slbl2">Credit</span>
+    <span class="step-label" id="slbl3">Goals</span>
+  </div>
+</div>
+
+<!-- ── FORM ── -->
+<div class="form-card">
+  <div class="card-inner">
+    <form id="enrollForm" novalidate>
+
+      <!-- ══ STEP 1: Contact Info ══ -->
+      <div class="form-step active" id="step1">
+        <div class="card-section-title">Contact Information</div>
+        <div class="card-section-sub">Tell us how to reach you for your free credit consultation.</div>
+
+        <div class="form-row">
+          <div class="field">
+            <label>First Name <span class="req">*</span></label>
+            <input type="text" id="firstName" placeholder="John" required>
+            <span class="error-msg" id="err-firstName">First name is required</span>
+          </div>
+          <div class="field">
+            <label>Last Name <span class="req">*</span></label>
+            <input type="text" id="lastName" placeholder="Doe" required>
+            <span class="error-msg" id="err-lastName">Last name is required</span>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="field">
+            <label>Email <span class="req">*</span></label>
+            <input type="email" id="email" placeholder="john@example.com" required>
+            <span class="error-msg" id="err-email">Valid email is required</span>
+          </div>
+          <div class="field">
+            <label>Phone <span class="req">*</span></label>
+            <input type="tel" id="phone" placeholder="(310) 555-0100" required>
+            <span class="error-msg" id="err-phone">Phone number is required</span>
+          </div>
+        </div>
+
+        <div class="form-row full">
+          <div class="field">
+            <label>City / Metro Area</label>
+            <input type="text" id="city" placeholder="Los Angeles, CA">
+          </div>
+        </div>
+
+        <div class="form-row full">
+          <div class="field">
+            <label>How did you hear about us?</label>
+            <select id="source">
+              <option value="">Select one…</option>
+              <option value="google">Google Search</option>
+              <option value="social">Social Media</option>
+              <option value="referral">Referral / Word of Mouth</option>
+              <option value="marketwatch">HIRECAR MarketWatch</option>
+              <option value="dealer">Dealer / Operator Network</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="btn-row">
+          <span></span>
+          <button type="button" class="btn btn-primary" onclick="goStep(2)">Continue →</button>
+        </div>
+      </div>
+
+      <!-- ══ STEP 2: Credit Situation ══ -->
+      <div class="form-step" id="step2">
+        <div class="card-section-title">Your Credit Situation</div>
+        <div class="card-section-sub">Help us understand where you are so we can build the right plan.</div>
+
+        <label class="field" style="margin-bottom:12px;">
+          <span style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--slate);font-family:'DM Mono',monospace;">Estimated Credit Score <span class="req">*</span></span>
+        </label>
+        <div class="option-group" id="scoreGroup">
+          <label class="option-card" onclick="selectOption(this,'scoreGroup')">
+            <input type="radio" name="creditScore" value="below-500">
+            <span class="opt-title">Below 500</span>
+            <span class="opt-desc">Needs major repair</span>
+          </label>
+          <label class="option-card" onclick="selectOption(this,'scoreGroup')">
+            <input type="radio" name="creditScore" value="500-579">
+            <span class="opt-title">500 – 579</span>
+            <span class="opt-desc">Poor</span>
+          </label>
+          <label class="option-card" onclick="selectOption(this,'scoreGroup')">
+            <input type="radio" name="creditScore" value="580-669">
+            <span class="opt-title">580 – 669</span>
+            <span class="opt-desc">Fair</span>
+          </label>
+          <label class="option-card" onclick="selectOption(this,'scoreGroup')">
+            <input type="radio" name="creditScore" value="670-plus">
+            <span class="opt-title">670+</span>
+            <span class="opt-desc">Good / maintenance</span>
+          </label>
+        </div>
+
+        <label class="field" style="margin-bottom:12px;">
+          <span style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--slate);font-family:'DM Mono',monospace;">Current Credit Issues (select all that apply)</span>
+        </label>
+        <div class="check-list" id="issuesList">
+          <label class="check-item" onclick="toggleCheck(this)">
+            <input type="checkbox" name="issues" value="late-payments"> <span>Late Payments</span>
+          </label>
+          <label class="check-item" onclick="toggleCheck(this)">
+            <input type="checkbox" name="issues" value="collections"> <span>Collections</span>
+          </label>
+          <label class="check-item" onclick="toggleCheck(this)">
+            <input type="checkbox" name="issues" value="charge-offs"> <span>Charge-Offs</span>
+          </label>
+          <label class="check-item" onclick="toggleCheck(this)">
+            <input type="checkbox" name="issues" value="bankruptcy"> <span>Bankruptcy</span>
+          </label>
+          <label class="check-item" onclick="toggleCheck(this)">
+            <input type="checkbox" name="issues" value="repossession"> <span>Repossession</span>
+          </label>
+          <label class="check-item" onclick="toggleCheck(this)">
+            <input type="checkbox" name="issues" value="high-utilization"> <span>High Utilization</span>
+          </label>
+          <label class="check-item" onclick="toggleCheck(this)">
+            <input type="checkbox" name="issues" value="identity-theft"> <span>Identity Theft</span>
+          </label>
+          <label class="check-item" onclick="toggleCheck(this)">
+            <input type="checkbox" name="issues" value="not-sure"> <span>Not Sure</span>
+          </label>
+        </div>
+
+        <div class="btn-row">
+          <button type="button" class="btn btn-secondary" onclick="goStep(1)">← Back</button>
+          <button type="button" class="btn btn-primary" onclick="goStep(3)">Continue →</button>
+        </div>
+      </div>
+
+      <!-- ══ STEP 3: Goals ══ -->
+      <div class="form-step" id="step3">
+        <div class="card-section-title">Your Goals</div>
+        <div class="card-section-sub">What are you working toward? This helps us prioritize your plan.</div>
+
+        <label class="field" style="margin-bottom:12px;">
+          <span style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--slate);font-family:'DM Mono',monospace;">Primary Goal <span class="req">*</span></span>
+        </label>
+        <div class="option-group" id="goalGroup">
+          <label class="option-card" onclick="selectOption(this,'goalGroup')">
+            <input type="radio" name="goal" value="auto-financing">
+            <span class="opt-title">Auto Financing</span>
+            <span class="opt-desc">Better rates on vehicles</span>
+          </label>
+          <label class="option-card" onclick="selectOption(this,'goalGroup')">
+            <input type="radio" name="goal" value="home-mortgage">
+            <span class="opt-title">Home / Mortgage</span>
+            <span class="opt-desc">Qualify for a home loan</span>
+          </label>
+          <label class="option-card" onclick="selectOption(this,'goalGroup')">
+            <input type="radio" name="goal" value="business-credit">
+            <span class="opt-title">Business Credit</span>
+            <span class="opt-desc">Build business profile</span>
+          </label>
+          <label class="option-card" onclick="selectOption(this,'goalGroup')">
+            <input type="radio" name="goal" value="general-improvement">
+            <span class="opt-title">General Improvement</span>
+            <span class="opt-desc">Raise my score overall</span>
+          </label>
+        </div>
+
+        <div class="form-row full">
+          <div class="field">
+            <label>Preferred Contact Method</label>
+            <select id="contactMethod">
+              <option value="phone">Phone Call</option>
+              <option value="text">Text Message</option>
+              <option value="email">Email</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row full">
+          <div class="field">
+            <label>Best Time to Reach You</label>
+            <select id="contactTime">
+              <option value="morning">Morning (9am – 12pm)</option>
+              <option value="afternoon">Afternoon (12pm – 5pm)</option>
+              <option value="evening">Evening (5pm – 8pm)</option>
+              <option value="anytime">Anytime</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row full">
+          <div class="field">
+            <label>Anything else we should know?</label>
+            <textarea id="notes" placeholder="Optional — share any details about your situation…"></textarea>
+          </div>
+        </div>
+
+        <div class="btn-row">
+          <button type="button" class="btn btn-secondary" onclick="goStep(2)">← Back</button>
+          <button type="submit" class="btn btn-submit">Submit Enrollment →</button>
+        </div>
+      </div>
+
+      <!-- ══ SUCCESS ══ -->
+      <div class="form-step" id="stepSuccess">
+        <div class="success-card">
+          <div class="success-icon">✓</div>
+          <h2>You're Enrolled!</h2>
+          <p>A HIRECAR credit specialist will contact you within 24 hours to begin your free consultation.</p>
+          <div class="success-ref" id="refCode">REF-000000</div>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+<!-- ── TRUST STRIP ── -->
+<div class="trust-strip" id="trustStrip">
+  <p>Your information is encrypted and secure. We never sell your data.<br>
+  By submitting, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</p>
+</div>
+
+<!-- ── FOOTER ── -->
+<div class="footer">
+  <p>© 2026 <a href="#">HIRECAR</a> · Auto Operator Intelligence · Los Angeles</p>
+</div>
+
+<script>
+/* ═══════════════════════════════════════════
+   MULTI-STEP FORM LOGIC
+═══════════════════════════════════════════ */
+let currentStep = 1;
+
+function goStep(n) {
+  // Validate before going forward
+  if (n > currentStep && !validateStep(currentStep)) return;
+
+  currentStep = n;
+
+  // Toggle step visibility
+  document.querySelectorAll('.form-step').forEach(s => s.classList.remove('active'));
+  document.getElementById('step' + n).classList.add('active');
+
+  // Update stepper nodes
+  for (let i = 1; i <= 3; i++) {
+    const node = document.getElementById('sn' + i);
+    const label = document.getElementById('slbl' + i);
+    node.classList.remove('active', 'done');
+    label.classList.remove('active', 'done');
+
+    if (i < n) {
+      node.classList.add('done');
+      node.textContent = '✓';
+      label.classList.add('done');
+    } else if (i === n) {
+      node.classList.add('active');
+      node.textContent = i;
+      label.classList.add('active');
+    } else {
+      node.textContent = i;
+    }
+  }
+
+  // Update step lines
+  document.getElementById('sl1').classList.toggle('done', n > 1);
+  document.getElementById('sl2').classList.toggle('done', n > 2);
+
+  // Scroll to top of form
+  document.querySelector('.stepper-wrap').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+/* ═══════════════════════════════════════════
+   VALIDATION
+═══════════════════════════════════════════ */
+function validateStep(step) {
+  clearErrors();
+
+  if (step === 1) {
+    let valid = true;
+    const first = document.getElementById('firstName');
+    const last = document.getElementById('lastName');
+    const email = document.getElementById('email');
+    const phone = document.getElementById('phone');
+
+    if (!first.value.trim()) { showError(first, 'err-firstName'); valid = false; }
+    if (!last.value.trim()) { showError(last, 'err-lastName'); valid = false; }
+    if (!email.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+      showError(email, 'err-email'); valid = false;
+    }
+    if (!phone.value.trim() || phone.value.replace(/\D/g,'').length < 10) {
+      showError(phone, 'err-phone'); valid = false;
+    }
+    return valid;
+  }
+
+  if (step === 2) {
+    // Credit score selection is encouraged but not blocking
+    return true;
+  }
+
+  return true;
+}
+
+function showError(input, msgId) {
+  input.classList.add('error');
+  document.getElementById(msgId).classList.add('show');
+}
+
+function clearErrors() {
+  document.querySelectorAll('.error').forEach(el => el.classList.remove('error'));
+  document.querySelectorAll('.error-msg').forEach(el => el.classList.remove('show'));
+}
+
+/* ═══════════════════════════════════════════
+   OPTION CARDS & CHECKBOXES
+═══════════════════════════════════════════ */
+function selectOption(card, groupId) {
+  document.querySelectorAll('#' + groupId + ' .option-card').forEach(c => c.classList.remove('selected'));
+  card.classList.add('selected');
+  card.querySelector('input').checked = true;
+}
+
+function toggleCheck(item) {
+  // Let the native checkbox toggle, then sync class
+  setTimeout(() => {
+    const cb = item.querySelector('input[type="checkbox"]');
+    item.classList.toggle('selected', cb.checked);
+  }, 0);
+}
+
+/* ═══════════════════════════════════════════
+   FORM SUBMISSION
+═══════════════════════════════════════════ */
+document.getElementById('enrollForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  // Collect all data
+  const data = {
+    firstName:     document.getElementById('firstName').value.trim(),
+    lastName:      document.getElementById('lastName').value.trim(),
+    email:         document.getElementById('email').value.trim(),
+    phone:         document.getElementById('phone').value.trim(),
+    city:          document.getElementById('city').value.trim(),
+    source:        document.getElementById('source').value,
+    creditScore:   document.querySelector('input[name="creditScore"]:checked')?.value || '',
+    issues:        [...document.querySelectorAll('input[name="issues"]:checked')].map(c => c.value),
+    goal:          document.querySelector('input[name="goal"]:checked')?.value || '',
+    contactMethod: document.getElementById('contactMethod').value,
+    contactTime:   document.getElementById('contactTime').value,
+    notes:         document.getElementById('notes').value.trim(),
+    submittedAt:   new Date().toISOString()
+  };
+
+  // Generate reference code
+  const ref = 'HC-' + Date.now().toString(36).toUpperCase().slice(-6);
+  document.getElementById('refCode').textContent = ref;
+  data.ref = ref;
+
+  // Log to console (replace with your API endpoint)
+  console.log('HIRECAR Enrollment Lead:', JSON.stringify(data, null, 2));
+
+  // Show success state
+  document.querySelectorAll('.form-step').forEach(s => s.classList.remove('active'));
+  document.getElementById('stepSuccess').classList.add('active');
+  document.getElementById('trustStrip').style.display = 'none';
+
+  // Mark all steps done
+  for (let i = 1; i <= 3; i++) {
+    document.getElementById('sn' + i).classList.add('done');
+    document.getElementById('sn' + i).classList.remove('active');
+    document.getElementById('sn' + i).textContent = '✓';
+    document.getElementById('slbl' + i).classList.add('done');
+    document.getElementById('slbl' + i).classList.remove('active');
+  }
+  document.getElementById('sl1').classList.add('done');
+  document.getElementById('sl2').classList.add('done');
+});
+
+/* ═══════════════════════════════════════════
+   PHONE FORMATTING
+═══════════════════════════════════════════ */
+document.getElementById('phone').addEventListener('input', function(e) {
+  let digits = this.value.replace(/\D/g, '').slice(0, 10);
+  if (digits.length >= 6) {
+    this.value = '(' + digits.slice(0,3) + ') ' + digits.slice(3,6) + '-' + digits.slice(6);
+  } else if (digits.length >= 3) {
+    this.value = '(' + digits.slice(0,3) + ') ' + digits.slice(3);
+  }
+});
+</script>
+
+</body>
+</html>
