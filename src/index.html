@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HIRECAR | Premium Mobility For What's Next</title>
+  <meta name="description" content="Luxury vehicles, flexible terms, concierge services. Los Angeles · San Francisco · Beyond.">
+  <meta name="theme-color" content="#0B0B0D">
+
+  <!-- Preconnect to fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="./css/animations.css">
+
+  <style>
+    :root {
+      --obsidian: #0B0B0D;
+      --bone: #F2EFE7;
+      --fog: #B7B6B0;
+      --amber: #C8862E;
+      --ui: 'Geist', system-ui, sans-serif;
+      --mono: 'Geist Mono', ui-monospace, monospace;
+      --pad: 20px;
+      --max: 1440px;
+    }
+
+    @media (min-width: 768px) {
+      :root {
+        --pad: 32px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      :root {
+        --pad: 48px;
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      -webkit-text-size-adjust: 100%;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--obsidian);
+      color: var(--bone);
+      font: 400 16px/1.6 var(--ui);
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    button {
+      font: inherit;
+      color: inherit;
+    }
+
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 var(--pad);
+    }
+
+    /* HERO SECTION */
+    .hero {
+      position: relative;
+      min-height: max(720px, 100svh);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .hero .ph {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+    }
+
+    .hero .ph img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 62% 46%;
+      filter: contrast(1.05) saturate(1.02);
+    }
+
+    .hero .ph::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(100deg, rgba(11, 11, 13, .92) 0%, rgba(11, 11, 13, .62) 34%, rgba(11, 11, 13, .12) 62%, rgba(11, 11, 13, .05) 100%),
+                  linear-gradient(180deg, rgba(11, 11, 13, .5), transparent 24%, transparent 70%, rgba(11, 11, 13, .82));
+    }
+
+    .hero-grid {
+      padding-top: 112px;
+      padding-bottom: 48px;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      width: 100%;
+    }
+
+    .hero-copy {
+      max-width: 620px;
+    }
+
+    .hero-type {
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      line-height: 1.04;
+      font-size: clamp(42px, 5.2vw, 80px);
+      margin: 0 0 20px;
+    }
+
+    .eyebrow {
+      font: 500 11px/1.45 var(--mono);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--fog);
+      margin: 0 0 20px;
+    }
+
+    .body {
+      max-width: 430px;
+      color: rgba(242, 239, 231, 0.85);
+      margin: 20px 0 28px;
+      font-size: 16px;
+    }
+
+    .ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 13px 26px;
+      border-radius: 999px;
+      font: 500 15px/1 var(--ui);
+      cursor: pointer;
+      text-decoration: none;
+      border: 1px solid transparent;
+      transition: all 160ms;
+    }
+
+    .btn-bone {
+      background: var(--bone);
+      color: var(--obsidian);
+    }
+
+    .btn-bone:hover {
+      background: #fff;
+    }
+
+    .btn-line {
+      border-color: rgba(242, 239, 231, 0.45);
+      color: var(--bone);
+      background: transparent;
+    }
+
+    .btn-line:hover {
+      border-color: var(--bone);
+    }
+
+    .scrollcue {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font: 500 10px/1.7 var(--mono);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-align: right;
+      color: var(--fog);
+    }
+
+    .scrollcue .ring {
+      width: 34px;
+      height: 34px;
+      border: 1px solid rgba(242, 239, 231, 0.16);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+    }
+
+    .hero-foot {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 10px 20px;
+      padding-top: 16px;
+      padding-bottom: 40px;
+      color: var(--fog);
+    }
+
+    /* CONTENT SECTION */
+    .content {
+      padding: 80px var(--pad);
+    }
+
+    .section-type {
+      font-weight: 300;
+      letter-spacing: -0.015em;
+      line-height: 1.08;
+      font-size: clamp(32px, 3.5vw, 54px);
+      margin: 0 0 40px;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .card {
+      background: #1a1a1a;
+      border: 1px solid rgba(242, 239, 231, 0.1);
+      padding: 32px;
+      border-radius: 8px;
+      transition: all 300ms ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(200, 134, 46, 0.3);
+      box-shadow: 0 12px 32px rgba(200, 134, 46, 0.15);
+    }
+
+    .card h3 {
+      font-size: 20px;
+      font-weight: 500;
+      margin: 12px 0;
+      color: var(--amber);
+    }
+
+    .card p {
+      font-size: 14px;
+      color: rgba(242, 239, 231, 0.8);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    @media (max-width: 768px) {
+      .hero-grid {
+        padding-top: 80px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- HERO SECTION -->
+  <section class="hero" data-section="hero">
+    <div class="ph">
+      <img src="https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=1920&q=80" alt="Premium car">
+    </div>
+
+    <div class="hero-grid">
+      <div class="wrap">
+        <div class="hero-copy">
+          <div class="eyebrow">Premium Mobility</div>
+          <h1 class="hero-type">For What's Next</h1>
+          <p class="body">Luxury vehicles. Flexible terms. Concierge included.</p>
+
+          <div class="ctas">
+            <button class="btn btn-bone">Reserve Your Ride</button>
+            <button class="btn btn-line">Schedule Test Drive</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-foot">
+      <div class="scrollcue">
+        <div class="ring">↓</div>
+        <span>Scroll to explore</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTENT SECTION -->
+  <section class="content" data-section="services">
+    <div class="wrap">
+      <h2 class="section-type">What Makes Us Premium</h2>
+      <div class="content-grid">
+        <div class="card" data-animate="service-card">
+          <h3>🏎️ Luxury Fleet</h3>
+          <p>Hand-curated collection of premium vehicles: Range Rover, Mercedes-Benz, Tesla, Porsche, and more.</p>
+        </div>
+        <div class="card" data-animate="service-card">
+          <h3>📅 Flexible Terms</h3>
+          <p>Daily, weekly, or monthly rentals. No hidden fees. Transparent pricing designed for your lifestyle.</p>
+        </div>
+        <div class="card" data-animate="service-card">
+          <h3>🎩 Concierge Service</h3>
+          <p>24/7 support. Valet delivery. Trip planning. We handle the logistics so you enjoy the drive.</p>
+        </div>
+        <div class="card" data-animate="service-card">
+          <h3>🛣️ Coast to Coast</h3>
+          <p>Start in Los Angeles, end in San Francisco. Or beyond. Multi-location flexibility.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background: #1a1a1a; padding: 40px 20px; text-align: center; color: #888;">
+    <p>&copy; 2026 HIRECAR. Premium Mobility For What's Next.</p>
+  </footer>
+
+  <script type="module" src="./js/animations.js"></script>
+</body>
+</html>

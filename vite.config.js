@@ -6,15 +6,7 @@ export default defineConfig({
     outDir: '../dist',
     minify: 'terser',
     sourcemap: false,
-    rollupOptions: {
-      input: 'src/index.html',
-      output: {
-        manualChunks: {
-          gsap: ['gsap'],
-          plyr: ['plyr'],
-        },
-      },
-    },
+    emptyOutDir: true,
   },
   server: {
     port: 5173,
