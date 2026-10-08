@@ -1,0 +1,46 @@
+{
+  "faqs": [
+    {
+      "id": "faq1",
+      "category": "Rental & Pricing",
+      "question": "How does the daily rate work?",
+      "answer": "Our daily rates start at $199 for premium sedans and scale up to $899+ for exotic vehicles. Rates include insurance, concierge support, and fuel. Multi-day rentals receive 10-20% discounts.",
+      "tags": ["pricing", "daily"]
+    },
+    {
+      "id": "faq2",
+      "category": "Rental & Pricing",
+      "question": "What's included in the rental?",
+      "answer": "Every rental includes: comprehensive insurance, 24/7 roadside assistance, unlimited mileage (standard plan), GPS navigation, and access to our concierge team. Premium fuel, valet delivery (+$50), and insurance waivers are available add-ons.",
+      "tags": ["included", "insurance"]
+    },
+    {
+      "id": "faq3",
+      "category": "Requirements",
+      "question": "What are the rental requirements?",
+      "answer": "You must be 21+ years old with a valid driver's license held for 2+ years. A credit card (not debit) is required for the security deposit. International drivers need an International Driving Permit and passport.",
+      "tags": ["requirements", "age", "license"]
+    },
+    {
+      "id": "faq4",
+      "category": "Support",
+      "question": "What if I need help during my rental?",
+      "answer": "Call our 24/7 concierge team. We handle breakdowns, emergency fuel delivery, accident support, and trip modifications. Most issues are resolved within 30 minutes.",
+      "tags": ["support", "24/7"]
+    },
+    {
+      "id": "faq5",
+      "category": "Delivery",
+      "question": "Can you deliver the car to me?",
+      "answer": "Yes! We offer valet delivery to LAX, hotels, and within 10 miles of our downtown LA or SF offices. Delivery is $50, but free for rentals 7+ days.",
+      "tags": ["delivery", "valet"]
+    },
+    {
+      "id": "faq6",
+      "category": "Cancellation",
+      "question": "What's your cancellation policy?",
+      "answer": "Cancel up to 24 hours before pickup for a full refund. Cancellations within 24 hours forfeit the rental amount. No questions asked.",
+      "tags": ["cancellation", "refund"]
+    }
+  ]
+}

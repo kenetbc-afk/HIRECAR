@@ -1,0 +1,58 @@
+{
+  "news": [
+    {
+      "id": "news1",
+      "title": "New Mercedes-AMG G63 Added to Fleet",
+      "excerpt": "Experience the pinnacle of luxury SUVs. Available for booking now.",
+      "date": "2026-10-05",
+      "category": "fleet",
+      "image": "/assets/images/news/g63.jpg",
+      "link": "#"
+    },
+    {
+      "id": "news2",
+      "title": "Valet Delivery Now Available at SFO",
+      "excerpt": "Starting this month, we deliver directly to San Francisco International Airport. No more rental counter lines.",
+      "date": "2026-10-03",
+      "category": "service",
+      "image": "/assets/images/news/sfo-delivery.jpg",
+      "link": "#"
+    },
+    {
+      "id": "news3",
+      "title": "1,000+ Happy Customers Milestone Reached",
+      "excerpt": "Thank you for choosing HIRECAR. Here's what our customers are saying about their experiences.",
+      "date": "2026-09-28",
+      "category": "milestone",
+      "image": "/assets/images/news/customers.jpg",
+      "link": "#"
+    },
+    {
+      "id": "news4",
+      "title": "Partnership with Ritz-Carlton for Concierge",
+      "excerpt": "HIRECAR now integrates with Ritz-Carlton properties for seamless luxury travel experiences.",
+      "date": "2026-09-20",
+      "category": "partnership",
+      "image": "/assets/images/news/ritz.jpg",
+      "link": "#"
+    },
+    {
+      "id": "news5",
+      "title": "Tesla Model S Plaid Now Available",
+      "excerpt": "Next-gen electric performance. 0-60 in 1.9 seconds. Book your test drive.",
+      "date": "2026-09-15",
+      "category": "fleet",
+      "image": "/assets/images/news/tesla.jpg",
+      "link": "#"
+    },
+    {
+      "id": "news6",
+      "title": "Summer Road Trip Guide: CA Coastal Route",
+      "excerpt": "Explore California's most scenic routes in your HIRECAR. We share the ultimate itinerary.",
+      "date": "2026-09-10",
+      "category": "guide",
+      "image": "/assets/images/news/coastal.jpg",
+      "link": "#"
+    }
+  ]
+}

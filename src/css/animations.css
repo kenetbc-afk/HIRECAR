@@ -1,0 +1,363 @@
+/* ============================================
+   HIRECAR ANIMATION STYLES
+   ============================================ */
+
+:root {
+  --duration-fast: 300ms;
+  --duration-medium: 600ms;
+  --duration-slow: 1000ms;
+  --ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-snappy: cubic-bezier(0.43, 0.13, 0.23, 0.96);
+}
+
+/* ============================================
+   INTERSECTION OBSERVER ANIMATIONS
+   ============================================ */
+
+[data-animate-scroll] {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity var(--duration-medium) var(--ease-smooth),
+              transform var(--duration-medium) var(--ease-smooth);
+}
+
+[data-animate-scroll].animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================
+   SERVICE CARDS
+   ============================================ */
+
+[data-animate="service-card"] {
+  transition: transform var(--duration-fast) var(--ease-smooth),
+              box-shadow var(--duration-fast) var(--ease-smooth),
+              border-color var(--duration-fast) var(--ease-smooth);
+  cursor: pointer;
+}
+
+[data-animate="service-card"]:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 32px rgba(200, 134, 46, 0.15);
+  border-color: rgba(200, 134, 46, 0.3);
+}
+
+[data-animate="service-card"] [data-element="icon"] {
+  display: inline-block;
+  font-size: 2.5rem;
+  transition: transform var(--duration-fast) var(--ease-bounce);
+}
+
+[data-animate="service-card"]:hover [data-element="icon"] {
+  transform: scale(1.15) rotate(5deg);
+}
+
+/* ============================================
+   VIDEO SECTION
+   ============================================ */
+
+[data-section="video"] {
+  position: relative;
+}
+
+video[data-element="hero-video"] {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: filter var(--duration-fast) var(--ease-smooth);
+}
+
+video[data-element="hero-video"]:hover {
+  filter: brightness(1.1);
+}
+
+[data-element="play-button"] {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 64px;
+  height: 64px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-smooth);
+  z-index: 10;
+}
+
+[data-element="play-button"]::after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 12px solid #0B0B0D;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  margin-left: 3px;
+}
+
+[data-element="play-button"]:hover {
+  background: #fff;
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+/* ============================================
+   BENEFIT CARDS WITH PARALLAX
+   ============================================ */
+
+[data-animate="benefit-left"],
+[data-animate="benefit-right"] {
+  transition: transform var(--duration-medium) var(--ease-smooth),
+              box-shadow var(--duration-medium) var(--ease-smooth);
+}
+
+[data-animate="benefit-left"]:hover,
+[data-animate="benefit-right"]:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(200, 134, 46, 0.12);
+}
+
+[data-animate="benefit-left"] [data-element="icon"],
+[data-animate="benefit-right"] [data-element="icon"] {
+  transition: transform var(--duration-fast) var(--ease-bounce);
+}
+
+[data-animate="benefit-left"]:hover [data-element="icon"],
+[data-animate="benefit-right"]:hover [data-element="icon"] {
+  transform: scale(1.2) rotate(-10deg);
+}
+
+/* ============================================
+   FAQ ACCORDION
+   ============================================ */
+
+[data-element="faq-item"] {
+  border-bottom: 1px solid rgba(242, 239, 231, 0.1);
+  overflow: hidden;
+}
+
+[data-element="faq-button"] {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  color: #F2EFE7;
+  transition: color var(--duration-fast) var(--ease-smooth);
+  text-align: left;
+}
+
+[data-element="faq-button"]:hover {
+  color: #ffd700;
+}
+
+[data-element="faq-icon"] {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  flex-shrink: 0;
+  transform: rotate(0deg);
+  transition: transform var(--duration-fast) var(--ease-smooth);
+  margin-left: 12px;
+}
+
+[data-element="faq-item"].open [data-element="faq-icon"] {
+  transform: rotate(180deg);
+}
+
+[data-element="faq-content"] {
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+  color: rgba(242, 239, 231, 0.85);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+[data-element="faq-item"].open [data-element="faq-content"] {
+  opacity: 1;
+  padding-bottom: 20px;
+}
+
+/* ============================================
+   CTA BUTTON
+   ============================================ */
+
+[data-element="cta-primary"] {
+  position: relative;
+  transition: all var(--duration-fast) var(--ease-smooth);
+}
+
+[data-element="cta-primary"]:hover {
+  transform: translateY(-2px);
+}
+
+[data-element="cta-primary"]:active {
+  transform: translateY(0);
+}
+
+/* Pulse effect for primary CTA */
+@keyframes pulse-glow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(200, 134, 46, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 20px rgba(200, 134, 46, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(200, 134, 46, 0);
+  }
+}
+
+/* ============================================
+   SCROLL CUE
+   ============================================ */
+
+.scrollcue {
+  animation: pulse 2s infinite;
+}
+
+.scrollcue .ring {
+  border: 2px solid rgba(242, 239, 231, 0.3);
+  transition: border-color var(--duration-fast) var(--ease-smooth);
+}
+
+.scrollcue:hover .ring {
+  border-color: rgba(242, 239, 231, 0.6);
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* ============================================
+   REDUCE MOTION
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ============================================
+   PARALLAX BACKGROUNDS
+   ============================================ */
+
+[data-parallax] {
+  will-change: transform;
+}
+
+/* ============================================
+   SMOOTH TRANSITIONS
+   ============================================ */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ============================================
+   STAGGER ANIMATION DELAYS
+   ============================================ */
+
+[data-stagger="1"] { animation-delay: 100ms; }
+[data-stagger="2"] { animation-delay: 200ms; }
+[data-stagger="3"] { animation-delay: 300ms; }
+[data-stagger="4"] { animation-delay: 400ms; }
+[data-stagger="5"] { animation-delay: 500ms; }
+[data-stagger="6"] { animation-delay: 600ms; }
+
+/* ============================================
+   FADE ANIMATIONS
+   ============================================ */
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-down {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================
+   SCALE ANIMATIONS
+   ============================================ */
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ============================================
+   MOBILE OPTIMIZATIONS
+   ============================================ */
+
+@media (max-width: 768px) {
+  /* Reduce animation complexity on mobile */
+  [data-animate="service-card"],
+  [data-animate="benefit-left"],
+  [data-animate="benefit-right"] {
+    --duration-medium: 400ms;
+  }
+
+  /* Disable hover animations on touch devices */
+  @media (hover: none) {
+    [data-animate="service-card"]:hover,
+    [data-animate="benefit-left"]:hover,
+    [data-animate="benefit-right"]:hover {
+      transform: none;
+    }
+  }
+}

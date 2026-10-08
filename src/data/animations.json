@@ -1,0 +1,163 @@
+{
+  "animations": {
+    "hero": {
+      "type": "fade-and-scale",
+      "duration": 1.2,
+      "easing": "power2.out",
+      "elements": {
+        "title": {
+          "startOpacity": 0,
+          "startScale": 0.95,
+          "delay": 0.2
+        },
+        "subtitle": {
+          "startOpacity": 0,
+          "delay": 0.5
+        },
+        "cta": {
+          "startOpacity": 0,
+          "startY": 20,
+          "delay": 0.8
+        },
+        "scrollCue": {
+          "duration": 0.8,
+          "scale": [1, 1.1, 1],
+          "repeat": -1,
+          "repeatDelay": 2
+        }
+      }
+    },
+    "serviceCards": {
+      "type": "stagger-fade-up",
+      "duration": 0.6,
+      "staggerDelay": 0.1,
+      "easing": "back.out",
+      "triggerType": "intersection-observer",
+      "threshold": 0.2,
+      "elements": {
+        "card": {
+          "startOpacity": 0,
+          "startY": 30
+        },
+        "icon": {
+          "startOpacity": 0,
+          "startScale": 0.8,
+          "delay": 0.2
+        },
+        "text": {
+          "startOpacity": 0,
+          "delay": 0.3
+        }
+      }
+    },
+    "videoSection": {
+      "type": "fade-and-parallax",
+      "duration": 0.8,
+      "triggerType": "intersection-observer",
+      "threshold": 0.3,
+      "elements": {
+        "video": {
+          "startOpacity": 0
+        },
+        "overlay": {
+          "parallaxFactor": 0.5
+        },
+        "playButton": {
+          "pulse": {
+            "scale": [1, 1.15, 1],
+            "duration": 0.6,
+            "repeat": -1,
+            "repeatDelay": 1
+          }
+        }
+      }
+    },
+    "benefitCards": {
+      "type": "parallax-stagger",
+      "duration": 0.7,
+      "triggerType": "intersection-observer",
+      "threshold": 0.2,
+      "elements": {
+        "leftCard": {
+          "parallaxFactor": 0.8,
+          "startOpacity": 0,
+          "startX": -50
+        },
+        "rightCard": {
+          "parallaxFactor": 1.2,
+          "startOpacity": 0,
+          "startX": 50
+        },
+        "icon": {
+          "startRotate": -45,
+          "startScale": 0,
+          "duration": 0.8,
+          "easing": "elastic.out"
+        }
+      }
+    },
+    "counters": {
+      "type": "count-up",
+      "duration": 1.5,
+      "easing": "power1.inOut",
+      "triggerType": "intersection-observer",
+      "threshold": 0.5,
+      "elements": {
+        "number": {
+          "startValue": 0,
+          "suffix": "+"
+        }
+      }
+    },
+    "faqAccordion": {
+      "type": "expand-collapse",
+      "duration": 0.3,
+      "easing": "power2.inOut",
+      "elements": {
+        "content": {
+          "heightTransition": true
+        },
+        "icon": {
+          "rotate": [0, 180]
+        }
+      }
+    },
+    "newsCarousel": {
+      "type": "fade-slide",
+      "duration": 0.5,
+      "elements": {
+        "card": {
+          "startOpacity": 0,
+          "slideDistance": 30
+        }
+      }
+    },
+    "ctaButton": {
+      "type": "pulse",
+      "delay": 8,
+      "duration": 0.6,
+      "elements": {
+        "button": {
+          "shadowExpand": [0, 10, 20, 0],
+          "scale": [1, 1.02, 1]
+        }
+      }
+    }
+  },
+  "easing": {
+    "smooth": "cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+    "bounce": "cubic-bezier(0.34, 1.56, 0.64, 1)",
+    "snappy": "cubic-bezier(0.43, 0.13, 0.23, 0.96)"
+  },
+  "breakpoints": {
+    "mobile": 768,
+    "tablet": 1024,
+    "desktop": 1440
+  },
+  "performanceSettings": {
+    "reduceMotion": true,
+    "gpuAcceleration": true,
+    "lazyLoadAnimations": true,
+    "disableOnMobile": false
+  }
+}

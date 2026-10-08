@@ -1,0 +1,52 @@
+{
+  "services": [
+    {
+      "id": "s1",
+      "title": "Luxury Fleet",
+      "description": "Hand-curated collection of premium vehicles: Range Rover, Mercedes-Benz, Tesla, Porsche, and more.",
+      "icon": "🏎️",
+      "features": [
+        "Latest model years",
+        "Immaculate condition",
+        "Premium interiors"
+      ],
+      "animationDelay": 0
+    },
+    {
+      "id": "s2",
+      "title": "Flexible Terms",
+      "description": "Daily, weekly, or monthly rentals. No hidden fees. Transparent pricing designed for your lifestyle.",
+      "icon": "📅",
+      "features": [
+        "No long-term contracts",
+        "Cancel anytime",
+        "Custom rental periods"
+      ],
+      "animationDelay": 100
+    },
+    {
+      "id": "s3",
+      "title": "Concierge Service",
+      "description": "24/7 support. Valet delivery. Trip planning. We handle the logistics so you enjoy the drive.",
+      "icon": "🎩",
+      "features": [
+        "Delivery & pickup",
+        "24/7 roadside support",
+        "Trip concierge"
+      ],
+      "animationDelay": 200
+    },
+    {
+      "id": "s4",
+      "title": "Coast to Coast",
+      "description": "Start in Los Angeles, end in San Francisco. Or beyond. Multi-location flexibility.",
+      "icon": "🛣️",
+      "features": [
+        "LA & SF hubs",
+        "One-way trips",
+        "Nationwide network"
+      ],
+      "animationDelay": 300
+    }
+  ]
+}

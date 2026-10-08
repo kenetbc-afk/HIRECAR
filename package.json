@@ -1,0 +1,27 @@
+{
+  "name": "hirecar-premium-mobility",
+  "version": "1.0.0",
+  "description": "HIRECAR - Premium Mobility For What's Next",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "optimize:video": "ffmpeg -i assets/videos/raw.mov -c:v libx264 -preset slow -crf 18 assets/videos/hero.mp4",
+    "optimize:webm": "ffmpeg -i assets/videos/hero.mp4 -c:v libvpx-vp9 -b:v 1M assets/videos/hero.webm",
+    "lighthouse": "lighthouse https://hirecar-la-dev.pages.dev --output-path=./lighthouse-report.html"
+  },
+  "dependencies": {
+    "gsap": "^3.12.2",
+    "plyr": "^3.7.8"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0",
+    "@vitejs/plugin-basic-ssl": "^1.0.1"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
