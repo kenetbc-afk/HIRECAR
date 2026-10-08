@@ -12,6 +12,116 @@
 }
 
 /* ============================================
+   ANIMATION UTILITY CLASSES
+   ============================================ */
+
+/* Fade animations */
+.fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.fade-in-down {
+  animation: fadeInDown 0.6s ease-out forwards;
+}
+
+.fade-in-left {
+  animation: fadeInLeft 0.6s ease-out forwards;
+}
+
+.fade-in-right {
+  animation: fadeInRight 0.6s ease-out forwards;
+}
+
+/* Scale animations */
+.scale-in {
+  animation: scaleIn 0.6s ease-out forwards;
+}
+
+.scale-in-sm {
+  animation: scaleInSm 0.6s ease-out forwards;
+}
+
+/* Keyframe animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes scaleInSm {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ============================================
    INTERSECTION OBSERVER ANIMATIONS
    ============================================ */
 
@@ -341,6 +451,114 @@ html {
 }
 
 /* ============================================
+   FAQ ACCORDION ANIMATIONS
+   ============================================ */
+
+.faq-item {
+  border-bottom: 1px solid rgba(242, 239, 231, 0.1);
+  padding: 20px 0;
+}
+
+.faq-button {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  background: none;
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  color: #F2EFE7;
+  text-align: left;
+  transition: color 300ms ease;
+  cursor: pointer;
+}
+
+.faq-button:hover {
+  color: #C8862E;
+}
+
+.faq-icon {
+  transition: transform 300ms ease;
+  font-size: 12px;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.faq-item.open .faq-icon {
+  transform: rotate(180deg);
+}
+
+.faq-content {
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+  color: rgba(242, 239, 231, 0.8);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.faq-item.open .faq-content {
+  opacity: 1;
+}
+
+/* ============================================
+   COUNTER ANIMATIONS
+   ============================================ */
+
+[data-animate="counter"] {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum';
+}
+
+/* ============================================
+   BUTTON ANIMATIONS
+   ============================================ */
+
+.btn {
+  transition: all 160ms cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(200, 134, 46, 0.25);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(200, 134, 46, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(200, 134, 46, 0);
+  }
+}
+
+.btn-pulse {
+  animation: pulse 2s infinite;
+}
+
+/* ============================================
+   CARD ANIMATIONS
+   ============================================ */
+
+.card {
+  transition: all 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(200, 134, 46, 0.3);
+  box-shadow: 0 12px 32px rgba(200, 134, 46, 0.15);
+}
+
+/* ============================================
    MOBILE OPTIMIZATIONS
    ============================================ */
 
@@ -350,6 +568,14 @@ html {
   [data-animate="benefit-left"],
   [data-animate="benefit-right"] {
     --duration-medium: 400ms;
+  }
+
+  .card:hover {
+    transform: translateY(-4px);
+  }
+
+  .btn:hover {
+    transform: translateY(-1px);
   }
 
   /* Disable hover animations on touch devices */

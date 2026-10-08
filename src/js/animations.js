@@ -1,448 +1,328 @@
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import animationConfig from '../data/animations.json';
 
 gsap.registerPlugin(ScrollTrigger);
 
 // ============================================
-// HERO SECTION ANIMATIONS
+// COUNTER ANIMATION (for stats & numbers)
 // ============================================
-export function animateHero() {
-  const heroTitle = document.querySelector('.hero-type');
-  const heroSubtitle = document.querySelector('.hero .eyebrow');
-  const heroCtas = document.querySelectorAll('.ctas .btn');
-  const scrollCue = document.querySelector('.scrollcue');
+function animateCounters() {
+  const counters = document.querySelectorAll('[data-animate="counter"]');
 
-  const heroConfig = animationConfig.animations.hero;
+  counters.forEach((counter) => {
+    const target = parseFloat(counter.getAttribute('data-value'));
+    const isDecimal = target % 1 !== 0;
 
-  // Title fade in + scale
-  if (heroTitle) {
     gsap.fromTo(
-      heroTitle,
+      counter,
+      { textContent: 0 },
       {
-        opacity: 0,
-        scale: 0.95,
-      },
-      {
-        opacity: 1,
-        scale: 1,
-        duration: heroConfig.duration,
-        easing: heroConfig.easing,
-        delay: heroConfig.elements.title.delay,
-      }
-    );
-  }
-
-  // Subtitle fade in
-  if (heroSubtitle) {
-    gsap.fromTo(
-      heroSubtitle,
-      { opacity: 0 },
-      {
-        opacity: 1,
-        duration: heroConfig.duration,
-        delay: heroConfig.elements.subtitle.delay,
-      }
-    );
-  }
-
-  // CTAs fade in + slide up
-  heroCtas.forEach((cta, index) => {
-    gsap.fromTo(
-      cta,
-      {
-        opacity: 0,
-        y: 20,
-      },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.6,
-        delay: heroConfig.elements.cta.delay + index * 0.1,
-        easing: 'back.out',
+        textContent: target,
+        duration: 2,
+        ease: 'power2.out',
+        snap: { textContent: isDecimal ? 0.1 : 1 },
+        scrollTrigger: {
+          trigger: counter,
+          start: 'top 80%',
+          toggleActions: 'play none none none',
+          once: true,
+        },
+        onUpdate() {
+          counter.textContent = isDecimal
+            ? parseFloat(counter.textContent).toFixed(1)
+            : Math.floor(counter.textContent);
+        },
       }
     );
   });
+}
 
-  // Scroll cue pulse
-  if (scrollCue) {
-    gsap.to(scrollCue, {
-      scale: 1.1,
-      repeat: -1,
-      repeatDelay: 2,
-      duration: 0.5,
-      yoyo: true,
-      ease: 'power1.inOut',
+// ============================================
+// FAQ ACCORDION (expand/collapse)
+// ============================================
+function initFaqAccordion() {
+  const faqItems = document.querySelectorAll('.faq-item');
+
+  faqItems.forEach((item) => {
+    const button = item.querySelector('[data-element="faq-button"]');
+    const content = item.querySelector('[data-element="faq-content"]');
+
+    if (!button || !content) return;
+
+    button.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+
+      // Close all other items (optional: single-open behavior)
+      // Uncomment below to allow only one open at a time
+      // faqItems.forEach(otherItem => {
+      //   if (otherItem !== item && otherItem.classList.contains('open')) {
+      //     closeAccordion(otherItem);
+      //   }
+      // });
+
+      if (isOpen) {
+        closeAccordion(item, content);
+      } else {
+        openAccordion(item, content);
+      }
     });
+  });
+
+  function openAccordion(item, content) {
+    const height = content.scrollHeight;
+
+    gsap.to(content, {
+      height,
+      opacity: 1,
+      duration: 0.4,
+      ease: 'power2.out',
+    });
+
+    item.classList.add('open');
+  }
+
+  function closeAccordion(item, content) {
+    gsap.to(content, {
+      height: 0,
+      opacity: 0,
+      duration: 0.3,
+      ease: 'power2.in',
+    });
+
+    item.classList.remove('open');
   }
 }
 
 // ============================================
-// SERVICE CARDS STAGGER ANIMATION
+// STAGGER ANIMATIONS (for cards & lists)
 // ============================================
-export function animateServiceCards() {
-  const cards = document.querySelectorAll('[data-animate="service-card"]');
-  const cardConfig = animationConfig.animations.serviceCards;
+function initStaggerAnimations() {
+  const staggerGroups = [
+    { selector: '[data-animate="service-card"]', delay: 0.1 },
+    { selector: '[data-animate="timeline-item"]', delay: 0.1 },
+    { selector: '[data-animate="proof-card"]', delay: 0.1 },
+    { selector: '[data-animate="faq-item"]', delay: 0.08 },
+  ];
 
-  gsap.fromTo(
-    cards,
-    {
-      opacity: 0,
-      y: 30,
-    },
-    {
-      opacity: 1,
-      y: 0,
-      duration: cardConfig.duration,
-      stagger: cardConfig.staggerDelay,
-      ease: cardConfig.easing,
-      scrollTrigger: {
-        trigger: '[data-section="services"]',
-        start: 'top 80%',
-        markers: false,
-      },
-    }
-  );
+  staggerGroups.forEach(({ selector, delay }) => {
+    const elements = document.querySelectorAll(selector);
 
-  // Icon animations within cards
-  cards.forEach((card) => {
-    const icon = card.querySelector('[data-element="icon"]');
-    if (icon) {
+    elements.forEach((el, index) => {
       gsap.fromTo(
-        icon,
+        el,
         {
           opacity: 0,
-          scale: 0.8,
+          y: 30,
         },
         {
           opacity: 1,
-          scale: 1,
+          y: 0,
           duration: 0.6,
-          delay: 0.2,
-          ease: 'elastic.out',
+          delay: index * delay,
+          ease: 'back.out',
           scrollTrigger: {
-            trigger: card,
+            trigger: el.parentElement,
             start: 'top 85%',
+            toggleActions: 'play none none none',
+            once: true,
+          },
+        }
+      );
+    });
+  });
+}
+
+// ============================================
+// SECTION REVEAL ANIMATIONS
+// ============================================
+function initSectionAnimations() {
+  const sections = {
+    'why-title': { type: 'fade-up', delay: 0 },
+    'why-content': { type: 'fade-right', delay: 0.2 },
+    'why-image': { type: 'fade-left', delay: 0.3 },
+    'services-title': { type: 'fade-up', delay: 0 },
+    'timeline-title': { type: 'fade-up', delay: 0 },
+    'proof-title': { type: 'fade-up', delay: 0 },
+    'faq-title': { type: 'fade-up', delay: 0 },
+    'cta-heading': { type: 'fade-up', delay: 0 },
+    'cta-subheading': { type: 'fade-up', delay: 0.1 },
+    'cta-final': { type: 'scale-in', delay: 0.2 },
+  };
+
+  Object.entries(sections).forEach(([selector, config]) => {
+    const el = document.querySelector(`[data-animate="${selector}"]`);
+    if (!el) return;
+
+    const isVisible = el.offsetParent !== null;
+
+    if (isVisible) {
+      // Element is visible on initial load
+      animateElement(el, config);
+    } else {
+      // Element needs scroll trigger
+      gsap.fromTo(
+        el,
+        getInitialState(config.type),
+        {
+          ...getTargetState(config.type),
+          duration: 0.8,
+          delay: config.delay,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 85%',
+            toggleActions: 'play none none none',
+            once: true,
           },
         }
       );
     }
   });
-}
 
-// ============================================
-// VIDEO SECTION ANIMATION
-// ============================================
-export function animateVideoSection() {
-  const videoContainer = document.querySelector('[data-section="video"]');
-  const video = document.querySelector('video[data-element="hero-video"]');
-  const playButton = document.querySelector('[data-element="play-button"]');
-
-  if (video) {
+  function animateElement(el, config) {
     gsap.fromTo(
-      video,
-      { opacity: 0 },
+      el,
+      getInitialState(config.type),
       {
-        opacity: 1,
+        ...getTargetState(config.type),
         duration: 0.8,
-        scrollTrigger: {
-          trigger: videoContainer,
-          start: 'top 80%',
-        },
+        delay: config.delay,
+        ease: 'power2.out',
       }
     );
   }
 
-  // Play button pulse
-  if (playButton) {
-    gsap.to(playButton, {
-      scale: 1.15,
-      repeat: -1,
-      repeatDelay: 1,
-      duration: 0.6,
-      yoyo: true,
-      ease: 'power1.inOut',
-    });
-  }
-}
-
-// ============================================
-// BENEFIT CARDS WITH PARALLAX
-// ============================================
-export function animateBenefitCards() {
-  const leftCards = document.querySelectorAll('[data-animate="benefit-left"]');
-  const rightCards = document.querySelectorAll('[data-animate="benefit-right"]');
-  const benefitConfig = animationConfig.animations.benefitCards;
-
-  // Left cards - parallax slower
-  leftCards.forEach((card) => {
-    gsap.fromTo(
-      card,
-      {
-        opacity: 0,
-        x: -50,
-      },
-      {
-        opacity: 1,
-        x: 0,
-        duration: benefitConfig.duration,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: card,
-          start: 'top 85%',
-          onUpdate: (self) => {
-            gsap.set(card, {
-              y: self.getVelocity() * 0.1,
-            });
-          },
-        },
-      }
-    );
-  });
-
-  // Right cards - parallax faster
-  rightCards.forEach((card) => {
-    gsap.fromTo(
-      card,
-      {
-        opacity: 0,
-        x: 50,
-      },
-      {
-        opacity: 1,
-        x: 0,
-        duration: benefitConfig.duration,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: card,
-          start: 'top 85%',
-        },
-      }
-    );
-  });
-}
-
-// ============================================
-// COUNTER ANIMATIONS
-// ============================================
-export function animateCounters() {
-  const counters = document.querySelectorAll('[data-element="counter"]');
-  const counterConfig = animationConfig.animations.counters;
-
-  counters.forEach((counter) => {
-    const finalValue = parseInt(counter.dataset.value, 10);
-    const obj = { value: 0 };
-
-    gsap.to(obj, {
-      value: finalValue,
-      duration: counterConfig.duration,
-      ease: counterConfig.easing,
-      onUpdate: () => {
-        counter.textContent = Math.floor(obj.value);
-      },
-      scrollTrigger: {
-        trigger: counter,
-        start: 'top 90%',
-        once: true,
-      },
-    });
-  });
-}
-
-// ============================================
-// FAQ ACCORDION
-// ============================================
-export function initFaqAccordion() {
-  const faqItems = document.querySelectorAll('[data-element="faq-item"]');
-  const faqConfig = animationConfig.animations.faqAccordion;
-
-  faqItems.forEach((item) => {
-    const button = item.querySelector('[data-element="faq-button"]');
-    const content = item.querySelector('[data-element="faq-content"]');
-    const icon = button?.querySelector('[data-element="faq-icon"]');
-
-    if (button && content) {
-      button.addEventListener('click', () => {
-        const isOpen = item.classList.contains('open');
-
-        if (isOpen) {
-          // Close
-          gsap.to(content, {
-            height: 0,
-            opacity: 0,
-            duration: faqConfig.duration,
-            ease: faqConfig.easing.power2InOut,
-          });
-
-          if (icon) {
-            gsap.to(icon, {
-              rotate: 0,
-              duration: faqConfig.duration,
-            });
-          }
-
-          item.classList.remove('open');
-        } else {
-          // Open
-          gsap.set(content, { height: 'auto' });
-          const fullHeight = content.scrollHeight;
-
-          gsap.to(content, {
-            height: fullHeight,
-            opacity: 1,
-            duration: faqConfig.duration,
-            ease: faqConfig.easing.power2InOut,
-          });
-
-          if (icon) {
-            gsap.to(icon, {
-              rotate: 180,
-              duration: faqConfig.duration,
-            });
-          }
-
-          item.classList.add('open');
-        }
-      });
+  function getInitialState(type) {
+    switch (type) {
+      case 'fade-up':
+        return { opacity: 0, y: 30 };
+      case 'fade-left':
+        return { opacity: 0, x: -30 };
+      case 'fade-right':
+        return { opacity: 0, x: 30 };
+      case 'scale-in':
+        return { opacity: 0, scale: 0.9 };
+      default:
+        return { opacity: 0 };
     }
-  });
-}
+  }
 
-// ============================================
-// GENERIC FADE-IN ON SCROLL
-// ============================================
-export function initIntersectionObserver() {
-  const options = {
-    threshold: 0.2,
-    rootMargin: '0px 0px -50px 0px',
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('animate-in');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, options);
-
-  // Observe all elements with data-animate-scroll
-  document.querySelectorAll('[data-animate-scroll]').forEach((el) => {
-    observer.observe(el);
-  });
-}
-
-// ============================================
-// CTA BUTTON PULSE
-// ============================================
-export function animateCtaButton() {
-  const ctaButton = document.querySelector('[data-element="cta-primary"]');
-  const ctaConfig = animationConfig.animations.ctaButton;
-
-  if (ctaButton) {
-    // Wait, then pulse
-    gsap.to(ctaButton, {
-      delay: ctaConfig.delay,
-      onComplete: () => {
-        gsap.to(ctaButton, {
-          boxShadow: [
-            '0 0 0 0 rgba(200, 134, 46, 0.7)',
-            '0 0 0 20px rgba(200, 134, 46, 0)',
-          ],
-          duration: ctaConfig.duration,
-          repeat: -1,
-          repeatDelay: 2,
-          ease: 'power1.inOut',
-        });
-      },
-    });
+  function getTargetState(type) {
+    switch (type) {
+      case 'fade-up':
+      case 'fade-left':
+      case 'fade-right':
+        return { opacity: 1, x: 0, y: 0 };
+      case 'scale-in':
+        return { opacity: 1, scale: 1 };
+      default:
+        return { opacity: 1 };
+    }
   }
 }
 
 // ============================================
-// PARALLAX BACKGROUND
+// PARALLAX SCROLL EFFECT
 // ============================================
-export function initParallax() {
-  const parallaxElements = document.querySelectorAll('[data-parallax]');
+function initParallax() {
+  const heroImage = document.querySelector('.hero .ph img');
 
-  parallaxElements.forEach((element) => {
-    const speed = element.dataset.parallax || '0.5';
-
-    gsap.to(element, {
-      y: () => {
-        const rect = element.getBoundingClientRect();
-        return (
-          (window.innerHeight - rect.top) * parseFloat(speed)
-        );
-      },
+  if (heroImage) {
+    gsap.to(heroImage, {
+      y: -100,
       ease: 'none',
       scrollTrigger: {
-        trigger: element,
-        start: 'top bottom',
+        trigger: '.hero',
+        start: 'top top',
         end: 'bottom top',
-        scrub: 1,
+        scrub: 0.5,
         markers: false,
       },
     });
-  });
+  }
 }
 
 // ============================================
-// SMOOTH SCROLL NAVIGATION
+// BUTTON HOVER ANIMATIONS
 // ============================================
-export function initSmoothScroll() {
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        gsap.to(window, {
-          scrollTo: target,
-          duration: 1,
-          ease: 'power2.inOut',
-        });
-      }
+function initButtonHovers() {
+  const buttons = document.querySelectorAll('.btn');
+
+  buttons.forEach((btn) => {
+    btn.addEventListener('mouseenter', () => {
+      gsap.to(btn, {
+        duration: 0.3,
+        ease: 'power2.out',
+      });
+    });
+
+    btn.addEventListener('mouseleave', () => {
+      gsap.to(btn, {
+        duration: 0.3,
+        ease: 'power2.out',
+      });
     });
   });
 }
 
 // ============================================
-// INIT ALL ANIMATIONS
+// ACCESSIBILITY: Respect prefers-reduced-motion
 // ============================================
-export function initAllAnimations() {
-  // Check for prefers-reduced-motion
-  const prefersReducedMotion = window.matchMedia(
-    '(prefers-reduced-motion: reduce)'
-  ).matches;
+function respectReducedMotion() {
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   if (prefersReducedMotion) {
-    console.log('Animations disabled due to prefers-reduced-motion');
-    return;
+    gsap.globalTimeline.timeScale(0);
+    gsap.globalTimeline.timeScale(1);
+
+    // Disable ScrollTrigger animations
+    ScrollTrigger.getAll().forEach((trigger) => {
+      trigger.kill();
+    });
+
+    // Show all elements immediately
+    document.querySelectorAll('[data-animate]').forEach((el) => {
+      gsap.set(el, { opacity: 1, x: 0, y: 0, scale: 1 });
+    });
+
+    document.querySelectorAll('.faq-item').forEach((item) => {
+      item.classList.remove('open');
+    });
   }
-
-  // Initialize all animations on page load
-  animateHero();
-  animateServiceCards();
-  animateVideoSection();
-  animateBenefitCards();
-  animateCounters();
-  initFaqAccordion();
-  initIntersectionObserver();
-  animateCtaButton();
-  initParallax();
-  initSmoothScroll();
-
-  // Refresh ScrollTrigger on window resize
-  window.addEventListener('resize', () => {
-    ScrollTrigger.getAll().forEach((trigger) => trigger.refresh());
-  });
-
-  console.log('✅ All animations initialized');
 }
 
-// Auto-initialize when DOM is ready
+// ============================================
+// INITIALIZATION
+// ============================================
+export function initAllAnimations() {
+  respectReducedMotion();
+
+  // Stagger the initialization for better performance
+  requestAnimationFrame(() => {
+    animateCounters();
+    initFaqAccordion();
+    initStaggerAnimations();
+    initSectionAnimations();
+    initParallax();
+    initButtonHovers();
+
+    // Refresh ScrollTrigger after all animations are set
+    ScrollTrigger.refresh();
+  });
+}
+
+// Initialize on DOM ready
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', initAllAnimations);
 } else {
   initAllAnimations();
 }
+
+// Handle window resize
+let resizeTimer;
+window.addEventListener('resize', () => {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(() => {
+    ScrollTrigger.refresh();
+  }, 250);
+});
