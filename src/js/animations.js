@@ -1,5 +1,6 @@
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Plyr from 'plyr';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -243,6 +244,41 @@ function initParallax() {
 }
 
 // ============================================
+// VIDEO PLAYER INITIALIZATION (Plyr)
+// ============================================
+function initVideoPlayer() {
+  const videoPlayer = document.getElementById('video-player');
+
+  if (videoPlayer) {
+    const player = new Plyr(videoPlayer, {
+      controls: ['play-large', 'play', 'progress', 'current-time', 'mute', 'volume', 'captions', 'settings', 'pip', 'fullscreen'],
+      keyboard: { focused: true, global: true },
+      tooltips: { controls: true, seek: true },
+      quality: { default: 720, options: [360, 720] },
+      storage: { enabled: true, key: 'plyr' },
+    });
+
+    // Animate video player on scroll into view
+    gsap.fromTo(
+      videoPlayer,
+      { opacity: 0, scale: 0.95 },
+      {
+        opacity: 1,
+        scale: 1,
+        duration: 0.8,
+        ease: 'back.out',
+        scrollTrigger: {
+          trigger: videoPlayer,
+          start: 'top 80%',
+          toggleActions: 'play none none none',
+          once: true,
+        },
+      }
+    );
+  }
+}
+
+// ============================================
 // BUTTON HOVER ANIMATIONS
 // ============================================
 function initButtonHovers() {
@@ -305,6 +341,7 @@ export function initAllAnimations() {
     initSectionAnimations();
     initParallax();
     initButtonHovers();
+    initVideoPlayer();
 
     // Refresh ScrollTrigger after all animations are set
     ScrollTrigger.refresh();
